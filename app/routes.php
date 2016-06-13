@@ -17,10 +17,11 @@ Route::get('/home', 'HomeController@showHome');
 
 Route::get('/signup', 'HomeController@showSignup');
 
-
+Route::get('/dashboard', 'HomeController@showDashboard');
 
 // All Project Pages
 Route::resource('/projects', 'ProjectsController');
 
 // All Client Pages
 Route::resource('/clients', 'ClientsController');
+

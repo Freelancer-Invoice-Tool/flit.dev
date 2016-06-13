@@ -27,7 +27,7 @@
                 <a href="{{{action('HomeController@showHome')}}}" class="brand-logo">Logo</a>
                 <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
                     <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
                     <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
                     <li><a href="#">Log Out</a></li>
@@ -35,7 +35,7 @@
 
                 <!-- for mobile view side-navbar -->
                 <ul class="side-nav" id="mobile-view">
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
                     <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
                     <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
                     <li><a href="#">Log Out</a></li>
