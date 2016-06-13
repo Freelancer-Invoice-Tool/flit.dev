@@ -1,0 +1,11 @@
+/*flex, min-height, and flex direction needed for sticky footer*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/*this ensures footer stays on bottom of screen*/
+main {
+    flex: 1 0 auto;
+}
