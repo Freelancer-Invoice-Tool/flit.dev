@@ -27,17 +27,18 @@
                 <a href="#" class="brand-logo">Logo</a>
                 <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a href="sass.html">Dashboard</a></li>
+                    <li><a href="badges.html">Projects</a></li>
+                    <li><a href="collapsible.html">Clients</a></li>
+                    <li><a href="collapsible.html">Log Out</a></li>
                 </ul>
 
                 <!-- for mobile view side-navbar -->
                 <ul class="side-nav" id="mobile-view">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                    <li><a href="sass.html">Dashboard</a></li>
+                    <li><a href="badges.html">Projects</a></li>
+                    <li><a href="collapsible.html">Clients</a></li>
+                    <li><a href="collapsible.html">Log Out</a></li>
                 </ul>
             </div>
         </nav>
@@ -55,7 +56,12 @@
         </div>
     </footer>
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<!-- our JS -->
+<script src="/js/home.js"></script>
 </body>
 </html>
