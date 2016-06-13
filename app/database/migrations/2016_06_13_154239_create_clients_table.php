@@ -21,9 +21,10 @@ class CreateClientsTable extends Migration {
           	$table->string('submission_or_approval');
             $table->string('client_name', 200);
             $table->string('main_poc_name', 200);
-            $table->string('main_poc_email')->unique();
+            $table->string('main_poc_email');
             $table->string('main_poc_phone');
             $table->string('main_poc_address');
+            $table->timestamps();
         });
 	}
 
@@ -34,9 +35,6 @@ class CreateClientsTable extends Migration {
 	 */
 	public function down()
 	{
-        $table->dropForeign('users_user_id_foreign');
-        $table->dropForeign('clients_client_id_foreign');
-     
 		Schema::drop('clients');
 	}
 

@@ -31,6 +31,7 @@ class CreateProjectsTable extends Migration {
             $table->string('project_poc_email')->unique();
             $table->string('project_poc_phone');
             $table->string('project_poc_address');
+            $table->timestamps();
         });
 	}
 
@@ -41,7 +42,6 @@ class CreateProjectsTable extends Migration {
 	 */
 	public function down()
 	{  
-        $table->dropForeign('users_user_id_foreign');
 		Schema::drop('projects');
 	}
 
