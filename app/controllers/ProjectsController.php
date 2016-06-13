@@ -25,7 +25,7 @@ class ProjectsController extends \BaseController {
 		$project = Project::paginate(3);
     	$paginator = new MaterializePagination($project);
 
-		return View::make('projects.index')->with('projects', $projects)->with('paginator', $paginator);
+		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator);
 	}
 
 
