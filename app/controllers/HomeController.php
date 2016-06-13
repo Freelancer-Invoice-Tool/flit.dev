@@ -35,4 +35,9 @@ class HomeController extends BaseController {
 		return View::make('signup');
 	}
 
+	public function showDashboard()
+	{
+		return View::make('dashboard');
+	}
+
 }
