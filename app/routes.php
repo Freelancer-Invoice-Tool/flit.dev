@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@showHome');
 
 Route::get('/clients', 'HomeController@showClients');
 
+Route::get('/signup', 'HomeController@showSignup');
+

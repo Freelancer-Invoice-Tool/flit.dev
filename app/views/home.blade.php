@@ -40,7 +40,7 @@
                             <p>Don't have an account?</p>
                         </div>
                         <div class="col s6">
-                            <a href="#">Sign Up</a>
+                            <a href="{{{action('HomeController@showSignup')}}}">Sign Up</a>
                         </div>
                     </div>
                 </form>
