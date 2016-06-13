@@ -11,18 +11,17 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
 Route::get('/', 'HomeController@showHome');
 
 Route::get('/home', 'HomeController@showHome');
 
-Route::get('/clients', 'HomeController@showClients');
-
 Route::get('/signup', 'HomeController@showSignup');
 
 Route::get('/dashboard', 'HomeController@showDashboard');
+
+// All Project Pages
+Route::resource('/projects', 'ProjectsController');
+
+// All Client Pages
+Route::resource('/clients', 'ClientsController');
 
