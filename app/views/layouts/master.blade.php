@@ -27,18 +27,18 @@
                 <a href="{{{action('HomeController@showHome')}}}" class="brand-logo">Logo</a>
                 <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Dashboard</a></li>
-                    <li><a href="badges.html">Projects</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Projects</a></li>
                     <li><a href="{{{action('HomeController@showClients')}}}">Clients</a></li>
-                    <li><a href="collapsible.html">Log Out</a></li>
+                    <li><a href="#">Log Out</a></li>
                 </ul>
 
                 <!-- for mobile view side-navbar -->
                 <ul class="side-nav" id="mobile-view">
-                    <li><a href="sass.html">Dashboard</a></li>
-                    <li><a href="badges.html">Projects</a></li>
-                    <li><a href="collapsible.html">Clients</a></li>
-                    <li><a href="collapsible.html">Log Out</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="{{{action('HomeController@showClients')}}}">Clients</a></li>
+                    <li><a href="#">Log Out</a></li>
                 </ul>
             </div>
         </nav>
