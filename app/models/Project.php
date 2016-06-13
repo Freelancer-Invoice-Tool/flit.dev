@@ -4,9 +4,14 @@ class Project extends BaseModel
 {
     protected $table = "projects";
 
-    public function project()
+    public function user()
     {
-        return $this->belongsTo('Project');
+        return $this->belongsTo('User');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo('Client');
     }
 
     public static function validateAndCreate(Illuminate\Http\Request $request, User $user)
