@@ -28,4 +28,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Project');
 	}
 
+	public static function validateAndCreate(Illuminate\Http\Request $request)
+    {
+        $validator = new UserValidator();
+        $UserCreator = new UserCreator();
+
+        $validator->validate($request);
+        $user = $userCreator->createUser($request);
+       
+        
+        return $user;
+    }
+
+    public static function validateAndUpdate(User $user, Illuminate\Http\Request $request)
+    {
+        $validater = new userValidator();
+        $userCreater = new userUpdater();
+        
+
+        $validator->validate($request);
+        $user = $userCreator->updateUser($user);
+        
+        
+        return $user;
+    }
+
 }
