@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col s3">
                     <h3><a href="{{{ action('ProjectsController@show', $project->id) }}}">Project: {{{$project->name}}}</a></h3>
-                        <p>Client: {{{$project->client_id}}}</p>
+                        <p>Client: {{{$project->client->client_name}}}</p>
                         <p>Due Date: {{{$project->due_date}}}</p>
                         <p>Submitted On: {{{$project->project_submitted_date}}}</p>
                         <p>Invoice Submitted On: {{{$project->invoice_submitted_date}}}</p> 
