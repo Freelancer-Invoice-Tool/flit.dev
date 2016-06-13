@@ -4,11 +4,16 @@ class Client extends BaseModel
 {
     protected $table = "clients";
 
-    public function client()
-    {
-        return $this->belongsTo('Client');
-    }
+    // public function client()
+    // {
+    //     return $this->belongsTo('Client');
+    // }
 
+    public function projects()
+    {
+        return $this->hasMany('Project');
+    }
+    
     public static function validateAndCreate(Illuminate\Http\Request $request, User $user)
     {
         $validator = new ClientValidator();
@@ -33,4 +38,5 @@ class Client extends BaseModel
         
         return $client;
     }
+
 }
