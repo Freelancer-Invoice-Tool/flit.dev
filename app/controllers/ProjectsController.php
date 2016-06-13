@@ -7,9 +7,25 @@ class ProjectsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct()
+	{
+		$this->beforeFilter(function() {
+			// Auth Check
+		});
+	}
+
+	public function showMissing()
+	{
+		return View::make('errors.missing');
+	}
+
 	public function index()
 	{
-		//
+		$project = Project::paginate(3);
+    	$paginator = new MaterializePagination($project);
+
+		return View::make('projects.index')->with('projects', $projects)->with('paginator', $paginator);
 	}
 
 
@@ -20,7 +36,11 @@ class ProjectsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		if (Auth::check()) {
+			return View::make('projects.create');
+		} else {
+			return $this->showMissing();
+		}
 	}
 
 
@@ -31,7 +51,9 @@ class ProjectsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$project = Project::validateAndCreate(Request::instance(), User::first());
+
+		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
 
 
@@ -43,7 +65,8 @@ class ProjectsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$project = Project::find($id);
+		return View::make('project.show')->with('project', $project);
 	}
 
 
@@ -55,7 +78,12 @@ class ProjectsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		if (Auth::check()) {
+			$project = Project::find($id);
+			return View::make('projects.edit')->with('project', $project);
+		} else {
+			return $this->showMissing();
+		}
 	}
 
 
@@ -67,7 +95,11 @@ class ProjectsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$project = Project::find($id);
+
+		$project = Project::validateAndUpdate($project, Request::instance(), User::first());
+
+		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
 
 
@@ -79,7 +111,15 @@ class ProjectsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if (Auth::check()) {
+			$project = Project::find($id);
+			$project->delete();
+
+			Session::flash('successMessage', 'Project has been deleted');
+			return Redirect::action('ProjectsController@index', $project->id)->withInput();
+		} else {
+			return $this->showMissing();
+		}
 	}
 
 
