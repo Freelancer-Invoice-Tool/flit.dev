@@ -19,3 +19,8 @@ Route::get('/signup', 'HomeController@showSignup');
 
 
 
+// All Project Pages
+Route::resource('/projects', 'ProjectsController');
+
+// All Client Pages
+Route::resource('/clients', 'ClientsController');
