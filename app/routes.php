@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@showHome');
 
 Route::get('/clients', 'HomeController@showClients');
 
+// All Project Pages
+Route::resource('/projects', 'ProjectsController');
+
+// All Client Pages
+Route::resource('/clients', 'ClientsController')
