@@ -19,3 +19,6 @@ Route::get('/', function()
 Route::get('/', 'HomeController@showHome');
 
 Route::get('/home', 'HomeController@showHome');
+
+Route::get('/clients', 'HomeController@showClients');
+
