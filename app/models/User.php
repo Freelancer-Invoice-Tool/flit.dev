@@ -31,7 +31,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public static function validateAndCreate(Illuminate\Http\Request $request)
     {
         $validator = new UserValidator();
-        $UserCreator = new UserCreator();
+        $userCreator = new UserCreator();
 
         $validator->validate($request);
         $user = $userCreator->createUser($request);
