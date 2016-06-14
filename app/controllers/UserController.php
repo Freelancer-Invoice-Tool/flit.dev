@@ -56,7 +56,7 @@ class UserController extends \BaseController {
     public function edit($id)
     {
         if (Auth::check()) {
-            $usder = User::find($id);
+            $user = User::find($id);
             return View::make('users.edit')->with('user', $user);
         } else {
             return $this->showMissing();
@@ -121,6 +121,11 @@ class UserController extends \BaseController {
         }
         Auth::logout();
         return Redirect::action('HomeController@showHome');
+    }
+
+    public function show()
+    {
+        
     }
 
 }
