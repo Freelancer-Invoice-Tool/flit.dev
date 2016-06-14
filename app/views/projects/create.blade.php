@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Edit Project
+    Flit: Add New Project
 @stop
 
 @section('content')
@@ -9,13 +9,12 @@
     <div class="container"> 
         <div class="row">
             <div>
-                <h2>Edit Project</h2>
+                <h2>Add New Project</h2>
             </div>
         </div>
 
-        
         <div class="row">
-            {{ Form::model($project, array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
+            {{ Form::open(array('action'=>'ProjectsController@store', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 
             <div class="row">
                 <div class="input-field col s12">
@@ -26,7 +25,7 @@
         
             <div class="row">
                 <div class="input-field col s12">
-                    {{Form::text('client_name', $project->client->client_name, array('id'=>'client_name'))}}
+                    {{Form::text('client_name', null, array('id'=>'client_name'))}}
                     {{ Form::label('client_name', 'Client Name') }}
                 </div>
             </div>
@@ -86,16 +85,12 @@
                     {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
                 </div>
             </div>
-
+ 
             <div class="row center-align">
-                <div class="col s6">
-                    <a href="{{{action('ProjectsController@update', $project->id)}}}" class="waves-effect waves-light btn">Submit</a>
+                <div class="col s12">
+                    <button type="submit" class="btn waves-effect waves-light">Add New Project</button>
                 </div>
-
-                <div class="col s6">
-                    <a href="{{{action('ProjectsController@show', $project->id)}}}" class="waves-effect waves-light btn">Cancel</a>
-                </div>
-            </div>  
+            </div> 
         </div>
         {{ Form::close() }}    
     </div>
