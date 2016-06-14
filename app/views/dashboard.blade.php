@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="col s6">
-                    <a class='dropdown-button btn' href='#' data-activates='dropDates'>Deadlines</a>
+                    <a class='dropdown-button btn' href='#' data-activates='dropDueDates'>Due Dates</a>
                 </div>
             </div>
             <div class="row">
@@ -32,7 +32,7 @@
                 <li><a href="#!">three</a></li>
             </ul>
 
-            <ul id='dropDates' class='dropdown-content'>
+            <ul id='dropDueDates' class='dropdown-content'>
                 <li><a href="#!">one</a></li>
                 <li><a href="#!">two</a></li>
                 <li><a href="#!">three</a></li>
@@ -50,14 +50,14 @@
                 <thead>
                     <tr>
                         <th data-field="project">Project</th>
-                        <th data-field="deadline">Deadline</th>
+                        <th data-field="dueDates">Due Date</th>
                         <th data-field="details" class="truncate">Details</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>Project X</td>
+                        <td><a href="#"></a>Project</td>
                         <td>March</td>
                         <td>Blahblahblahblahblahblahblah</td>
                     </tr>
