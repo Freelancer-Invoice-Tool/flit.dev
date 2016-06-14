@@ -13,8 +13,12 @@
         </div>
 
     <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
-        @foreach($projects as $project)
+        @foreach($projects as $index=>$project)
+
+            @if($index % 3 == 0)
             <div class="row">
+            @endif
+
                 <div class="col s3">
                     <h3><a href="{{{ action('ProjectsController@show', $project->id) }}}">Project: {{{$project->name}}}</a></h3>
                         <p>Client: {{{$project->client->client_name}}}</p>
@@ -28,8 +32,12 @@
                         <p>Main Contact Phone: {{{$project->project_poc_phone}}}</p>
                         <p>Main Contact Email: {{{$project->project_poc_email}}}</p>
                         <p>Main Contact Address: {{{$project->project_poc_address}}}</p>
-                </div> 
+                </div>
+                
+            @if($index % 3 == 2) 
             </div> <!-- closes row -->
+            @endif
+
         @endforeach  
     </div> <!-- closes container -->
        
