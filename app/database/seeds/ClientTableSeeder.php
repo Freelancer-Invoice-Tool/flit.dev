@@ -9,44 +9,66 @@ class ClientTableSeeder extends Seeder
         $client->user_id = User::all()->random()->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'submission';
-        $client->client_name = 'Disney';
-        $client->main_poc_name = 'Mickey Mouse';
-        $client->main_poc_email = 'mickey@disney.com';
-        $client->main_poc_phone = '(407) 939-5277';
-        $client->main_poc_address = 'Walt Disney World Resort, Orlando, FL 32830';  
+        $client->client_name = 'Stark Industries';
+        $client->main_poc_name = 'Pepper Potts';
+        $client->main_poc_email = 'ppotts@stark.com';
+        $client->main_poc_phone = '(800) 555-5277';
+        $client->main_poc_address = 'Stark Industries, Los Angeles, CA';  
         $client->save();
 
         $client = new Client();
         $client->user_id = User::all()->random()->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'submission';
-        $client->client_name = 'Disney';
-        $client->main_poc_name = 'Mickey Mouse';
-        $client->main_poc_email = 'mickey@disney.com';
-        $client->main_poc_phone = '(407) 939-5277';
-        $client->main_poc_address = 'Walt Disney World Resort, Orlando, FL 32830';
+        $client->client_name = 'Stark Industries';
+        $client->main_poc_name = 'Pepper Potts';
+        $client->main_poc_email = 'ppotts@stark.com';
+        $client->main_poc_phone = '(800) 555-5277';
+        $client->main_poc_address = 'Stark Industries, Los Angeles, CA';
         $client->save();
 
         $client = new Client();
         $client->user_id = User::all()->random()->id;
         $client->payment_terms = 30;
-        $client->submission_or_approval = 'approval';
-        $client->client_name = 'POTUS';
-        $client->main_poc_name = 'Barack Obama';
-        $client->main_poc_email = 'barryo@whitehouse.gov';
+        $client->submission_or_approval = 'submission';
+        $client->client_name = 'Law Offices of Nelson and Murdock';
+        $client->main_poc_name = 'Matt Murdock';
+        $client->main_poc_email = 'mmurdock@nelsonmurdock.com';
         $client->main_poc_phone = '';
-        $client->main_poc_address = '1600 Pennsylvania Ave';
+        $client->main_poc_address = 'Hell\'s Kitchen, New York City, NY';
         $client->save();
         
         $client = new Client();
         $client->user_id = User::all()->random()->id;
         $client->payment_terms = 45;
         $client->submission_or_approval = 'approval';
-        $client->client_name = 'Trump, Inc';
-        $client->main_poc_name = 'Donald Trump';
-        $client->main_poc_email = 'donald@trump.com';
-        $client->main_poc_phone = '(212) 832-2000';
-        $client->main_poc_address = '725 5th Ave, New York, NY 10022';
+        $client->client_name = 'Wayne Enterprises';
+        $client->main_poc_name = 'Lucius Fox';
+        $client->main_poc_email = 'lfox@wayne.com';
+        $client->main_poc_phone = '(800) 555-2000';
+        $client->main_poc_address = 'Wayne Tower, Gotham City';
+        $client->save();
+
+        $client = new Client();
+        $client->user_id = User::all()->random()->id;
+        $client->payment_terms = 60;
+        $client->submission_or_approval = 'approval';
+        $client->client_name = 'Queen Industries';
+        $client->main_poc_name = 'Oliver Queen';
+        $client->main_poc_email = 'oqueen@queenindustries.com';
+        $client->main_poc_phone = '(800) 555-3456';
+        $client->main_poc_address = 'Star City';
+        $client->save();
+
+        $client = new Client();
+        $client->user_id = User::all()->random()->id;
+        $client->payment_terms = 60;
+        $client->submission_or_approval = 'approval';
+        $client->client_name = 'SHIELD';
+        $client->main_poc_name = 'Nick Fury';
+        $client->main_poc_email = 'nfury@shield.gov';
+        $client->main_poc_phone = '(800) 555-9876';
+        $client->main_poc_address = 'Washington, DC';
         $client->save();
 
 
