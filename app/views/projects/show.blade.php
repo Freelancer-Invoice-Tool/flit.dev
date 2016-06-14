@@ -35,7 +35,7 @@
             </div>
 
             <div class="col s6">
-                <a href="#" class="waves-effect waves-light btn">Delete Project</a>
+                <a href="{{{action('ProjectsController@destroy', $project->id)}}}" class="waves-effect waves-light btn">Delete Project</a>
             </div>
         </div> 
     </div> <!-- closes container -->
