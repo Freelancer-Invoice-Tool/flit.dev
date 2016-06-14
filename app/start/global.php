@@ -19,7 +19,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/database/seeds',
     app_path().'/exceptions',
     app_path().'/services', 
-    app_path().'/validators'
+    app_path().'/validator'
 
 ));
 
@@ -68,6 +68,22 @@ App::error(function(Exception $exception, $code)
 App::down(function()
 {
 	return Response::make("Be right back!", 503);
+});
+
+// This code defines the 404 handler
+App::missing(function($exception)
+{
+    return Response::view('errors.missing', array(), 404);
+});
+
+App::error(function(ValidationException $exception) {
+    Session::flash('errorMessage', $exception->getMessage());
+
+    return Redirect::back()->withInput()->withErrors($exception->validator);
+});
+
+App::error(function(RecordNotSavedException $exception) {
+    return Redirect::back()->withInput();
 });
 
 /*

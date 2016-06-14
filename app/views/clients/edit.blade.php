@@ -8,10 +8,10 @@
      <div class="container row">
         <h1>Edit Client Info</h1>  
 
-        {{Form::model($client, array('action' => 'ClientsController@update', $client->id))}} 
+        {{Form::model($client, array('route' => array('clients.update', $client->id), 'method' => 'PUT'))}} 
             <div>
                 {{Form::label('client_name', 'Client Name')}} 
-                {{Form::text('title', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.', 'value' => $client->client_name))}} 
+                {{Form::text('client_name', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.', 'value' => $client->client_name))}} 
             </div>
             <div>
                 {{Form::label('main_poc_name', 'Main Point of Contact Name')}}
@@ -60,7 +60,5 @@
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
           });
-
-        tinymce.init({ selector:'textarea' });
     </script>
 @stop

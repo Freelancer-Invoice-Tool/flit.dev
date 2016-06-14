@@ -16,7 +16,7 @@
         {{Form::open(array('action' => 'ClientsController@store'))}} 
             <div>
                 {{Form::label('client_name', 'Client Name')}} 
-                {{Form::text('title', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.'))}} 
+                {{Form::text('client_name', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.'))}} 
             </div>
             <div>
                 {{Form::label('payment_terms', 'Payment Terms (in number of days)')}} 
