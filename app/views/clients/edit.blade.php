@@ -13,6 +13,14 @@
                 {{Form::label('client_name', 'Client Name')}} 
                 {{Form::text('client_name', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.', 'value' => $client->client_name))}} 
             </div>
+             <div>
+                {{Form::label('payment_terms', 'Payment Terms (in number of days)')}} 
+                {{Form::number('payment_terms', Input::old('payment_terms'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. 30', 'value' => $client->payment_terms))}} 
+            </div>
+            <div>
+                {{Form::label('submission_or_approval', 'Does Payment Term start on invoice approval or invoice submission?')}} 
+                {{Form::text('submission_or_approval', Input::old('submission_or_approval'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. submission', 'value' => $client->submission_or_approval))}} 
+            </div>
             <div>
                 {{Form::label('main_poc_name', 'Main Point of Contact Name')}}
                 {{Form::text('main_poc_name', Input::old('main_poc_name'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. Joe Blow', 'value' => $client->main_poc_name))}}
