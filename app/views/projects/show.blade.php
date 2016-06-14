@@ -13,7 +13,7 @@
         </div>
 
         <div class="row">
-            <div class="col s3">
+            <div class="col s12 center-align">
                 <h3>Project: {{{$project->name}}}</h3>
                 <p>Client: {{{$project->client->client_name}}}</p>
                 <p>Due Date: {{{$project->due_date}}}</p>
