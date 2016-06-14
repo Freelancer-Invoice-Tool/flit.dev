@@ -25,3 +25,5 @@ Route::resource('/projects', 'ProjectsController');
 // All Client Pages
 Route::resource('/clients', 'ClientsController');
 
+// All User Actions
+Route::resource('/user', 'UserController');
