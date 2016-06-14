@@ -30,7 +30,7 @@
                     <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
                     <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
                     <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
                 </ul>
 
                 <!-- for mobile view side-navbar -->
@@ -38,7 +38,7 @@
                     <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
                     <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
                     <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
                 </ul>
             </div>
         </nav>

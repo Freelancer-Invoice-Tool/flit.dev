@@ -30,3 +30,6 @@ Route::resource('/user', 'UserController');
 
 // Perform user authorization function
 Route::post('/home', 'UserController@auth');
+
+// Route to logout function
+Route::get('/logout', 'UserController@logout');
