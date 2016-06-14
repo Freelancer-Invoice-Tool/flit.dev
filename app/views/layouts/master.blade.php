@@ -24,7 +24,7 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{{action('HomeController@showHome')}}}" class="brand-logo">Logo</a>
+                <a href="{{{action('HomeController@showHome')}}}" class="brand-logo"><img src="/../../img/ladyLogo.png"></a>
                 <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
