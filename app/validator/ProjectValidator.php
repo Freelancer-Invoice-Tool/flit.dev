@@ -3,7 +3,7 @@
 class ProjectValidator {
     public $rules = [
         'name' => 'required',
-        'due date' => 'required'
+        'due_date' => 'required'
     ];
 
     public function validate(Illuminate\Http\Request $request) {

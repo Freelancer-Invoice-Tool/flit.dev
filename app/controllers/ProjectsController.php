@@ -97,7 +97,17 @@ class ProjectsController extends \BaseController {
 	{
 		$project = Project::find($id);
 
-		$project = Project::validateAndUpdate($project, Request::instance(), User::first());
+		$clientname = Input::get('client_name');
+
+		$clients = DB::table('clients')->where('client_name', $clientname)->get();
+
+		foreach($clients as $blah) {
+			if($project->client_id == $blah->id) {
+				$client = $blah;
+			}
+		}
+
+		$project = Project::validateAndUpdate($project, Request::instance(), User::first(), $client);
 
 		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
