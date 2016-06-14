@@ -99,5 +99,19 @@ class UserController extends \BaseController {
         }
     }
 
+    // show user account actions
+    public function auth()
+    {   
+        $email=Input::get('email');
+        $password=Input::get('password');
+
+        if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+            return Redirect::action('HomeController@showDashboard');
+        } else {
+            Session::flash('errorMessage', 'Email or password did not match a Flit user. Please try again or sign up for an account!');
+            return Redirect::back()->withInput();
+        }
+    }
+
 
 }

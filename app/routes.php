@@ -27,3 +27,6 @@ Route::resource('/clients', 'ClientsController');
 
 // All User Actions
 Route::resource('/user', 'UserController');
+
+// Perform user authorization function
+Route::post('/home', 'UserController@auth');
