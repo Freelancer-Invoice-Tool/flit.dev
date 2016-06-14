@@ -15,13 +15,12 @@
 
         <div class="row">
             <div class="col s8">
-                <form class="col s12" method="POST" enctype="multipart/form-data" action="{#">
-                    {{Form::token()}}
+                {{ Form::open(array('action'=>'UserController@auth', 'class'=>'col s12','enctype'=>'multipart/form-data')) }}
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="username" id="username" type="text" class="validate">
-                            <label for="username">Username</label>
+                            <input name="email" id="email" type="text" class="validate">
+                            <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
