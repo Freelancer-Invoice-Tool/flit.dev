@@ -1,6 +1,6 @@
 <?php
 
-class ProjectValidator {
+class ClientValidator {
     public $rules = [
         'client_name' => 'required',
     ];
