@@ -26,7 +26,7 @@
         
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('client_name', null, array('id'=>'client_name')) }}
+                    {{Form::text('client_name', $project->client->client_name, array('id'=>'client_name'))}}
                     {{ Form::label('client_name', 'Client Name') }}
                 </div>
             </div>
@@ -54,8 +54,8 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('pay_date', null, array('id'=>'Exp Pay Date')) }}
-                    {{ Form::label('pay_date', 'pay_date') }}
+                    {{ Form::text('pay_date', null, array('id'=>'pay_date')) }}
+                    {{ Form::label('pay_date', 'Exp Pay Date') }}
                 </div>
             
                 <div class="input-field col s6">
