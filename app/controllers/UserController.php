@@ -55,7 +55,7 @@ class UserController extends \BaseController {
      */
     public function edit($id)
     {
-        if (Auth::check()) {
+        if (Auth::user()->id==$id) {
             $user = User::find($id);
             return View::make('users.edit')->with('user', $user);
         } else {
@@ -72,10 +72,12 @@ class UserController extends \BaseController {
      */
     public function update($id)
     {
+
         $user = User::find($id);
 
         $user = User::validateAndUpdate($user, Request::instance(), User::first());
 
+        Session::flash('successMessage', 'Your changes have been saved!');
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
 
