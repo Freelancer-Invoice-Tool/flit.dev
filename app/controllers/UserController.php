@@ -74,9 +74,9 @@ class UserController extends \BaseController {
     {
         $user = User::find($id);
 
-        $user = User::validateAndUpdate($project, Request::instance(), User::first());
+        $user = User::validateAndUpdate($user, Request::instance(), User::first());
 
-        return Redirect::action('HomeController@showDashboard', $project->id)->withInput();
+        return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
 
 
