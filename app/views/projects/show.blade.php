@@ -31,7 +31,7 @@
 
         <div class="row center-align">
             <div class="col s6">
-                <a href="#" class="waves-effect waves-light btn">Edit Project</a>
+                <a href="{{{action('ProjectsController@edit', $project->id)}}}" class="waves-effect waves-light btn">Edit Project</a>
             </div>
 
             <div class="col s6">

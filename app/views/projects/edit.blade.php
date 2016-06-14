@@ -35,7 +35,7 @@
             </div>
 
             <div class="col s6">
-                <a href="{{{action('ProjectsController@projects.show')}}}" class="waves-effect waves-light btn">Cancel</a>
+                <a href="{{{action('ProjectsController@show', $project->id)}}}" class="waves-effect waves-light btn">Cancel</a>
             </div>
         </div> 
     </div> <!-- closes container -->
