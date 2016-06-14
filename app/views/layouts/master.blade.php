@@ -63,5 +63,8 @@
 
 <!-- our JS -->
 <script src="/js/home.js"></script>
+
+<!-- Yields Page-Specific JS or jQuery -->
+@yield('bottom-script')
 </body>
 </html>
