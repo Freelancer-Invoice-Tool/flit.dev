@@ -99,7 +99,7 @@ class UserController extends \BaseController {
         }
     }
 
-    // show user account actions
+    // takes input from login; checks login; sends to dashboard
     public function auth()
     {   
         $email=Input::get('email');
@@ -113,5 +113,14 @@ class UserController extends \BaseController {
         }
     }
 
+    // logout function; sends to home page
+    public function logout()
+    {   
+        if (Auth::check()) {
+            Session::flash('successMessage', 'You have successfully logged out!');
+        }
+        Auth::logout();
+        return Redirect::action('HomeController@showHome');
+    }
 
 }
