@@ -26,14 +26,14 @@ class Project extends BaseModel
         return $project;
     }
 
-    public static function validateAndUpdate(Project $project, Illuminate\Http\Request $request, User $user)
+    public static function validateAndUpdate(Project $project, Illuminate\Http\Request $request, User $user, $client)
     {
-        $validater = new projectValidator();
-        $projectCreater = new projectUpdater();
+        $validator = new projectValidator();
+        $projectCreator = new projectUpdater();
         
 
         $validator->validate($request);
-        $project = $projectCreator->updateProject($project, $request, $user);
+        $project = $projectCreator->updateProject($project, $request, $user, $client);
         
         
         return $project;
