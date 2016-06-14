@@ -27,7 +27,17 @@
                 <p>Main Contact Email: {{{$project->project_poc_email}}}</p>
                 <p>Main Contact Address: {{{$project->project_poc_address}}}</p>
             </div> 
-        </div> <!-- closes row -->  
+        </div> <!-- closes row --> 
+
+        <div class="row center-align">
+            <div class="col s6">
+                <a href="#" class="waves-effect waves-light btn">Edit Project</a>
+            </div>
+
+            <div class="col s6">
+                <a href="#" class="waves-effect waves-light btn">Delete Project</a>
+            </div>
+        </div> 
     </div> <!-- closes container -->
        
 </main>
