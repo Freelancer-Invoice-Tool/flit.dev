@@ -15,7 +15,7 @@
             </div>
             <div>
                 {{Form::label('main_poc_name', 'Main Point of Contact Name')}}
-                {{Form::text('main_poc_name', Input::old('main_poc_name', array('class' => 'form-control other-class another', 'placeholder' => 'e.g. Joe Blow', 'value' => $client->main_poc_name)))}}
+                {{Form::text('main_poc_name', Input::old('main_poc_name'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. Joe Blow', 'value' => $client->main_poc_name))}}
             </div>
             <div>
                 {{Form::label('main_poc_email', 'Main Point of Contact Email')}}
@@ -38,7 +38,7 @@
     </div>
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
-        <form method="POST" action="{{{action('ClientsController@destroy', $post->id)}}}">
+        <form method="POST" action="{{{action('ClientsController@destroy', $client->id)}}}">
         {{Form::token()}}
             <input type="hidden" name="_method" value="DELETE">
             <div class="modal-content">
@@ -47,7 +47,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn">Delete</button>
-                <button class="btn"><a href="{{{ action('ClientsController@show', $post->id) }}}" class=" modal-action modal-close">Keep</a></button>
+                <button class="btn"><a href="{{{ action('ClientsController@show', $client->id) }}}" class=" modal-action modal-close">Keep</a></button>
             </div>
         </form>
         
