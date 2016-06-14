@@ -42,6 +42,10 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
+
+                    <div>
+                        <button type="submit" class="btn">Create Account</button>     
+                    </div>
                 </form>
             </div>
         </div>
