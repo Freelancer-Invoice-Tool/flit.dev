@@ -1,9 +1,9 @@
 <?php 
 
 class ProjectUpdater {
-    public function updateProject(Project $project, Illuminate\Http\Request $request, User $user) {
+    public function updateProject(Project $project, Illuminate\Http\Request $request, User $user, $client) {
         $project->user_id = $user->id;
-        $project->client_id = $client_id;
+        $project->client_id = $client->id;
         $project->name = $request->input('name');
         $project->description = $request->input('description');
         $project->due_date = $request->input('due_date');
