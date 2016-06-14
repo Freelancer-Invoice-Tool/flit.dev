@@ -44,7 +44,7 @@ class UserController extends \BaseController {
     {
         $user = User::validateAndCreate(Request::instance());
 
-        return Redirect::action('HomeController@showDashboard', $project->id)->withInput();
+        return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
 
     /**

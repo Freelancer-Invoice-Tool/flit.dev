@@ -3,11 +3,10 @@ class UserCreator {
     public function createUser(Illuminate\Http\Request $request) {
         $user = new User;
         
-        $user->email = $request->input('email');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
-        $user->password = $request->input("$_ENV['USER_PASSWORD']");
+        $user->password = $request->input('password');
       
         
         if ($user->save() === false) {
