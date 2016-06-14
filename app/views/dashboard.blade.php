@@ -9,29 +9,28 @@
     <div class="container">
         <div>
             <div class="row">
-                <div class="col s6">
-                    <!-- Dropdown Triggers -->
-                    <a class='dropdown-button btn' href='#' data-activates='dropClients'>Contacts</a>
+                <h1>UserNameHere's To-Do</h1>
+            </div>
+
+            <div class="row">
+                <div class="col s6 col offset-s6 right-align">
+                    <a class='dropdown-button btn' href='#'>Create New Project</a>
+                </div>
+            </div>
+
+            <!-- Dropdown Triggers -->
+            <div class="row">
+                <div class="col s6 offset-s6 right-align">
+                    <a class='dropdown-button btn' href='#' data-activates='dropDueDates'>All Due Dates</a>
                 </div>
             </div>
             <div class="row">
-                <div class="col s6">
-                    <a class='dropdown-button btn' href='#' data-activates='dropDueDates'>Due Dates</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6">
-                    <a class='dropdown-button btn' href='#' data-activates='dropPay'>Pay Days</a>
+                <div class="col s6 offset-s6 right-align">
+                    <a class='dropdown-button btn' href='#' data-activates='dropPay'>All Pay Days</a>
                 </div>
             </div>
 
             <!-- Dropdown Structures -->
-            <ul id='dropClients' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li><a href="#!">three</a></li>
-            </ul>
-
             <ul id='dropDueDates' class='dropdown-content'>
                 <li><a href="#!">one</a></li>
                 <li><a href="#!">two</a></li>
@@ -47,6 +46,7 @@
 
         <div>
             <table class="striped centered responsive-table">
+            <h4>Upcoming This Month</h4>
                 <thead>
                     <tr>
                         <th data-field="project">Project</th>
