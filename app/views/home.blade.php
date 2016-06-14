@@ -8,14 +8,22 @@
 <main>
     <div class="container"> 
         <div class="row">
-            <div class="col s12">
-                <h2>Log In</h2>
+            <div class="col s6">
+                <h1>Flit</h1>
+                <p>Your Personal Assistant</p>
             </div>
         </div>
 
         <div class="row">
-            <div class="col s8">
+            <div class="col s6 col offset-s3">
+                <form>
                 {{ Form::open(array('action'=>'UserController@auth', 'class'=>'col s12','enctype'=>'multipart/form-data')) }}
+
+                    <div class="row">
+                        <div class="col s6 left-align">
+                            <h2>Log In</h2>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -30,15 +38,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12">
+                        <div class="col s6">
                             <button type="submit" class="btn waves-effect waves-light">Log In</button>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6"
-                            <p>Don't have an account?</p>
-                        </div>
+                        
                         <div class="col s6">
+                            <p>Don't have an account?</p>
                             <a href="{{{action('HomeController@showSignup')}}}">Sign Up</a>
                         </div>
                     </div>
