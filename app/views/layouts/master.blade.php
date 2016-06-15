@@ -25,21 +25,25 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="{{{action('HomeController@showHome')}}}" class="brand-logo"><img class="responsive-img" src="/../../img/ladyLogo.png"></a>
-                <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
-                    <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
-                    <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
-                    <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
-                </ul>
+                @if (Auth::check())
+                    <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
+                        <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
+                        <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
+                        <li><a href="{{action('UserController@edit', Auth::user()->id)}}">Account</a></li>
+                        <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
+                    </ul>
 
-                <!-- for mobile view side-navbar -->
-                <ul class="side-nav" id="mobile-view">
-                    <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
-                    <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
-                    <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
-                    <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
-                </ul>
+                    <!-- for mobile view side-navbar -->
+                    <ul class="side-nav" id="mobile-view">
+                        <li><a href="{{{action('HomeController@showDashboard')}}}">Dashboard</a></li>
+                        <li><a href="{{{action('ProjectsController@index')}}}">Projects</a></li>
+                        <li><a href="{{{action('ClientsController@index')}}}">Clients</a></li>
+                        <li><a href="{{action('UserController@edit', Auth::user()->id)}}">Account</a></li>
+                        <li><a href="{{{action('UserController@logout')}}}">Log Out</a></li>
+                    </ul>
+                @endif
             </div>
         </nav>
 
