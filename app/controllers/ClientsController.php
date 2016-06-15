@@ -28,7 +28,7 @@ class ClientsController extends \BaseController {
 
     	return View::make('clients.index')->with('clients', $client)->with('paginator', $paginator);	
     	
-		
+		// this is a comment
 	}
 
 
