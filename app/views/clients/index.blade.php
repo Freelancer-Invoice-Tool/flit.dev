@@ -12,7 +12,7 @@
             <h1>All Clients</h1>
         </div>
 
-    <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
+        <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
         @foreach($clients as $index=>$client)
                 @if($index % 3 == 0)
                 <div class="row">
@@ -27,7 +27,7 @@
                 @if($index % 3 == 2) 
                 </div> <!-- closes row -->
                 @endif
-        @endforeach
+        @endforeach        
     </div> <!-- closes container -->
        
 </main>

@@ -22,7 +22,7 @@ class ClientsController extends \BaseController {
 
 	public function index()
 	{
-		$client = Client::paginate(3);
+		$client = Client::where('user_id', '=', Auth::id())->paginate(9);
 		
     	$paginator = new MaterializePagination($client);
 
