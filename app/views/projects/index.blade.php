@@ -13,32 +13,38 @@
         </div>
 
     <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
-        @foreach($projects as $index=>$project)
 
-            @if($index % 3 == 0)
-            <div class="row">
-            @endif
-
-                <div class="col s3">
-                    <h3><a href="{{{ action('ProjectsController@show', $project->id) }}}">Project: {{{$project->name}}}</a></h3>
-                        <p>Client: {{{$project->client->client_name}}}</p>
-                        <p>Due Date: {{{$project->due_date}}}</p>
-                        <p>Submitted On: {{{$project->project_submitted_date}}}</p>
-                        <p>Invoice Submitted On: {{{$project->invoice_submitted_date}}}</p> 
-                        <p>Invoice Approved On: {{{$project->invoice_approval_date}}}</p>
-                        <p>Pay Date: {{{$project->pay_date}}}</p>
-                        <p>Payment Recieved On: {{{$project->payment_received}}}</p>
-                        <p>Main Contact Name: {{{$project->project_poc_name}}}</p>
-                        <p>Main Contact Phone: {{{$project->project_poc_phone}}}</p>
-                        <p>Main Contact Email: {{{$project->project_poc_email}}}</p>
-                        <p>Main Contact Address: {{{$project->project_poc_address}}}</p>
-                </div>
+            
+                <!-- <div class="col s3"> -->
+                    <table class="striped">
+                        <tr>
+                            <th>Project</th>
+                            <th>Client</th>
+                            <th>Due Date</th>
+                            <th>Project Submitted</th>
+                            <th>Invoice Submitted</th>
+                            <th>Invoice Approved</th>
+                            <th>Pay Date</th>
+                            <th>Payment Received</th>
+                        </tr>
+                        @foreach($projects as $index=>$project)
+                            <tr>
+                                <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
+                                <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
+                                <td>{{{$project->due_date}}}</td>
+                                <td>{{{$project->project_submitted_date}}}</td>
+                                <td>{{{$project->invoice_submitted_date}}}</td> 
+                                <td>{{{$project->invoice_approval_date}}}</td>
+                                <td>{{{$project->pay_date}}}</td>
+                                <td>{{{$project->payment_received}}}</td>
+                            </tr>
+                        @endforeach  
+                    </table>
+                    {{ $projects->links() }}
+                <!-- </div> -->
                 
-            @if($index % 3 == 2) 
-            </div> <!-- closes row -->
-            @endif
+            
 
-        @endforeach  
     </div> <!-- closes container -->
        
 </main>
