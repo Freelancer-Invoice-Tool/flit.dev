@@ -51,8 +51,22 @@ class ProjectsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$project = Project::validateAndCreate(Request::instance(), User::first());
+		$client = Client::validateAndCreate(Request::instance(), User::first());
 
+		$project = Project::validateAndCreate(Request::instance(), User::first(), $client);
+
+		$clientname = Input::get('client_name');
+
+		// $clients = DB::table('clients')->where('client_name', $clientname)->get();
+
+		// foreach($client as $blah) {
+
+		// 	if($project->client->id == $blah->id) {
+		// 		$client = $blah;
+		// 	}
+		// }
+
+		
 		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
 

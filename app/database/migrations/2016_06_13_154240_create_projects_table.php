@@ -20,17 +20,17 @@ class CreateProjectsTable extends Migration {
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
             $table->string('name', 200);
-            $table->string('description', 200);
+            $table->string('description', 200)->nullable();
             $table->date('due_date');
-            $table->date('project_submitted_date');
-            $table->date('invoice_submitted_date');
-            $table->date('invoice_approval_date');
-            $table->date('pay_date');
-            $table->boolean('payment_received');
-            $table->string('project_poc_name', 200);
-            $table->string('project_poc_email')->unique();
-            $table->string('project_poc_phone');
-            $table->string('project_poc_address');
+            $table->date('project_submitted_date')->nullable();
+            $table->date('invoice_submitted_date')->nullable();
+            $table->date('invoice_approval_date')->nullable();
+            $table->date('pay_date')->nullable();
+            $table->boolean('payment_received')->nullable();
+            $table->string('project_poc_name', 200)->nullable();
+            $table->string('project_poc_email')->nullable();
+            $table->string('project_poc_phone')->nullable();
+            $table->string('project_poc_address')->nullable();
             $table->timestamps();
         });
 	}
