@@ -43,7 +43,9 @@ class UserController extends \BaseController {
     public function store()
     {
         $user = User::validateAndCreate(Request::instance());
-
+        $email=Input::get('email');
+        $password=Input::get('password');
+        Auth::attempt(array('email' => $email, 'password' => $password));
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
 
