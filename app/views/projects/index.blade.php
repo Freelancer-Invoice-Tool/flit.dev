@@ -27,7 +27,7 @@
                             <th>Pay Date</th>
                             <th>Payment Received</th>
                         </tr>
-                        @foreach($projects as $index=>$project)
+                        @foreach($projects as $project)
                             <tr>
                                 <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
                                 <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
