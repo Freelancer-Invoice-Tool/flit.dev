@@ -13,8 +13,6 @@
 
 Route::get('/', 'HomeController@showHome');
 
-Route::get('/home', 'HomeController@showHome');
-
 Route::get('/signup', 'HomeController@showSignup');
 
 Route::get('/dashboard', 'HomeController@showDashboard');
@@ -29,7 +27,7 @@ Route::resource('/clients', 'ClientsController');
 Route::resource('/user', 'UserController');
 
 // Perform user authorization function
-Route::post('/home', 'UserController@auth');
+Route::post('/', 'UserController@auth');
 
 // Route to logout function
 Route::get('/logout', 'UserController@logout');

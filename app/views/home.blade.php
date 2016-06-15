@@ -16,8 +16,7 @@
 
         <div class="row">
             <div class="col s6 col offset-s3">
-                <form>
-                {{ Form::open(array('action'=>'UserController@auth', 'class'=>'col s12','enctype'=>'multipart/form-data')) }}
+                {{ Form::open(array('method' => 'POST', 'action'=>'UserController@auth', 'class'=>'col s12','enctype'=>'multipart/form-data')) }}
 
                     <div class="row">
                         <div class="col s6 left-align">
@@ -46,8 +45,8 @@
                             <p>Don't have an account?</p>
                             <a href="{{{action('HomeController@showSignup')}}}">Sign Up</a>
                         </div>
+                {{Form::close()}}
                     </div>
-                </form>
             </div>
         </div>
     </div>
