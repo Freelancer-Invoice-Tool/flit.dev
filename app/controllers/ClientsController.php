@@ -27,8 +27,6 @@ class ClientsController extends \BaseController {
     	$paginator = new MaterializePagination($client);
 
     	return View::make('clients.index')->with('clients', $client)->with('paginator', $paginator);	
-    	
-		// this is a comment
 	}
 
 
