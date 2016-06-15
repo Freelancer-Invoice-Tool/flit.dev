@@ -106,7 +106,7 @@ class UserController extends \BaseController {
     {   
         $email=Input::get('email');
         $password=Input::get('password');
-
+        
         if (Auth::attempt(array('email' => $email, 'password' => $password))) {
             return Redirect::action('HomeController@showDashboard');
         } else {
