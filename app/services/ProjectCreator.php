@@ -1,11 +1,11 @@
 <?php 
 class ProjectCreator {
-    public function createProject(Illuminate\Http\Request $request, User $user) {
+    public function createProject(Illuminate\Http\Request $request, User $user, Client $client) {
         $project = new Project;
 
         
         $project->user_id = $user->id;
-        $project->client_id = $client_id;
+        $project->client_id = $client->id;
         $project->name = $request->input('name');
         $project->description = $request->input('description');
         $project->due_date = $request->input('due_date');

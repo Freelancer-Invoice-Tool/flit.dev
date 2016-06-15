@@ -17,13 +17,13 @@ class CreateClientsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-          	$table->integer('payment_terms');
-          	$table->string('submission_or_approval');
+          	$table->integer('payment_terms')->nullable();
+          	$table->string('submission_or_approval')->nullable();
             $table->string('client_name', 200);
-            $table->string('main_poc_name', 200);
-            $table->string('main_poc_email');
-            $table->string('main_poc_phone');
-            $table->string('main_poc_address');
+            $table->string('main_poc_name', 200)->nullable();
+            $table->string('main_poc_email')->nullable();
+            $table->string('main_poc_phone')->nullable();
+            $table->string('main_poc_address')->nullable();
             $table->timestamps();
         });
 	}
