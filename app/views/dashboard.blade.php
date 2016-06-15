@@ -9,39 +9,36 @@
     <div class="container">
         <div>
             <div class="row">
-                <h1>UserNameHere's To-Do</h1>
+                <h1>Welcome User</h1>
             </div>
 
             <div class="row">
-                <div class="col s6 col offset-s6 right-align">
-                    <a class='dropdown-button btn' href='#'>Create New Project</a>
+                <div class="col s6 col offset-s6">
+                    <!-- new projects -->
+                    <a href="{{{action('ProjectsController@create')}}}"><i class="medium material-icons">create_new_folder</i></a>
+            
+                    <!-- new contact -->
+                    <a href="{{{action('ClientsController@create')}}}"><i class="medium material-icons">person_add</i></a>
+                
+                    <!-- due dates -->
+                     <a href="#"><i class="medium material-icons">today</i></a>
                 </div>
             </div>
 
-            <!-- Dropdown Triggers -->
             <div class="row">
-                <div class="col s6 offset-s6 right-align">
-                    <a class='dropdown-button btn' href='#' data-activates='dropDueDates'>All Due Dates</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6 offset-s6 right-align">
-                    <a class='dropdown-button btn' href='#' data-activates='dropPay'>All Pay Days</a>
+                <div class="col s6 col offset-s6">
+                    <!-- late projects -->
+                     <a href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">assignment_late</i></a>
+
+                    <!-- all contacts -->
+                    <a href="{{{action('ClientsController@index')}}}"><i class="medium material-icons">group</i></a>
+                    
+                    <!-- pay dates -->
+                    <a href="#"><i class="medium material-icons">monetization_on</i></a>
                 </div>
             </div>
 
-            <!-- Dropdown Structures -->
-            <ul id='dropDueDates' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li><a href="#!">three</a></li>
-            </ul>
-
-            <ul id='dropPay' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li><a href="#!">three</a></li>
-            </ul>
+            
         </div>
 
         <div>
