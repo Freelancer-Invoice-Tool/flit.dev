@@ -27,6 +27,7 @@ class HomeController extends BaseController {
 
 	public function showDashboard()
 	{
+		// $project = Project::where('due_date', '>= today <= today+30', Auth::id())->paginate(9);
 		return View::make('dashboard');
 	}
 }
