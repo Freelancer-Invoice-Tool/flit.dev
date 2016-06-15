@@ -46,6 +46,7 @@ class UserController extends \BaseController {
         $email=Input::get('email');
         $password=Input::get('password');
         Auth::attempt(array('email' => $email, 'password' => $password));
+        Session::flash('successMessage', 'Congratulations, you\'ve created your account! Welcome to your new dashboard!');
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
 
