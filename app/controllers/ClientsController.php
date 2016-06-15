@@ -26,7 +26,9 @@ class ClientsController extends \BaseController {
 		
     	$paginator = new MaterializePagination($client);
 
-		return View::make('clients.index')->with('clients', $client)->with('paginator', $paginator);
+    	return View::make('clients.index')->with('clients', $client)->with('paginator', $paginator);	
+    	
+		
 	}
 
 
@@ -37,7 +39,7 @@ class ClientsController extends \BaseController {
 	 */
 	public function create()
 	{
-		if (Auth::check()) {
+		if (Auth::id()) {
 			return View::make('clients.create');
 		} else {
 			return $this->showMissing();
@@ -67,7 +69,13 @@ class ClientsController extends \BaseController {
 	public function show($id)
 	{
 		$client = Client::find($id);
-		return View::make('clients.show')->with('client', $client);
+
+		if($client->user_id != Auth::id()){
+			return $this->showMissing();
+		}else{
+			return View::make('clients.show')->with('client', $client);	
+		}
+		
 	}
 
 
