@@ -105,7 +105,7 @@ class ClientsController extends \BaseController {
 	{
 		$client = Client::find($id);
 
-		$client = Client::validateAndUpdate($client, Request::instance(), Auth::id());
+		$client = Client::validateAndUpdate($client, Request::instance(), User::find(Auth::id()));
 
 		return Redirect::action('ClientsController@show', $client->id)->withInput();
 	}
