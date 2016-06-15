@@ -35,10 +35,36 @@
             </div>
 
             <div class="col s6">
-                <a href="{{{action('ProjectsController@destroy', $project->id)}}}" class="waves-effect waves-light btn">Delete Project</a>
+                <!-- Modal Trigger -->
+                <button data-target="modal1" class="btn modal-trigger">Delete Client</button>
             </div>
         </div> 
     </div> <!-- closes container -->
-       
+    
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <form method="POST" action="{{{action('ProjectsController@destroy', $project->id)}}}">
+        {{Form::token()}}
+            <input type="hidden" name="_method" value="DELETE">
+            <div class="modal-content">
+                <h4>Are You Sure?</h4>
+                <p>If you delete this project, you won't be able to retrieve it!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn">Delete</button>
+                <button class="btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class=" modal-action modal-close">Keep</a></button>
+            </div>
+        </form>
+        
+    </div>     
 </main>
+@stop
+
+@section('bottom-script')
+    <script>
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+          });
+    </script>
 @stop
