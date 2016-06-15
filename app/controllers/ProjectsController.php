@@ -22,7 +22,7 @@ class ProjectsController extends \BaseController {
 
 	public function index()
 	{
-		$project = Project::paginate(3);
+		$project = Project::where('user_id', Auth::id())->paginate(3);
     	$paginator = new MaterializePagination($project);
 
 		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator);
