@@ -53,15 +53,13 @@
                 </thead>
 
                 <tbody>
-                    <tr>
                         @foreach(Auth::user()->projects as $project)
-
+                    <tr>
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
                         <td>{{{$project->due_date}}}</td>
                         <td>Blahblahblahblahblahblahblah</td>
-
-                        @endforeach
                     </tr>
+                        @endforeach
                 </tbody>
           </table>
         </div>
