@@ -54,7 +54,7 @@ class ClientsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$client = Client::validateAndCreate(Request::instance(), User::first());
+		$client = Client::validateAndCreate(Request::instance(), Auth::id());
 
 		return Redirect::action('ClientsController@show', $client->id)->withInput();
 	}
@@ -105,7 +105,7 @@ class ClientsController extends \BaseController {
 	{
 		$client = Client::find($id);
 
-		$client = Client::validateAndUpdate($client, Request::instance(), User::first());
+		$client = Client::validateAndUpdate($client, Request::instance(), Auth::id();
 
 		return Redirect::action('ClientsController@show', $client->id)->withInput();
 	}
