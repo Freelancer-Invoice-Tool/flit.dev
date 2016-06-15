@@ -15,26 +15,26 @@
             <div class="row">
                 <div class="col s6 col offset-s6">
                     <!-- new projects -->
-                    <a href="{{{action('ProjectsController@create')}}}"><i class="medium material-icons">create_new_folder</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="Add New Project" href="{{{action('ProjectsController@create')}}}"><i class="medium material-icons">create_new_folder</i></a>
             
                     <!-- new contact -->
-                    <a href="{{{action('ClientsController@create')}}}"><i class="medium material-icons">person_add</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="medium material-icons">person_add</i></a>
                 
                     <!-- due dates -->
-                     <a href="#"><i class="medium material-icons">today</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="#"><i class="medium material-icons">today</i></a>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s6 col offset-s6">
                     <!-- late projects -->
-                     <a href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">assignment_late</i></a>
+                     <a class="tooltipped" data-position="bottom" data-tooltip="View Late Projects" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">assignment_late</i></a>
 
                     <!-- all contacts -->
-                    <a href="{{{action('ClientsController@index')}}}"><i class="medium material-icons">group</i></a>
-                    
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="medium material-icons">group</i></a>
+
                     <!-- pay dates -->
-                    <a href="#"><i class="medium material-icons">monetization_on</i></a>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="#"><i class="medium material-icons">monetization_on</i></a>
                 </div>
             </div>
 
