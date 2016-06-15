@@ -27,8 +27,14 @@
                 @if($index % 3 == 2) 
                 </div> <!-- closes row -->
                 @endif
-        @endforeach        
+        @endforeach 
+        
+              
     </div> <!-- closes container -->
-       
+    <div class="container">
+        <ul class="pagination center-align">
+            {{ $paginator->render() }}
+        </ul>    
+    </div>  
 </main>
 @stop
