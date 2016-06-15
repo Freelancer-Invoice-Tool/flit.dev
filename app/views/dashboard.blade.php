@@ -9,7 +9,7 @@
     <div class="container">
         <div>
             <div class="row">
-                <h1>Welcome {{{Auth::user()->first_name}}}</h1>
+                <h3>Welcome {{{Auth::user()->first_name}}}</h3>
             </div>
 
             <div class="row">
@@ -21,7 +21,7 @@
                     <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="medium material-icons">person_add</i></a>
                 
                     <!-- due dates -->
-                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="#"><i class="medium material-icons">today</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">today</i></a>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                     <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="medium material-icons">group</i></a>
 
                     <!-- pay dates -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="#"><i class="medium material-icons">monetization_on</i></a>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">monetization_on</i></a>
                 </div>
             </div>
 
@@ -54,9 +54,13 @@
 
                 <tbody>
                     <tr>
-                        <td><a href="#"></a>Project</td>
-                        <td>March</td>
+                        @foreach(Auth::user()->projects as $project)
+
+                        <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
+                        <td>{{{$project->due_date}}}</td>
                         <td>Blahblahblahblahblahblahblah</td>
+
+                        @endforeach
                     </tr>
                 </tbody>
           </table>
