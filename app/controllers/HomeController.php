@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 	public function showSignup()
 	{
-		return View::make('signup');
+		return View::make('users.signup');
 	}
 
 	public function showDashboard()
