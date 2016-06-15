@@ -9,7 +9,7 @@
     <div class="container">
         <div>
             <div class="row">
-                <h1>Welcome User</h1>
+                <h1>Welcome {{{Auth::user()->first_name}}}</h1>
             </div>
 
             <div class="row">
@@ -43,7 +43,7 @@
 
         <div>
             <table class="striped centered responsive-table">
-            <h4>Upcoming This Month</h4>
+            <h4>30 Day View</h4>
                 <thead>
                     <tr>
                         <th data-field="project">Project</th>
