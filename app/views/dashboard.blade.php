@@ -38,12 +38,7 @@
                 </div>
                 <div class="col s6 col offset-s6">
 
-                    @if (Session::has('#'))
-                        <div class="alert alert-success">{{{ Session::get('overdueMessage') }}}</div>
-                    @endif
-                    @if (Session::has('#'))
-                        <div class="alert alert-danger">{{{ Session::get('noneOverdueMessage') }}}</div>
-                    @endif
+                    <p>Projects Overdue: {{{$overdueProjects}}}</p>
 
                 </div>
             </div>   
