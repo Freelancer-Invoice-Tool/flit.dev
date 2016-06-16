@@ -14,18 +14,53 @@
 
         <div class="row">
             <div class="col s12 center-align">
-                <h3>Project: {{{$project->name}}}</h3>
-                <p>Client: {{{$project->client->client_name}}}</p>
-                <p>Due Date: {{{$project->due_date}}}</p>
+                <h3>{{{$project->name}}}</h3>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>Client</th> 
+                            <th class="hide-on-med-and-down">Project Status</th> 
+                            <th>Project Due Date</th>
+                            <th class="hide-on-med-and-down">Projected Payment Date</th>    
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
+                            <td class="hide-on-med-and-down">{{{$project->project_status}}}</td>
+                            <td>{{{$project->due_date}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->pay_date}}}</td>
+                        </tr>     
+                    </tbody> 
+                </table>
+
+                <h4>{{{$project->client->client_name}}} Main Point of Contact</h4>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th class="hide-on-med-and-down">Phone</th>
+                            <th>Email</th>
+                            <th class="hide-on-med-and-down">Address</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr>
+                            <td>{{{$project->project_poc_name}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->project_poc_phone}}}</td>
+                            <td><a href="mailto:{{{$project->project_poc_email}}}">{{{$project->project_poc_email}}}</a></td>
+                            <td class="hide-on-med-and-down">{{{$project->project_poc_address}}}</td>
+                        </tr>
+                    </tbody>   
+                </table>
+
+                <h4>Project Notes</h4>
+                <p class="flow-text">{{{$project->project_notes}}}</p>
+
                 <p>Submitted On: {{{$project->project_submitted_date}}}</p>
                 <p>Invoice Submitted On: {{{$project->invoice_submitted_date}}}</p> 
                 <p>Invoice Approved On: {{{$project->invoice_approval_date}}}</p>
-                <p>Pay Date: {{{$project->pay_date}}}</p>
                 <p>Payment Recieved On: {{{$project->payment_received}}}</p>
-                <p>Main Contact Name: {{{$project->project_poc_name}}}</p>
-                <p>Main Contact Phone: {{{$project->project_poc_phone}}}</p>
-                <p>Main Contact Email: {{{$project->project_poc_email}}}</p>
-                <p>Main Contact Address: {{{$project->project_poc_address}}}</p>
             </div> 
         </div> <!-- closes row --> 
 
@@ -63,7 +98,6 @@
 @section('bottom-script')
     <script>
         $(document).ready(function(){
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
           });
     </script>
