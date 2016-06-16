@@ -51,9 +51,9 @@ class ProjectsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$client = Client::validateAndCreate(Request::instance(), User::first());
+		$client = Client::validateAndCreate(Request::instance(), User::find(Auth::id()));
 
-		$project = Project::validateAndCreate(Request::instance(), User::first(), $client);
+		$project = Project::validateAndCreate(Request::instance(), User::find(Auth::id()), $client);
 
 		$clientname = Input::get('client_name');
 
@@ -121,7 +121,7 @@ class ProjectsController extends \BaseController {
 			}
 		}
 
-		$project = Project::validateAndUpdate($project, Request::instance(), User::first(), $client);
+		$project = Project::validateAndUpdate($project, Request::instance(), User::find(Auth::id()), $client);
 
 		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
