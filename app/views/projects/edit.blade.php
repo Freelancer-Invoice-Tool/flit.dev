@@ -95,7 +95,7 @@
 
             <div class="row center-align">
                 <div class="col s6">
-                    <button class="btn waves-effect waves-light">Submit</button>
+                    <button class="btn waves-effect waves-light edit-btn">Submit</button>
                 </div>
 
                 <div class="col s6">

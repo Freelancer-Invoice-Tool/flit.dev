@@ -71,7 +71,7 @@
 
             <div class="col s6">
                 <!-- Modal Trigger -->
-                <button data-target="modal1" class="btn modal-trigger">Delete Client</button>
+                <button data-target="modal1" class="btn modal-trigger delete-btn">Delete Client</button>
             </div>
         </div> 
     </div> <!-- closes container -->
@@ -86,7 +86,7 @@
                 <p>If you delete this project, you won't be able to retrieve it!</p>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn">Delete</button>
+                <button type="submit" class="btn delete-btn">Delete</button>
                 <button class="btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class=" modal-action modal-close">Keep</a></button>
             </div>
         </form>
