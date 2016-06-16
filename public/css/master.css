@@ -3,9 +3,67 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: url(/../../img/cream_dust.png) no-repeat center fixed;
+    background-size: cover;
+    font-family: 'Merriweather', serif;
 }
 
 /*this ensures footer stays on bottom of screen*/
 main {
     flex: 1 0 auto;
 }
+
+nav {
+    background-color: #1a158a;
+}
+
+/*text on navbar*/
+nav ul a {
+    color: #f4fff7;
+}
+
+/*navbar logo image*/
+.compLogo {
+    padding-left: 15px;
+}
+
+/*all below are dashboard icons*/
+i {
+    color: #f4fff7;
+    border-radius: 5px;
+}
+
+.folder-icon {
+    background-color: #8338ec;
+    border: 1px solid #8338ec;
+}
+
+.person-icon {
+    background-color: #ff006e;
+    border: 1px solid #ff006e;
+}
+
+.group-icon {
+    background-color: #3a86ff;
+    border: 1px solid #3a86ff;
+}
+
+.money-icon {
+    background-color: #16471a;
+    border: 1px solid #16471a;
+}
+
+.cal-icon {
+    background-color: #ffbe0b;
+    border: 1px solid #ffbe0b;
+}
+
+.late-icon {
+    background-color: #fb5607;
+    border: 1px solid #fb5607;
+}
+
+
+
+
+
