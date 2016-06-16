@@ -28,12 +28,16 @@
                     {{Form::text('client_name', null, array('id'=>'client_name'))}}
                     {{ Form::label('client_name', 'Client Name') }}
                 </div>
+                <div class="input-field col s12">
+                    {{Form::hidden('project_status', 'started', array('id'=>'project_status'))}}   
+                </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::text('due_date', null, array('id'=>'due_date')) }}
                     {{ Form::label('due_date', 'Due Date') }}
                 </div>
+
             
                 <div class="input-field col s6">
                     {{ Form::text('project_submitted_date', null, array('id'=>'project_submitted_date')) }}
@@ -88,7 +92,7 @@
  
             <div class="row center-align">
                 <div class="col s12">
-                    <button type="submit" class="btn waves-effect waves-light">Add New Project</button>
+                    <button type="submit" class="btn waves-effect waves-light edit-btn">Add New Project</button>
                 </div>
             </div> 
         </div>
