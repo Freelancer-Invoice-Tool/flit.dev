@@ -76,7 +76,7 @@ class UserController extends \BaseController {
     public function update($id)
     {
 
-        // $user = User::find($id);/
+        $user = User::find($id);
 
         $user = User::validateAndUpdate($user, Request::instance(), User::find(Auth::id()));
 
