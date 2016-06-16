@@ -15,26 +15,26 @@
             <div class="row">
                 <div class="col s6 col offset-s6">
                     <!-- new projects -->
-                    <a class="tooltipped" data-position="top" data-tooltip="Add New Project" href="{{{action('ProjectsController@create')}}}"><i class="medium material-icons">create_new_folder</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="Add New Project" href="{{{action('ProjectsController@create')}}}"><i class="z-depth-1 folder-icon medium material-icons">create_new_folder</i></a>
             
                     <!-- new contact -->
-                    <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="medium material-icons">person_add</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="z-depth-1 person-icon medium material-icons">person_add</i></a>
                 
                     <!-- due dates -->
-                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">today</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 cal-icon medium material-icons">today</i></a>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s6 col offset-s6">
                     <!-- late projects -->
-                     <a class="tooltipped" data-position="bottom" data-tooltip="View Late Projects" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">assignment_late</i></a>
+                     <a class="tooltipped" data-position="bottom" data-tooltip="View Late Projects" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 late-icon medium material-icons">assignment_late</i></a>
 
                     <!-- all contacts -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="medium material-icons">group</i></a>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="z-depth-1 group-icon medium material-icons">group</i></a>
 
                     <!-- pay dates -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="medium material-icons">monetization_on</i></a>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
             </div>
 
