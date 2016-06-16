@@ -46,7 +46,7 @@
                     <tr>
                         <th data-field="project">Project</th>
                         <th data-field="dueDates">Due Date</th>
-                        <th data-field="project_notes" class="truncate">Project Notes</th>
+                        <th data-field="project-notes" class="truncate">Project Notes</th>
                     </tr>
                 </thead>
 
