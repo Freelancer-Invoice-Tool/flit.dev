@@ -38,7 +38,7 @@
                 </div>
                 <div class="col s6 col offset-s6">
 
-                    <p>Projects Overdue: {{{$overdueProjects}}}</p>
+                    <p class="flow-text">Projects Overdue: {{{$overdueProjects}}}</p>
 
                 </div>
             </div>   
