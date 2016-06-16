@@ -76,9 +76,9 @@ class UserController extends \BaseController {
     public function update($id)
     {
 
-        $user = User::find($id);
+        // $user = User::find($id);/
 
-        $user = User::validateAndUpdate($user, Request::instance(), User::first());
+        $user = User::validateAndUpdate($user, Request::instance(), User::find(Auth::id()));
 
         Session::flash('successMessage', 'Your changes have been saved!');
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
