@@ -36,9 +36,12 @@
                     <!-- pay dates -->
                     <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
-            </div>
+                <div class="col s6 col offset-s6">
 
-            
+                    <p class="flow-text">Projects Overdue: {{{$overdueProjects}}}</p>
+
+                </div>
+            </div>   
         </div>
 
         <div>
@@ -48,7 +51,7 @@
                     <tr>
                         <th data-field="project">Project</th>
                         <th data-field="dueDates">Due Date</th>
-                        <th data-field="details" class="truncate">Details</th>
+                        <th data-field="project-notes" class="truncate">Project Notes</th>
                     </tr>
                 </thead>
 
@@ -57,7 +60,7 @@
                     <tr>
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
                         <td>{{{$project->due_date}}}</td>
-                        <td>Blahblahblahblahblahblahblah</td>
+                        <td>{{{$project->project_notes}}}</td>
                     </tr>
                         @endforeach
                 </tbody>

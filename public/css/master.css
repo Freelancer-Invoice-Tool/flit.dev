@@ -6,6 +6,7 @@ body {
     background: url(/../../img/cream_dust.png) no-repeat center fixed;
     background-size: cover;
     font-family: 'Merriweather', serif;
+    color: #02020d;
 }
 
 /*this ensures footer stays on bottom of screen*/
@@ -63,7 +64,31 @@ i {
     border: 1px solid #fb5607;
 }
 
+/*link color*/
+a {
+    color: #3a86ff;
+}
 
+/*delete/alert button background, border, text*/
+.delete-btn {
+    background-color: #c11111;
+    border: 1px solid #c11111;
+    border-radius: 5px;
+    color: #3a86ff;
+}
+
+/*edit/submit/save button background, border, text*/
+.edit-btn {
+    background-color: #16471a;
+    border: 1px solid #16471a;
+    border-radius: 5px;
+    color: #3a86ff;
+}
+
+.pagination li.active {
+    background-color: #fb5607;
+    color: #3a86ff;
+}
 
 
 

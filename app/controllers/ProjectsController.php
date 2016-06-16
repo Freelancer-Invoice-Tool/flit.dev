@@ -60,16 +60,6 @@ class ProjectsController extends \BaseController {
 
 		$clientname = Input::get('client_name');
 
-		// $clients = DB::table('clients')->where('client_name', $clientname)->get();
-
-		// foreach($client as $blah) {
-
-		// 	if($project->client->id == $blah->id) {
-		// 		$client = $blah;
-		// 	}
-		// }
-
-		
 		return Redirect::action('ProjectsController@show', $project->id)->withInput();
 	}
 
