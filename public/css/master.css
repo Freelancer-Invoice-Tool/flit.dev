@@ -6,6 +6,7 @@ body {
     background: url(/../../img/cream_dust.png) no-repeat center fixed;
     background-size: cover;
     font-family: 'Merriweather', serif;
+    color: #02020d;
 }
 
 /*this ensures footer stays on bottom of screen*/

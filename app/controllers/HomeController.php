@@ -32,6 +32,10 @@ class HomeController extends BaseController {
 							->where('due_date', '<', Carbon\Carbon::now()->addMonth())
 							->orderBy('due_date', 'asc')->paginate(9);
 
-		return View::make('dashboard')->with('projects', $projects);
+		$overdueProjects = Project::where('user_id', '=', Auth::id())
+									->where('due_date', '<=', Carbon\Carbon::now())->count();
+
+		return View::make('dashboard')->with('projects', $projects)->with('overdueProjects', $overdueProjects);
+	
 	}
 }
