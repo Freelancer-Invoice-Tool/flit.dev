@@ -86,6 +86,12 @@
                     {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{Form::textarea('project_notes', null, array('id'=>'project_notes', 'class'=> 'form-control other-class another materialize-textarea', 'value' => $project->project_notes))}}
+                    {{ Form::label('project_notes', 'Project Notes') }}
+                </div>
+            </div>
 
             <div class="row center-align">
                 <div class="col s6">

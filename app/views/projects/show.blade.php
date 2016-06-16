@@ -18,42 +18,48 @@
                 <table class="centered">
                     <thead>
                         <tr>
-                            <th>Client</th>  
-                            <th>Project Due Date</th>    
+                            <th>Client</th> 
+                            <th class="hide-on-med-and-down">Project Status</th> 
+                            <th>Project Due Date</th>
+                            <th class="hide-on-med-and-down">Projected Payment Date</th>    
                         </tr>    
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{{$project->client->client_name}}}</td>
+                            <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
+                            <td class="hide-on-med-and-down">{{{$project->project_status}}}</td>
                             <td>{{{$project->due_date}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->pay_date}}}</td>
                         </tr>     
                     </tbody> 
                 </table>
 
-                <h4>Client Main Point of Contact</h4>
+                <h4>{{{$project->client->client_name}}} Main Point of Contact</h4>
                 <table class="centered">
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Phone</th>
+                            <th class="hide-on-med-and-down">Phone</th>
                             <th>Email</th>
-                            <th>Address</th>
+                            <th class="hide-on-med-and-down">Address</th>
                         </tr>
                     </thead> 
                     <tbody>
                         <tr>
                             <td>{{{$project->project_poc_name}}}</td>
-                            <td>{{{$project->project_poc_phone}}}</td>
-                            <td>{{{$project->project_poc_email}}}</td>
-                            <td>{{{$project->project_poc_address}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->project_poc_phone}}}</td>
+                            <td><a href="mailto:{{{$project->project_poc_email}}}">{{{$project->project_poc_email}}}</a></td>
+                            <td class="hide-on-med-and-down">{{{$project->project_poc_address}}}</td>
                         </tr>
                     </tbody>   
                 </table>
 
+                <h4>Project Notes</h4>
+                <p class="flow-text">{{{$project->project_notes}}}</p>
+
                 <p>Submitted On: {{{$project->project_submitted_date}}}</p>
                 <p>Invoice Submitted On: {{{$project->invoice_submitted_date}}}</p> 
                 <p>Invoice Approved On: {{{$project->invoice_approval_date}}}</p>
-                <p>Pay Date: {{{$project->pay_date}}}</p>
                 <p>Payment Recieved On: {{{$project->payment_received}}}</p>
             </div> 
         </div> <!-- closes row --> 
