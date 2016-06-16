@@ -27,13 +27,31 @@
                     <tbody>
                         <tr>
                             <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
-                            <td class="hide-on-med-and-down">{{{$project->project_status}}}</td>
+                            <td class="hide-on-med-and-down">{{$project->project_status}} <a href="{{action('ProjectsController@edit', $project->id)}}">update status</a> </td>
                             <td>{{{$project->due_date}}}</td>
                             <td class="hide-on-med-and-down">{{{$project->pay_date}}}</td>
                         </tr>     
                     </tbody> 
                 </table>
-
+                <h4>Project Milestones</h4>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>Project Submit Date</th>
+                            <th>Invoice Submit Date</th>
+                            <th>Invoice Approval Date</th>
+                            <th>Payment Received Date</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr>
+                            <td>{{{$project->project_submitted_date}}}</td>
+                            <td>{{{$project->invoice_submitted_date}}}</td>
+                            <td>{{{$project->invoice_approval_date}}}</td>
+                            <td>{{{$project->payment_received}}}</td>
+                        </tr>
+                    </tbody>  
+                </table>
                 <h4>{{{$project->client->client_name}}} Main Point of Contact</h4>
                 <table class="centered">
                     <thead>
@@ -55,12 +73,9 @@
                 </table>
 
                 <h4>Project Notes</h4>
-                <p class="flow-text">{{{$project->project_notes}}}</p>
+                <a href="{{{action('ProjectsController@edit', $project->id)}}}">Add some notes</a>
+                <p>{{{$project->project_notes}}}</p>
 
-                <p>Submitted On: {{{$project->project_submitted_date}}}</p>
-                <p>Invoice Submitted On: {{{$project->invoice_submitted_date}}}</p> 
-                <p>Invoice Approved On: {{{$project->invoice_approval_date}}}</p>
-                <p>Payment Recieved On: {{{$project->payment_received}}}</p>
             </div> 
         </div> <!-- closes row --> 
 

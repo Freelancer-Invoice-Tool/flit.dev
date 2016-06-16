@@ -25,9 +25,14 @@
             </div>
         
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     {{Form::text('client_name', $project->client->client_name, array('id'=>'client_name'))}}
                     {{ Form::label('client_name', 'Client Name') }}
+                </div>
+                <!-- This drop down doesn't work at all -->
+                <div class="input-field col s6">
+                     {{Form::select('project_status', array('started'=>'Started', 'in_progress'=>'In Progress', 'project_submitted'=>'Project Submitted', 'invoice_submitted'=>'Invoice Submitted', 'invoice_approved'=>'Invoice Approved', 'payment_received'=>'Payment Received'), 'started')}}
+                    {{ Form::label('project_status', 'Project Status') }}   
                 </div>
             </div>
             <div class="row">
