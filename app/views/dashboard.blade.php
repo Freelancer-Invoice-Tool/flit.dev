@@ -46,7 +46,7 @@
                     <tr>
                         <th data-field="project">Project</th>
                         <th data-field="dueDates">Due Date</th>
-                        <th data-field="details" class="truncate">Details</th>
+                        <th data-field="project_notes" class="truncate">Project Notes</th>
                     </tr>
                 </thead>
 
@@ -55,8 +55,7 @@
                     <tr>
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
                         <td>{{{$project->due_date}}}</td>
-                        <td>Blahblahblahblahblahblahblah</td>
-                        <!-- {$project->project_notes}}} -->
+                        <td>{{{$project->project_notes}}}</td>
                     </tr>
                         @endforeach
                 </tbody>
