@@ -36,6 +36,16 @@
                     <!-- pay dates -->
                     <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
+                <div class="col s6 col offset-s6">
+
+                    @if (Session::has('#'))
+                        <div class="alert alert-success">{{{ Session::get('overdueMessage') }}}</div>
+                    @endif
+                    @if (Session::has('#'))
+                        <div class="alert alert-danger">{{{ Session::get('noneOverdueMessage') }}}</div>
+                    @endif
+
+                </div>
             </div>   
         </div>
 

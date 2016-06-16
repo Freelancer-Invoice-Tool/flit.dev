@@ -32,6 +32,17 @@ class HomeController extends BaseController {
 							->where('due_date', '<', Carbon\Carbon::now()->addMonth())
 							->orderBy('due_date', 'asc')->paginate(9);
 
+		$overdueProjects = Project::where('due_date', '<', Carbon\Carbon::now());
+
+		if($overdueProjects) {
+			Session::flash('overdueMessage', 'X projects are overdue');
+		} else {
+			Session::flash('noneOverdueMessage', '0 projects are overdue');
+		}
+
+		
 		return View::make('dashboard')->with('projects', $projects);
+
+	
 	}
 }
