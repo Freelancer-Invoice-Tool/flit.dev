@@ -3,6 +3,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: url(/../../img/cream_dust.png) no-repeat center fixed;
+    background-size: cover;
 }
 
 /*this ensures footer stays on bottom of screen*/
@@ -14,10 +16,12 @@ nav {
     background-color: #1a158a;
 }
 
+/*text on navbar*/
 nav ul a {
     color: #f4fff7;
 }
 
+/*dashboard icons*/
 i {
     color: #f4fff7;
     border-radius: 5px;
@@ -52,4 +56,10 @@ i {
     background-color: #fb5607;
     border: 1px solid #fb5607;
 }
+
+.compLogo {
+    padding-left: 15px;
+}
+
+
 

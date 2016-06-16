@@ -24,7 +24,7 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{{action('HomeController@showHome')}}}" class="brand-logo"><img class="responsive-img" src="/../../img/ladyLogo.png"></a>
+                <a href="{{{action('HomeController@showHome')}}}" class="brand-logo"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
                 @if (Auth::check())
                     <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
