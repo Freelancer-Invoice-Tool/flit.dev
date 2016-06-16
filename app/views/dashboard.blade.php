@@ -58,6 +58,7 @@
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
                         <td>{{{$project->due_date}}}</td>
                         <td>Blahblahblahblahblahblahblah</td>
+                        <!-- {$project->project_notes}}} -->
                     </tr>
                         @endforeach
                 </tbody>
