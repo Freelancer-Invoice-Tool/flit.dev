@@ -36,9 +36,7 @@
                     <!-- pay dates -->
                     <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@index')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
-            </div>
-
-            
+            </div>   
         </div>
 
         <div>
