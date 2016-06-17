@@ -16,7 +16,7 @@
         <p> {{{$client->main_poc_address}}} </p>
 
         @if(Auth::check())
-            <button class="btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
+            <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
         @endif
     </div> 
 
