@@ -29,12 +29,12 @@ class Project extends BaseModel
     public static function validateAndUpdate(Project $project, Illuminate\Http\Request $request, User $user, $client)
     {
         $validator = new projectValidator();
-        $projectCreator = new projectUpdater();
+        $projectUpdater = new projectUpdater();
         
 
         $validator->validate($request);
-        $project = $projectCreator->updateProject($project, $request, $user, $client);
-        
+
+        $project = $projectUpdater->updateProject($project, $request, $user, $client);
         
         return $project;
     }
