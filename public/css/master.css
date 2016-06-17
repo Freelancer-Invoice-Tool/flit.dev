@@ -14,13 +14,26 @@ main {
     flex: 1 0 auto;
 }
 
-nav {
+nav, footer {
     background-color: #1a158a;
 }
 
-/*text on navbar*/
-nav ul a {
+.side-nav {
+    background-color: #f4fff7;
+}
+
+/*text on side nav*/
+.side-nav a {
+    color: #1a158a;
+}
+
+/*text on main navbar and footer*/
+nav ul a, footer, footer a {
     color: #f4fff7;
+}
+
+footer {
+    justify-content: space-around;
 }
 
 /*navbar logo image*/
@@ -98,6 +111,7 @@ a {
     color: #f4fff7;
 }
 
+/*page indicator for pagination*/
 .pagination li.active {
     background-color: #fb5607;
     color: #3a86ff;

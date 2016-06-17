@@ -65,8 +65,17 @@
 
 
     <footer>
-        <div>
-            <p>&#169; 2016</p>
+        <div class="row">
+            <div class="col s10">
+                <p>
+                    &#169; 2016
+                    <span class="hide-on-med-and-down">
+                    <a href="http://kristenlcates.com/" target="_blank">  |  Kristen Cates</a> 
+                    <a href="https://www.linkedin.com/in/alan-lauritzen-02a078104" target="_blank">  |  Alan Lauritzen</a>
+                    <a href="http://bobbieoconnor.me/" target="_blank">  |  Bobbie O'Connor</a>
+                    </span>
+                </p>
+            </div>
         </div>
     </footer>
 
