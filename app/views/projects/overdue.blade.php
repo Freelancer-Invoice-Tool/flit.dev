@@ -13,7 +13,6 @@
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->
-        <!-- <div class="col s3"> -->
         <div class="hide-on-med-and-down">
             <table class="striped">
                 <tr>
