@@ -48,7 +48,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="btn">Save New Info?</button>     
+                            <button type="submit" class="btn edit-btn">Save New Info?</button>     
                         </div>
                     </form>
                 </div>
