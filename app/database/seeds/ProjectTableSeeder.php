@@ -195,7 +195,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::all()->random()->id;
-        $project->client_id = Client::find(3)->id;
+        $project->client_id = Client::find(6)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
         $project->project_notes = '';

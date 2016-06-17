@@ -33,7 +33,9 @@ class HomeController extends BaseController {
 							->orderBy('due_date', 'asc')->paginate(9);
 
 		$overdueProjects = Project::where('user_id', '=', Auth::id())
-									->where('due_date', '<=', Carbon\Carbon::now())->count();
+									->where('due_date', '<=', Carbon\Carbon::now())
+									->where('project_submitted_date', '<', Carbon\Carbon::now())
+									->where('invoice_submitted_date', '<', Carbon\Carbon::now())->count();
 
 		return View::make('dashboard')->with('projects', $projects)->with('overdueProjects', $overdueProjects);
 	
