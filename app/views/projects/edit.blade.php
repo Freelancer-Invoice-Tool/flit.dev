@@ -107,8 +107,8 @@
                     <a href="{{{action('ProjectsController@show', $project->id)}}}" class="waves-effect waves-light btn">Cancel</a>
                 </div>
             </div>  
+            {{ Form::close() }}    
         </div>
-        {{ Form::close() }}    
     </div>
 </main>
 @stop

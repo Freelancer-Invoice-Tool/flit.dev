@@ -46,6 +46,8 @@
                 <!-- condensed index visible on vertical tablet and smaller -->
                 <!-- <div class="col s3"> -->
                 <div id="mobile-project-index" class="hide-on-large-only">
+
+                    @if ($due_projects)
                     <h2>Projects Due</h2>
                         <table class="striped">
                             <tr>
@@ -55,18 +57,20 @@
                                 </th>
                                 <th>Due Date</th>
                             </tr>
-                            @foreach($projects as $project)
-                                @if($project->due_date!=0 && $project->project_submitted_date==0)
+                            @foreach($due_projects as $due_project)
+                                @if($due_project->due_date!=0 && $project->project_submitted_date==0)
                                     <tr>
                                         <td>
-                                            <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
-                                            <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
+                                            <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$due_project->name}}}</a></p>
+                                            <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$project->due_date}}}</td>
+                                        <td>{{{$due_project->due_date}}}</td>
                                     </tr>
                                 @endif
                             @endforeach
                         </table>
+                        {{ $due_projects->links() }}
+                    @endif
 
                     <h2>Needs Invoice Issued</h2>
                         <table class="striped">

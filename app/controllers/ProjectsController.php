@@ -25,7 +25,10 @@ class ProjectsController extends \BaseController {
 		$project = Project::where('user_id', Auth::id())->paginate(3);
     	$paginator = new MaterializePagination($project);
 
-		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator);
+    	$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '==', 0000-00-00)->paginate(2);
+        $duePaginator = new MaterializePagination($due_projects);
+
+		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator)->with('due_projects', $due_projects)->with('paginator', $duePaginator);
 	}
 
 
@@ -134,6 +137,17 @@ class ProjectsController extends \BaseController {
 		} else {
 			return $this->showMissing();
 		}
+	}
+
+	public function showDueCondensed()
+	{
+		$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '==', 0)->paginate(2);
+		$paginator = new MaterializePagination($project);
+		if ($due_projects)
+		{
+			return View::make('projects.partial_grid')->with('due_projects', $due_projects)->with('paginator', $paginator);			
+		}
+                    
 	}
 
 
