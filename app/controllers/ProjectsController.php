@@ -90,6 +90,23 @@ class ProjectsController extends \BaseController {
 			->with('projects', $projects)->with('paginator', $paginator);
 	}
 
+	public function showPayDates()
+	{
+		$projects = Project::where('user_id', '=', Auth::id())
+			->where(function($query)
+			{
+				$query->where('project_status', '=', 'project_submitted')
+					->orWhere('project_status', '=', 'invoice_submitted')
+					->orWhere('project_status', '=', 'invoice_approved');
+			})
+			->paginate(15);
+
+    	$paginator = new MaterializePagination($projects);
+
+		return View::make('projects.paydates')
+			->with('projects', $projects)->with('paginator', $paginator);
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

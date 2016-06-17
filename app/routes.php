@@ -24,6 +24,8 @@ Route::get('/overdueProjects', 'ProjectsController@showOverdue');
 
 Route::get('/dueDates', 'ProjectsController@showDueDates');
 
+Route::get('/paydates', 'ProjectsController@showPayDates');
+
 // All Client Pages
 Route::resource('/clients', 'ClientsController');
 
