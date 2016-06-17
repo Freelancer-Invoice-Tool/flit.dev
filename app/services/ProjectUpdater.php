@@ -16,7 +16,7 @@ class ProjectUpdater {
         $project->project_status = $request->input('project_status');
         $project->project_submitted = $request->input('project_submitted');
         $project->invoice_submitted = $request->input('invoice_submitted');
-        $project->payment_received = $request->input('payment_received');
+        $project->payment_received = parseDates($request->input('payment_received'));
         $project->project_poc_name = $request->input('project_poc_name');
         $project->project_poc_email = $request->input('project_poc_email');
         $project->project_poc_phone = $request->input('project_poc_phone');
