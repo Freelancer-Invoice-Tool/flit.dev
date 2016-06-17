@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::text('pay_date', null, array('id'=>'pay_date')) }}
-                    {{ Form::label('pay_date', 'Exp Pay Date') }}
+                    {{ Form::label('pay_date', 'Expected Pay Date') }}
                 </div>
             
                 <div class="input-field col s6">
