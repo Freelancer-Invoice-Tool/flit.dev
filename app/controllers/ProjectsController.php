@@ -24,7 +24,7 @@ class ProjectsController extends \BaseController {
 	{
 		$project = Project::where('user_id', Auth::id())->paginate(15);
     	$paginator = new MaterializePagination($project);
-// dd($project->project_submitted_date);
+
     	$due_projects=Project::where('user_id', Auth::id())
     		->where('due_date', '!=', '0000-00-00')
     		->where('project_submitted_date', '=', '0000-00-00')
@@ -42,11 +42,11 @@ class ProjectsController extends \BaseController {
 
         $awaiting_payment=Project::where('user_id', Auth::id())
         	->where('invoice_approval_date', '!=', '0000-00-00')
-        	->where('payment_received', '=', '0')
+        	->where('payment_received', '=', '0000-00-00')
     		->get();
 
         $project_completed=Project::where('user_id', Auth::id())
-        	->where('payment_received', '!=', '0')
+        	->where('payment_received', '!=', '0000-00-00')
     		->get();
 
 		return View::make('projects.index')

@@ -49,6 +49,7 @@
                             <td>{{{!empty($project->invoice_submitted_date) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
                             <td>{{{!empty($project->invoice_approval_date) ? $project->invoice_approval_date->format('m-d-Y') : ''}}}</td>
                             <td>{{{!empty($project->payment_received) ? $project->payment_received->format('m-d-Y'): ''}}}</td>
+          
                         </tr>
                     </tbody>  
                 </table>
