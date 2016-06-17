@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+<main>
     <div class="container">
         <h1 class="center-align">{{{ $client->client_name }}}</h1> 
 
@@ -18,7 +19,6 @@
         @if(Auth::check())
             <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
         @endif
-    </div> 
-
-
+    </div>
+</main>
 @stop

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Overdue Projects
+    Flit: All Due Dates
 @stop
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="container">
 
         <div>
-            <h1>Overdue Projects</h1>
+            <h1>Upcoming Project Due Dates</h1>
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->
