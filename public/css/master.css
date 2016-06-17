@@ -27,9 +27,13 @@ nav, footer {
     color: #1a158a;
 }
 
-/*text on main navbar*/
-nav ul a, footer {
+/*text on main navbar and footer*/
+nav ul a, footer, footer a {
     color: #f4fff7;
+}
+
+footer {
+    justify-content: space-around;
 }
 
 /*navbar logo image*/
