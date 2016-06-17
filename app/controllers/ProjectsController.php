@@ -74,16 +74,20 @@ class ProjectsController extends \BaseController {
 
 	public function showDueDates()
 	{
-		// $projects = Project::where('user_id', '=', Auth::id())
-		// 	->where('due_date', '<=', Carbon\Carbon::now())
-		// 	->where('project_submitted_date', '<', Carbon\Carbon::now())
-		// 	->where('invoice_submitted_date', '<', Carbon\Carbon::now())
-		// 	->paginate(15);
+		$projects = Project::where('user_id', '=', Auth::id())
+			->where('due_date', '>', Carbon\Carbon::now())
+			->where(function($query)
+			{
+				$query->where('project_status', '=', '')
+					->orWhere('project_status', '=', 'started')
+					->orWhere('project_status', '=', 'in_progress');
+			})
+			->paginate(15);
 
-  //   	$paginator = new MaterializePagination($projects);
+    	$paginator = new MaterializePagination($projects);
 
-		return View::make('projects.duedates');
-			// ->with('projects', $projects)->with('paginator', $paginator);
+		return View::make('projects.duedates')
+			->with('projects', $projects)->with('paginator', $paginator);
 	}
 
 	/**
