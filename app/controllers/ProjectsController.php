@@ -25,7 +25,7 @@ class ProjectsController extends \BaseController {
 		$project = Project::where('user_id', Auth::id())->paginate(3);
     	$paginator = new MaterializePagination($project);
 
-    	$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '==', 0000-00-00)->paginate(2);
+    	$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '=', '0000-00-00')->paginate(2);
         $duePaginator = new MaterializePagination($due_projects);
 
 		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator)->with('due_projects', $due_projects)->with('paginator', $duePaginator);

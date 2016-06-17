@@ -31,11 +31,11 @@
                             <tr>
                                 <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
                                 <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
-                                <td>{{{$project->due_date}}}</td>
-                                <td>{{{$project->project_submitted_date}}}</td>
-                                <td>{{{$project->invoice_submitted_date}}}</td> 
-                                <td>{{{$project->invoice_approval_date}}}</td>
-                                <td>{{{$project->pay_date}}}</td>
+                                <td>{{{$project->due_date->format('m-d-Y')}}}</td>
+                                <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
+                                <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                                 <td>{{{$project->payment_received}}}</td>
                             </tr>
                         @endforeach  
@@ -47,7 +47,7 @@
                 <!-- <div class="col s3"> -->
                 <div id="mobile-project-index" class="hide-on-large-only">
 
-                    @if ($due_projects)
+                    @if ($due_projects->count()>0)
                     <h2>Projects Due</h2>
                         <table class="striped">
                             <tr>
@@ -58,18 +58,18 @@
                                 <th>Due Date</th>
                             </tr>
                             @foreach($due_projects as $due_project)
-                                @if($due_project->due_date!=0 && $project->project_submitted_date==0)
+                                
                                     <tr>
                                         <td>
                                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$due_project->name}}}</a></p>
                                             <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$due_project->due_date}}}</td>
+                                        <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                                     </tr>
-                                @endif
+                               
                             @endforeach
                         </table>
-                        {{ $due_projects->links() }}
+                        {{$due_projects->links()}}
                     @endif
 
                     <h2>Needs Invoice Issued</h2>
@@ -83,13 +83,13 @@
                                 <th>Conditions</th>
                             </tr>
                             @foreach($projects as $project)
-                                @if($project->project_submitted_date!=0 && $project->invoice_submitted_date==0)
+                                @if($project->project_submitted_date->format('m-d-Y')!=0 && $project->invoice_submitted_date->format('m-d-Y')==0)
                                     <tr>
                                         <td>
                                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
                                             <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$project->project_submitted_date}}}</td>
+                                        <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
                                         <!-- verify payment conditions exist for client-->
                                         <td>{{{Client::find($project->client_id)->payment_terms}}} {{{Client::find($project->client_id)->submission_or_approval}}}</td>
                                         
@@ -109,13 +109,13 @@
                                 <th>Conditions</th>
                             </tr>
                             @foreach($projects as $project)
-                                @if($project->invoice_submitted_date!=0 && $project->invoice_approval_date==0)
+                                @if($project->invoice_submitted_date->format('m-d-Y')!=0 && $project->invoice_approval_date->format('m-d-Y')==0)
                                     <tr>
                                         <td>
                                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
                                             <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$project->invoice_submitted_date}}}</td>
+                                        <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td>
                                         <td>{{{Client::find($project->client_id)->payment_terms}}} {{{Client::find($project->client_id)->submission_or_approval}}}</td>
                                     </tr>
                                 @endif
@@ -132,13 +132,13 @@
                                 <th>Expected pay date</th>
                             </tr>
                             @foreach($projects as $project)
-                                @if($project->invoice_approval_date!=0 && $project->payment_received==0)
+                                @if($project->invoice_approval_date->format('m-d-Y')!=0 && $project->payment_received==0)
                                     <tr>
                                         <td>
                                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
                                             <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$project->pay_date}}}</td>
+                                        <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                                     </tr>
                                 @endif
                             @endforeach
@@ -160,7 +160,7 @@
                                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
                                             <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
                                         </td>
-                                        <td>{{{$project->pay_date}}}</td>
+                                        <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                                         <td>{{{$project->pay_received}}}</td>
                                     </tr>
                                 @endif
