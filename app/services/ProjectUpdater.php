@@ -7,11 +7,12 @@ class ProjectUpdater {
         $project->name = $request->input('name');
         $project->description = $request->input('description');
         $project->project_notes = $request->input('project_notes');
-        $project->due_date = $request->input('due_date');
-        $project->project_submitted_date = $request->input('project_submitted_date');
-        $project->invoice_submitted_date = $request->input('invoice_submitted_date');
-        $project->invoice_approval_date = $request->input('invoice_approval_date');
-        $project->pay_date = $request->input('pay_date');
+        $project->due_date = parseDates($request->input('due_date'));
+        $project->project_submitted_date = parseDates($request->input('project_submitted_date'));
+        $project->invoice_submitted_date = parseDates($request->input('invoice_submitted_date'));
+        $project->invoice_approval_date = parseDates($request->input('invoice_approval_date'));
+        $project->pay_date = parseDates($request->input('pay_date'));
+        // dd("I'm still working");
         $project->project_status = $request->input('project_status');
         $project->project_submitted = $request->input('project_submitted');
         $project->invoice_submitted = $request->input('invoice_submitted');

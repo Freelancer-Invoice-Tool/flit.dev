@@ -125,9 +125,13 @@ class ProjectsController extends \BaseController {
 	{
 		$project = Project::find($id);
 
+
+
 		$clientname = Input::get('client_name');
 
 		$clients = DB::table('clients')->where('client_name', $clientname)->get();
+
+
 
 		foreach($clients as $blah) {
 			if($project->client_id == $blah->id) {

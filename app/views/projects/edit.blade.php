@@ -29,12 +29,20 @@
                     {{Form::text('client_name', $project->client->client_name, array('id'=>'client_name'))}}
                     {{ Form::label('client_name', 'Client Name') }}
                 </div>
-                <!-- This drop down doesn't work at all -->
+                
                 <div class="input-field col s6">
-                     {{Form::select('project_status', array('started'=>'Started', 'in_progress'=>'In Progress', 'project_submitted'=>'Project Submitted', 'invoice_submitted'=>'Invoice Submitted', 'invoice_approved'=>'Invoice Approved', 'payment_received'=>'Payment Received'), 'started')}}
-                    {{ Form::label('project_status', 'Project Status') }}   
+                    <select id="project_status" name="project_status">
+                        <option value="started" selected>Started</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="project_submitted">Project Submitted</option>
+                        <option value="invoice_submitted">Invoice Submitted</option>
+                        <option value="invoice_approved">Invoice Approved</option>
+                        <option value="payment_received">Payment Received</option>
+                    </select>
+                    <label>Project Status</label>
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::text('due_date', null, array('id'=>'due_date')) }}
@@ -60,7 +68,7 @@
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::text('pay_date', null, array('id'=>'pay_date')) }}
-                    {{ Form::label('pay_date', 'Exp Pay Date') }}
+                    {{ Form::label('pay_date', 'Expected Pay Date') }}
                 </div>
             
                 <div class="input-field col s6">
@@ -112,3 +120,11 @@
     </div>
 </main>
 @stop
+
+@section('bottom-script')
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });    
+    </script>
+@stop    

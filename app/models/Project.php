@@ -29,12 +29,12 @@ class Project extends BaseModel
     public static function validateAndUpdate(Project $project, Illuminate\Http\Request $request, User $user, $client)
     {
         $validator = new projectValidator();
-        $projectCreator = new projectUpdater();
+        $projectUpdater = new projectUpdater();
         
 
         $validator->validate($request);
-        $project = $projectCreator->updateProject($project, $request, $user, $client);
-        
+
+        $project = $projectUpdater->updateProject($project, $request, $user, $client);
         
         return $project;
     }
@@ -44,7 +44,5 @@ class Project extends BaseModel
     {
         return array('created_at', 'updated_at', 'deleted_at', 'due_date', 'project_submitted_date', 'invoice_submitted_date', 'invoice_approval_date', 'pay_date');
     }
-
-
 
 }
