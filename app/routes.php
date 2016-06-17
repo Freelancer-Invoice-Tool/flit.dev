@@ -20,7 +20,7 @@ Route::get('/dashboard', 'HomeController@showDashboard');
 // All Project Pages
 Route::resource('/projects', 'ProjectsController');
 
-Route::get('/projects/ovedue', 'ProjectsController@showOverdue');
+Route::get('/overdueProjects', 'ProjectsController@showOverdue');
 
 // All Client Pages
 Route::resource('/clients', 'ClientsController');

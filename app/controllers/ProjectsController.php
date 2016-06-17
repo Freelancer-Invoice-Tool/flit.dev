@@ -60,15 +60,16 @@ class ProjectsController extends \BaseController {
 
 	public function showOverdue()
 	{
-    	$paginator = new MaterializePagination($project);
-		$projects = Project::where('user_id', '=', Auth::id())->paginate(15)
+		$projects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '<=', Carbon\Carbon::now())
 			->where('project_submitted_date', '<', Carbon\Carbon::now())
 			->where('invoice_submitted_date', '<', Carbon\Carbon::now())
-			->get();
+			->paginate(15);
+
+    	$paginator = new MaterializePagination($projects);
 
 		return View::make('projects.overdue')
-			->with('projects', $project)->with('paginator', $paginator);
+			->with('projects', $projects)->with('paginator', $paginator);
 	}
 
 	/**
