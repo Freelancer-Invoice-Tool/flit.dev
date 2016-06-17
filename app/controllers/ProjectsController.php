@@ -58,6 +58,18 @@ class ProjectsController extends \BaseController {
 			->with('project_completed', $project_completed);
 	}
 
+	public function showOverdue()
+	{
+    	$paginator = new MaterializePagination($project);
+		$projects = Project::where('user_id', '=', Auth::id())->paginate(15)
+			->where('due_date', '<=', Carbon\Carbon::now())
+			->where('project_submitted_date', '<', Carbon\Carbon::now())
+			->where('invoice_submitted_date', '<', Carbon\Carbon::now())
+			->get();
+
+		return View::make('projects.overdue')
+			->with('projects', $project)->with('paginator', $paginator);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -72,7 +84,6 @@ class ProjectsController extends \BaseController {
 			return $this->showMissing();
 		}
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
