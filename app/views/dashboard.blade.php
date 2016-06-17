@@ -34,7 +34,7 @@
                     <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="z-depth-1 group-icon medium material-icons">group</i></a>
 
                     <!-- pay dates -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="#"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@showPayDates')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
                 <div class="col s6 col offset-s6">
 
