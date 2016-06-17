@@ -21,7 +21,7 @@
                     <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="z-depth-1 person-icon medium material-icons">person_add</i></a>
                 
                     <!-- due dates -->
-                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="#"><i class="z-depth-1 cal-icon medium material-icons">today</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="{{{action('ProjectsController@showDueDates')}}}"><i class="z-depth-1 cal-icon medium material-icons">today</i></a>
                 </div>
             </div>
 
