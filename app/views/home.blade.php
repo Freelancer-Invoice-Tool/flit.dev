@@ -38,7 +38,7 @@
                     </div>
                     <div class="row">
                         <div class="col s6">
-                            <button type="submit" class="btn waves-effect waves-light">Log In</button>
+                            <button type="submit" class="btn waves-effect waves-light edit-btn">Log In</button>
                         </div>
                         
                         <div class="col s6">
