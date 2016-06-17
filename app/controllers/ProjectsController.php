@@ -72,6 +72,20 @@ class ProjectsController extends \BaseController {
 			->with('projects', $projects)->with('paginator', $paginator);
 	}
 
+	public function showDueDates()
+	{
+		// $projects = Project::where('user_id', '=', Auth::id())
+		// 	->where('due_date', '<=', Carbon\Carbon::now())
+		// 	->where('project_submitted_date', '<', Carbon\Carbon::now())
+		// 	->where('invoice_submitted_date', '<', Carbon\Carbon::now())
+		// 	->paginate(15);
+
+  //   	$paginator = new MaterializePagination($projects);
+
+		return View::make('projects.duedates');
+			// ->with('projects', $projects)->with('paginator', $paginator);
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
