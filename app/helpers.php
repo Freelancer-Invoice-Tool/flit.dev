@@ -1,16 +1,20 @@
 <?php 
 function parseDates($dateString)
 {
-    $possibleDate = new DateTime($dateString);
+    if($dateString!=''){
+        $possibleDate = new DateTime($dateString);
+        $result = $possibleDate->format('Y-m-d');
+    } else {
+        $result='';
+    }
 
-    $result = $possibleDate->format('Y-m-d');
 
-    if($result === '-0001-11-30'){
+    // if($result === '-0001-11-30'){
 
-        return null;
+    //     return null;
 
-    }else{
+    // }else{
 
         return $result;
-    }
+    // }
 }
