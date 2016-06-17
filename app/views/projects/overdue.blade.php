@@ -14,7 +14,7 @@
 
         <!-- expanded index visible on horizontal tablet and larger -->
         <!-- <div class="col s3"> -->
-        <!-- <div class="hide-on-med-and-down"> -->
+        <div class="hide-on-med-and-down">
             <table class="striped">
                 <tr>
                     <th>Due Date</th>
@@ -46,12 +46,28 @@
         </div>
 
         <!-- condensed index visible on vertical tablet and smaller -->
-        <!-- <div class="col s3"> -->
-       <!--  <div id="mobile-project-index" class="hide-on-large-only">
+        <div id="mobile-project-index" class="hide-on-large-only">
+            <table class="striped">
+                <tr>
+                    <th>
+                        <p>Project</p>
+                        <p>Due Date</p>
+                    </th>
+                    <th>Client</th>
+                </tr>
 
-            
+                @foreach($projects as $project)    
+                <tr>
+                    <td>
+                        <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
+                        <p>{{{$project->due_date->format('m-d-Y')}}}</p>
+                    </td>
+                    <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
+                </tr>
+                @endforeach
+            </table>
         </div>        
 
-    </div> --> <!-- closes container -->      
+    </div> <!-- closes container -->      
 </main>
 @stop
