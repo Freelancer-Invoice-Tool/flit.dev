@@ -22,13 +22,34 @@ class ProjectsController extends \BaseController {
 
 	public function index()
 	{
-		$project = Project::where('user_id', Auth::id())->paginate(3);
+		$project = Project::where('user_id', Auth::id())->paginate(15);
     	$paginator = new MaterializePagination($project);
+// dd($project->project_submitted_date);
+    	$due_projects=Project::where('user_id', Auth::id())
+    		->where('due_date', '!=', '0000-00-00')
+    		->where('project_submitted_date', '=', '0000-00-00');
 
-    	$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '=', '0000-00-00')->paginate(2);
-        $duePaginator = new MaterializePagination($due_projects);
+        $needs_invoice=Project::where('user_id', Auth::id())
+        	->where('project_submitted_date', '!=', '0000-00-00')
+        	->where('invoice_submitted_date', '=', '0000-00-00');
+        $needs_approval=Project::where('user_id', Auth::id())
+        	->where('invoice_submitted_date', '!=', '0000-00-00')
+        	->where('invoice_approval_date', '=', '0000-00-00');
 
-		return View::make('projects.index')->with('projects', $project)->with('paginator', $paginator)->with('due_projects', $due_projects)->with('paginator', $duePaginator);
+        $awaiting_payment=Project::where('user_id', Auth::id())
+        	->where('invoice_approval_date', '!=', '0000-00-00')
+        	->where('payment_received', '=', '0');
+
+        $project_completed=Project::where('user_id', Auth::id())
+        	->where('payment_received', '!=', '0');
+
+		return View::make('projects.index')
+			->with('projects', $project)->with('paginator', $paginator)
+			->with('due_projects', $due_projects)
+			->with('needs_invoice', $needs_invoice)
+			->with('needs_approval', $needs_approval)
+			->with('awaiting_payment', $awaiting_payment)
+			->with('project_completed', $project_completed);
 	}
 
 
@@ -143,16 +164,7 @@ class ProjectsController extends \BaseController {
 		}
 	}
 
-	public function showDueCondensed()
-	{
-		$due_projects=Project::where('user_id', Auth::id())->where('due_date', '!=', 0)->where('project_submitted_date', '==', 0)->paginate(2);
-		$paginator = new MaterializePagination($project);
-		if ($due_projects)
-		{
-			return View::make('projects.partial_grid')->with('due_projects', $due_projects)->with('paginator', $paginator);			
-		}
-                    
-	}
+	
 
 
 }
