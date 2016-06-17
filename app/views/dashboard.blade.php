@@ -58,8 +58,8 @@
                 <tbody>
                         @foreach($projects as $project)
                     <tr>
-                        <td><a href="{{{ action('ProjectsController@show', $project->id) }}}"></a>{{{$project->name}}}</td>
-                        <td>{{{$project->due_date}}}</td>
+                        <td><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></td>
+                        <td>{{{$project->due_date->format('m-d-Y')}}}</td>
                         <td>{{{$project->project_notes}}}</td>
                     </tr>
                         @endforeach

@@ -29,7 +29,7 @@
                             <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
                             <td class="hide-on-med-and-down">{{$project->project_status}} <a href="{{action('ProjectsController@edit', $project->id)}}">update status</a> </td>
                             <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                            <td class="hide-on-med-and-down">{{{$project->pay_date->format('m-d-Y')}}}</td>
+                            <td class="hide-on-med-and-down">{{{!empty($project->pay_date) ? $project->pay_date->format('m-d-Y') : ''}}}</td>
                         </tr>     
                     </tbody> 
                 </table>
@@ -45,10 +45,10 @@
                     </thead> 
                     <tbody>
                         <tr>
-                            <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
-                            <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td>
-                            <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
-                            <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
+                            <td>{{{!empty($project->project_submitted_date) ? $project->project_submitted_date->format('m-d-Y') : ''}}}</td>
+                            <td>{{{!empty($project->invoice_submitted_date) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
+                            <td>{{{!empty($project->invoice_approval_date) ? $project->invoice_approval_date->format('m-d-Y') : ''}}}</td>
+                            <td>{{{$project->payment_received}}}</td>
                         </tr>
                     </tbody>  
                 </table>
