@@ -42,7 +42,7 @@ class Project extends BaseModel
     // Mutator to format dates in the following fields
     public function getDates()
     {
-        return array('created_at', 'updated_at', 'deleted_at', 'due_date', 'project_submitted_date', 'invoice_submitted_date', 'invoice_approval_date', 'pay_date');
+        return array('created_at', 'updated_at', 'deleted_at', 'due_date', 'project_submitted_date', 'invoice_submitted_date', 'pay_date', 'invoice_approval_date', 'payment_received');
     }
 
 }

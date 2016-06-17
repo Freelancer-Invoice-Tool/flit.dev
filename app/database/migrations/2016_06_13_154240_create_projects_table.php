@@ -30,7 +30,7 @@ class CreateProjectsTable extends Migration {
             $table->string('project_status')->nullable();
             $table->boolean('project_submitted')->nullable();
             $table->boolean('invoice_submitted')->nullable();
-            $table->boolean('payment_received')->nullable();
+            $table->dateTime('payment_received')->nullable();
             $table->string('project_poc_name', 200)->nullable();
             $table->string('project_poc_email')->nullable();
             $table->string('project_poc_phone')->nullable();

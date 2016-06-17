@@ -33,7 +33,7 @@
                                 <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
                                 <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
                                 <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                                @if ((strpos($project->project_submitted_date, '-0001'))===false)
+                                @if ((!is_null($project->project_submitted_date)))
                                 <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
@@ -54,7 +54,7 @@
                                 <td> </td>
                                 @endif
                                 @if ((strpos($project->payment_received, '-0001'))===false)
-                                <td>{{{$project->payment_received}}}</td>
+                                <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
                                 @endif
@@ -182,7 +182,7 @@
                                         <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$completed_project->client->client_name}}}</a></p>
                                     </td>
                                     <td>{{{$completed_project->pay_date->format('m-d-Y')}}}</td>
-                                    <td>{{{$completed_project->payment_received}}}</td>
+                                    <td>{{{$completed_project->payment_received->format('m-d-Y')}}}</td>
                                 </tr>
                             @endforeach
                         </table>

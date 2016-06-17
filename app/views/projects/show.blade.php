@@ -48,7 +48,7 @@
                             <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
                             <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td>
                             <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
-                            <td>{{{$project->payment_received}}}</td>
+                            <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
                         </tr>
                     </tbody>  
                 </table>
