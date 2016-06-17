@@ -27,21 +27,27 @@ class ProjectsController extends \BaseController {
 // dd($project->project_submitted_date);
     	$due_projects=Project::where('user_id', Auth::id())
     		->where('due_date', '!=', '0000-00-00')
-    		->where('project_submitted_date', '=', '0000-00-00');
+    		->where('project_submitted_date', '=', '0000-00-00')
+    		->get();
 
         $needs_invoice=Project::where('user_id', Auth::id())
         	->where('project_submitted_date', '!=', '0000-00-00')
-        	->where('invoice_submitted_date', '=', '0000-00-00');
+        	->where('invoice_submitted_date', '=', '0000-00-00')
+    		->get();
+    		
         $needs_approval=Project::where('user_id', Auth::id())
         	->where('invoice_submitted_date', '!=', '0000-00-00')
-        	->where('invoice_approval_date', '=', '0000-00-00');
+        	->where('invoice_approval_date', '=', '0000-00-00')
+    		->get();
 
         $awaiting_payment=Project::where('user_id', Auth::id())
         	->where('invoice_approval_date', '!=', '0000-00-00')
-        	->where('payment_received', '=', '0');
+        	->where('payment_received', '=', '0')
+    		->get();
 
         $project_completed=Project::where('user_id', Auth::id())
-        	->where('payment_received', '!=', '0');
+        	->where('payment_received', '!=', '0')
+    		->get();
 
 		return View::make('projects.index')
 			->with('projects', $project)->with('paginator', $paginator)
