@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="col s6">
-                    <a href="{{{action('ProjectsController@show', $project->id)}}}" class="waves-effect waves-light btn">Cancel</a>
+                    <a href="{{{action('ProjectsController@show', $project->id)}}}" class="waves-effect waves-light btn delete-btn">Cancel</a>
                 </div>
             </div>  
             {{ Form::close() }}    
