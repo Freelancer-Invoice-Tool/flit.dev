@@ -8,13 +8,6 @@ function parseDates($dateString)
         $result='';
     }
 
+    return $result;
 
-    // if($result === '-0001-11-30'){
-
-    //     return null;
-
-    // }else{
-
-        return $result;
-    // }
 }
