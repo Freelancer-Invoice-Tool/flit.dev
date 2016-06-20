@@ -25,11 +25,19 @@
                 </tr>
                 @foreach($projects as $project)
                     <tr>
-                        <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
+                        @if ((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date))
+                            <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
+                        @else
+                            <td> </td>
+                        @endif
 
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
-
-                        <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
+                        
+                        @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))
+                            <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
+                        @else
+                            <td> </td>
+                        @endif
 
                         <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
 
@@ -57,7 +65,11 @@
                 <tr>
                     <td>
                         <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
-                        <p>{{{$project->due_date->format('m-d-Y')}}}</p>
+                        @if ((strpos($project->due_date, '-0001'))===false && !empty($project->due_date))
+                            <p>{{{$project->due_date->format('m-d-Y')}}}</p>
+                        @else
+                            <td> </td>
+                        @endif
                     </td>
                     <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
                 </tr>
