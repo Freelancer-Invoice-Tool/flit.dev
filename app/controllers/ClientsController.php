@@ -117,8 +117,10 @@ class ClientsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		if (Auth::check()) {
+		if (Auth::id()) {
 			$client = Client::find($id);
+			$projects = DB::table('projects')->where('client_id', $client->id);
+			$projects->delete();
 			$client->delete();
 
 			Session::flash('successMessage', 'Client has been deleted');
