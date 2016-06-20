@@ -27,7 +27,7 @@
                 <div class="input-field col s12">
                     <select id="client_dropdown" name="client_dropdown">
                         <option label='select' selected>Select from dropdown</option>
-                        <option label='create_new'>Create new</option>
+                        <option data-clientid='create' label='create_new'>Create new</option>
                         @foreach($clients as $client)
                             <option data-clientid="{{{ $client->id }}}" label="{{{ $client->client_name }}}">{{{ $client->client_name }}}</option>
                         @endforeach
@@ -37,7 +37,7 @@
             </div>
 
             <!-- create client fields should remain hidden unless user selects to create new -->
-            <div id="create_client"> <!-- class='hide'> -->
+            <div id="create_client" class='hide'>
                 <div class='row col s12'>
                     {{Form::label('client_name', 'Client Name')}} 
                     {{Form::text('client_name', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.'))}} 
@@ -152,29 +152,50 @@
             $('select').material_select();
         });
 
+
+
         $(client_dropdown).change(function(){
-            // ajax call found on http://stackoverflow.com/questions/30825656/on-dropdown-selection-how-to-fill-complete-form-fields-from-database
-            var clientid = ($(this).find(':selected').data('clientid'));
-            $.ajax({
-                url: '/clients/ajax/' + clientid,
-                type: 'get',
-                success: function(response){
-                    console.log(response);
-                    $('#client_name').val(response.client_name);
-                    $('#payment_terms').val(response.payment_terms);
-                    $('#submission_or_approval').val(response.submission_or_approval);
-                    $('#main_poc_name').val(response.main_poc_name);
-                    $('#main_poc_email').val(response.main_poc_email);
-                    $('#main_poc_phone').val(response.main_poc_phone);
-                    $('#main_poc_address').val(response.main_poc_address);
-                    
-                    
-                    
-                },
-                fail: function(response){
-                    console.log ("it failed");
-                }
-            });
+            if ($(this).find(':selected').data('clientid')=='create') {
+                $("#create_client").removeClass("hide");
+                $('#client_name').val("");
+                $('#payment_terms').val("");
+                $('#submission_or_approval').val("");
+                $('#main_poc_name').val("");
+                $('#main_poc_email').val("");
+                $('#main_poc_phone').val("");
+                $('#main_poc_address').val("");
+            } else if ($(this).find(':selected').data('clientid') > 0) {
+                $("#create_client").addClass("hide");
+                var clientid = ($(this).find(':selected').data('clientid'));
+                $.ajax({
+                    url: '/clients/ajax/' + clientid,
+                    type: 'get',
+                    success: function(response){
+                        console.log(response);
+                        $('#client_name').val(response.client_name);
+                        $('#payment_terms').val(response.payment_terms);
+                        $('#submission_or_approval').val(response.submission_or_approval);
+                        $('#main_poc_name').val(response.main_poc_name);
+                        $('#main_poc_email').val(response.main_poc_email);
+                        $('#main_poc_phone').val(response.main_poc_phone);
+                        $('#main_poc_address').val(response.main_poc_address);
+                    },
+                    fail: function(response){
+                        console.log ("it failed");
+                    }
+                });
+
+            } else {
+                $("#create_client").addClass("hide");
+                $('#client_name').val("");
+                $('#payment_terms').val("");
+                $('#submission_or_approval').val("");
+                $('#main_poc_name').val("");
+                $('#main_poc_email').val("");
+                $('#main_poc_phone').val("");
+                $('#main_poc_address').val("");
+            }
+
         });
 
 
