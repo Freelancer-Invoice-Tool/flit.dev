@@ -6,7 +6,7 @@ class ProjectTableSeeder extends Seeder
     {   
         $project = new Project();
         $project->user_id = User::find(1)->id;
-        $project->client_id = Client::find(4)->id;
+        $project->client_id = Client::find(7)->id;
         $project->name = 'Batarang';
         $project->description = 'Bat-shaped boomerang.';
         $project->project_notes = '';
@@ -27,7 +27,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(3)->id;
+        $project->client_id = Client::find(4)->id;
         $project->name = 'Billy club';
         $project->description = 'Strong, collapsible walking stick.';
         $project->project_notes = '';
@@ -48,7 +48,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(1)->id;
+        $project->client_id = Client::find(2)->id;
         $project->name = 'Arc Reactor';
         $project->description = 'Compact power source.';
         $project->project_notes = '';
@@ -69,7 +69,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(1)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(13)->id;
         $project->name = 'Shield';
         $project->description = 'Vibranium shield with red and white stripes and a white star in a blue circle in the middle.';
         $project->project_notes = '';
@@ -90,7 +90,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(14)->id;
         $project->name = 'Indestructable Motorcycle';
         $project->description = 'A bike that won\'t break in a little fender-bender.';
         $project->project_notes = '';
@@ -111,7 +111,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(15)->id;
         $project->name = 'Expandable pants';
         $project->description = 'Pants that will expand without shredding, and shrink back.';
         $project->project_notes = '';
@@ -132,7 +132,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(1)->id;
-        $project->client_id = Client::find(4)->id;
+        $project->client_id = Client::find(7)->id;
         $project->name = 'Unhackable Database Application';
         $project->description = 'An application to store personal information about colleagues.';
         $project->project_notes = '';
@@ -153,7 +153,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(3)->id;
+        $project->client_id = Client::find(4)->id;
         $project->name = 'Text Reader';
         $project->description = 'Text reader capable of recognizing legal jargon.';
         $project->project_notes = '';
@@ -174,7 +174,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(1)->id;
+        $project->client_id = Client::find(2)->id;
         $project->name = 'AI Backup';
         $project->description = 'Complex database, storage, and security.';
         $project->project_notes = '';
@@ -195,7 +195,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(1)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(13)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
         $project->project_notes = '';
@@ -216,7 +216,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(14)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
         $project->project_notes = '';
@@ -237,7 +237,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(6)->id;
+        $project->client_id = Client::find(15)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
         $project->project_notes = '';
