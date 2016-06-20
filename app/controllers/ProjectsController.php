@@ -62,8 +62,12 @@ class ProjectsController extends \BaseController {
 	{
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '<=', Carbon\Carbon::now())
-			->where('project_submitted_date', '<', Carbon\Carbon::now())
-			->where('invoice_submitted_date', '<', Carbon\Carbon::now())
+			->where('project_status', '!=', 'Payment Received')
+			->where(function($query)
+			{
+				$query->orWhere('project_submitted_date', '<', Carbon\Carbon::now())
+				->orWhere('invoice_submitted_date', '<', Carbon\Carbon::now());
+			})
 			->paginate(15);
 
     	$paginator = new MaterializePagination($projects);
