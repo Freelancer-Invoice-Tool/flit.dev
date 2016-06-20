@@ -15,6 +15,7 @@
         <div class="row">
             <div class="col s12 center-align">
                 <h3>{{{$project->name}}}</h3>
+                
                 <table class="centered">
                     <thead>
                         <tr>
@@ -52,7 +53,7 @@
                         </tr>
                     </tbody>  
                 </table>
-                <h4>{{{$project->client->client_name}}} Main Point of Contact</h4>
+                <h4>{{{$project->client->client_name}}} Project Point of Contact</h4>
                 <table class="centered">
                     <thead>
                         <tr>
