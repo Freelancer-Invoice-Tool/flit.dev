@@ -41,6 +41,11 @@ footer {
     padding-left: 15px;
 }
 
+/*modal popup size, desktop*/
+.modal {
+    width: 45%;
+}
+
 /*all below are dashboard icons*/
 i {
     color: #f4fff7;
