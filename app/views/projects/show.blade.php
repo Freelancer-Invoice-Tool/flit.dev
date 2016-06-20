@@ -104,7 +104,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn delete-btn">Delete</button>
-                <button class="btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class=" modal-action modal-close">Keep</a></button>
+                <button class="btn edit-btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class="modal-action modal-close">Keep</a></button>
             </div>
         </form>
         
