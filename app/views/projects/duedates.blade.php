@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: All Due Dates
+    FLIT: All Due Dates
 @stop
 
 @section('content')
