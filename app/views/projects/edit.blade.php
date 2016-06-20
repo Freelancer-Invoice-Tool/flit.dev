@@ -15,12 +15,19 @@
 
         
         <div class="row">
-            {{ Form::open(array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
+            {{ Form::model($project, array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 
             <div class="row">
                 <div class="input-field col s12">
                     {{ Form::text('name', $project->name, array('id'=>'name')) }}
                     {{ Form::label('name', 'Project Name') }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    {{Form::textarea('description', Input::old('description'), array('id'=>'description', 'class'=> 'form-control other-class another materialize-textarea', 'value' => $project->description))}}
+                    {{ Form::label('description', 'Description') }}
                 </div>
             </div>
         
