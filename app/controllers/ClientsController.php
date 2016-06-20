@@ -130,5 +130,10 @@ class ClientsController extends \BaseController {
 		}
 	}
 
+	public function getClient($id) {
+		$client=Client::find($id);
+		return Response::json($client);
+	}
+
 
 }
