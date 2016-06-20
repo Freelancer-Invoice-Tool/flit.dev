@@ -29,13 +29,14 @@
                         <option label='select' selected>Select from dropdown</option>
                         <option label='create_new'>Create new</option>
                         @foreach($clients as $client)
-                            <option label="{{{ $client->client_name }}}">{{{ $client->client_name }}}</option>
+                            <option data-clientid="{{{ $client->id }}}" label="{{{ $client->client_name }}}">{{{ $client->client_name }}}</option>
                         @endforeach
                     </select>
                     <label>Select client</label>
                 </div>
             </div>
 
+            <!-- create client fields should remain hidden unless user selects to create new -->
             <div id="create_client"> <!-- class='hide'> -->
                 <div class='row col s12'>
                     {{Form::label('client_name', 'Client Name')}} 
@@ -69,6 +70,7 @@
                 </div>
 
             </div>
+            <!-- end of client creation fields -->
 
                 <div class="input-field col s12">
                     {{Form::hidden('project_status', 'started', array('id'=>'project_status'))}}   
@@ -143,10 +145,39 @@
 @stop
 
 @section('bottom-script')
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
     <script>
         $(document).ready(function() {
             $('select').material_select();
         });
+
+        $(client_dropdown).change(function(){
+            // ajax call found on http://stackoverflow.com/questions/30825656/on-dropdown-selection-how-to-fill-complete-form-fields-from-database
+            var clientid = ($(this).find(':selected').data('clientid'));
+            $.ajax({
+                url: '/clients/ajax/' + clientid,
+                type: 'get',
+                success: function(response){
+                    console.log(response);
+                    $('#client_name').val(response.client_name);
+                    $('#payment_terms').val(response.payment_terms);
+                    $('#submission_or_approval').val(response.submission_or_approval);
+                    $('#main_poc_name').val(response.main_poc_name);
+                    $('#main_poc_email').val(response.main_poc_email);
+                    $('#main_poc_phone').val(response.main_poc_phone);
+                    $('#main_poc_address').val(response.main_poc_address);
+                    
+                    
+                    
+                },
+                fail: function(response){
+                    console.log ("it failed");
+                }
+            });
+        });
+
+
 
             
     </script>

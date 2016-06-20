@@ -39,3 +39,5 @@ Route::post('/', 'UserController@auth');
 
 // Route to logout function
 Route::get('/logout', 'UserController@logout');
+
+Route::get('clients/ajax/{id}', 'ClientsController@getClient');
