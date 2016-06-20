@@ -50,8 +50,8 @@
                 <thead>
                     <tr>
                         <th data-field="project">Project</th>
-                        <th data-field="dueDates">Due Date</th>
-                        <th data-field="project-notes" class="truncate">Project Notes</th>
+                        <th data-field="dueDates">Project Due Date</th>
+                        <th data-field="description" class="truncate">Description</th>
                     </tr>
                 </thead>
 
@@ -60,7 +60,7 @@
                     <tr>
                         <td><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></td>
                         <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                        <td>{{{$project->project_notes}}}</td>
+                        <td>{{{$project->description}}}</td>
                     </tr>
                         @endforeach
                 </tbody>

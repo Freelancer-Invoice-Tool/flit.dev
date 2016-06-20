@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Project Details
+    FLIT: Project Details
 @stop
 
 @section('content')
@@ -16,6 +16,7 @@
             <div class="col s12 center-align">
                 <h3>{{{$project->name}}}</h3>
                 <p class="flow-text">{{{$project->description}}}</p>
+                {{{dd($project)}}}
                 
                 <table class="centered">
                     <thead>
