@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Project Details
+    FLIT: Project Details
 @stop
 
 @section('content')
@@ -15,6 +15,8 @@
         <div class="row">
             <div class="col s12 center-align">
                 <h3>{{{$project->name}}}</h3>
+                <p class="flow-text">{{{$project->description}}}</p>
+                {{{dd($project)}}}
                 
                 <table class="centered">
                     <thead>
@@ -103,7 +105,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn delete-btn">Delete</button>
-                <button class="btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class=" modal-action modal-close">Keep</a></button>
+                <button class="btn edit-btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class="modal-action modal-close">Keep</a></button>
             </div>
         </form>
         

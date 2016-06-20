@@ -16,13 +16,13 @@
         <div class="hide-on-med-and-down">
             <table class="striped">
                 <tr>
-                    <th>Due Date</th>
+                    <th>Project Due Date</th>
                     <th>Project</th>
                     <th>Project Status</th>
                     <th>Client</th>
                     <th>Project Point of Contact Name</th>
                     <th>Project Point of Contact Email</th>
-                    <th>Project Details</th>
+                    <th>Project Description</th>
                 </tr>
                 @foreach($projects as $project)
                     <tr>
@@ -50,7 +50,7 @@
                 <tr>
                     <th>
                         <p>Project</p>
-                        <p>Due Date</p>
+                        <p>Project Due Date</p>
                     </th>
                     <th>Client</th>
                 </tr>

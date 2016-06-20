@@ -99,13 +99,16 @@ a {
 }
 
 /*buttons on hover*/
-.edit-btn:hover, button.edit-btn a:hover {
+.edit-btn:hover, button.edit-btn a:hover,
+button.edit-btn a:active, button.edit-btn a:visited {
     background-color: #2d5930;
     border: 1px solid #2d5930;
     color: #f4fff7;
 }
 
-.delete-btn:hover, button.delete-btn a:hover {
+.delete-btn:hover, button.delete-btn a:hover,
+button.delete-btn a:active, button.delete-btn a:visited, 
+button.delete-btn a:link, button.modal-trigger.delete-btn {
     background-color: #c72828;
     border: 1px solid #c72828;
     color: #f4fff7;

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: All Due Dates
+    FLIT: All Due Dates
 @stop
 
 @section('content')
@@ -22,7 +22,7 @@
                     <th>Client</th>
                     <th>Project Point of Contact Name</th>
                     <th>Project Point of Contact Email</th>
-                    <th>Project Details</th>
+                    <th>Project Description</th>
                 </tr>
                 @foreach($projects as $project)
                     <tr>
@@ -50,7 +50,7 @@
                 <tr>
                     <th>
                         <p>Project</p>
-                        <p>Due Date</p>
+                        <p>Project Due Date</p>
                     </th>
                     <th>Client</th>
                 </tr>

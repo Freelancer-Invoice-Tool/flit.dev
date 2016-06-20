@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Projected Payments
+    FLIT: Projected Payments
 @stop
 
 @section('content')
@@ -18,7 +18,7 @@
                 <tr>
                     <th>Projected Payment Date</th>
                     <th>Project</th>
-                    <th>Project Submitted</th>
+                    <th>Project Submit Date</th>
                     <th>Client</th>
                     <th>Project Point of Contact Name</th>
                     <th>Project Point of Contact Email</th>
@@ -48,7 +48,7 @@
                 <tr>
                     <th>
                         <p>Project</p>
-                        <p>Due Date</p>
+                        <p>Project Due Date</p>
                     </th>
                     <th>Client</th>
                 </tr>
