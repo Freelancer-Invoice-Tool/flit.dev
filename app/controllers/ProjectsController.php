@@ -63,11 +63,9 @@ class ProjectsController extends \BaseController {
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '<=', Carbon\Carbon::now())
 			->where('project_status', '!=', 'Payment Received')
-			->where(function($query)
-			{
-				$query->orWhere('project_submitted_date', '<', Carbon\Carbon::now())
-				->orWhere('invoice_submitted_date', '<', Carbon\Carbon::now());
-			})
+			->where('project_status', '!=', 'Project Submitted')
+			->where('project_status', '!=', 'Invoice Approved')
+			->where('project_status', '!=', 'Invoice Submitted')
 			->paginate(15);
 
     	$paginator = new MaterializePagination($projects);
@@ -83,8 +81,8 @@ class ProjectsController extends \BaseController {
 			->where(function($query)
 			{
 				$query->orWhere('project_status', '=', '')
-					->orWhere('project_status', '=', 'started')
-					->orWhere('project_status', '=', 'in_progress');
+					->orWhere('project_status', '=', 'Started')
+					->orWhere('project_status', '=', 'In Progress');
 			})
 			->paginate(15);
 
@@ -99,9 +97,9 @@ class ProjectsController extends \BaseController {
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where(function($query)
 			{
-				$query->orWhere('project_status', '=', 'project_submitted')
-					->orWhere('project_status', '=', 'invoice_submitted')
-					->orWhere('project_status', '=', 'invoice_approved');
+				$query->orWhere('project_status', '=', 'Project Submitted')
+					->orWhere('project_status', '=', 'Invoice Submitted')
+					->orWhere('project_status', '=', 'Invoice Approved');
 			})
 			->paginate(15);
 
