@@ -27,15 +27,20 @@ class HomeController extends BaseController {
 
 	public function showDashboard()
 	{
+		//for month view
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '>', Carbon\Carbon::now())
 			->where('due_date', '<', Carbon\Carbon::now()->addMonth())
 			->orderBy('due_date', 'asc')->paginate(9);
 
+		//for overdue alert on dashboard
 		$overdueProjects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '<=', Carbon\Carbon::now())
-			->where('project_submitted_date', '<', Carbon\Carbon::now())
-			->where('invoice_submitted_date', '<', Carbon\Carbon::now())->count();
+			->where('project_status', '!=', 'Payment Received')
+			->where('project_status', '!=', 'Project Submitted')
+			->where('project_status', '!=', 'Invoice Approved')
+			->where('project_status', '!=', 'Invoice Submitted')
+			->count();
 
 		return View::make('dashboard')->with('projects', $projects)->with('overdueProjects', $overdueProjects);
 	
