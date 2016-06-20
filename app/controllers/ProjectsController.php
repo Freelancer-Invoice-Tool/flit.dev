@@ -109,6 +109,23 @@ class ProjectsController extends \BaseController {
 			->with('projects', $projects)->with('paginator', $paginator);
 	}
 
+	public function showArchive()
+	{
+		$projects = Project::where('user_id', '=', Auth::id())
+			->where('project_submitted_date', '!=', '0000-00-00')
+			->where(function($query)
+			{
+				$query->orWhere('project_status', '=', 'Payment Received');
+			})
+			->paginate(15);
+
+		$paginator = new MaterializePagination($projects);
+
+		return View::make('projects.archive')
+			->with('projects', $projects)
+			->with('paginator', $paginator);
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -118,7 +135,7 @@ class ProjectsController extends \BaseController {
 	{
 		if (Auth::check()) {
 			$clients = Client::where('user_id', '=', Auth::id())->get();
-			// dd($clients);
+			
 			return View::make('projects.create')->with('clients', $clients);
 		} else {
 			return $this->showMissing();
@@ -225,8 +242,5 @@ class ProjectsController extends \BaseController {
 			return $this->showMissing();
 		}
 	}
-
-	
-
 
 }
