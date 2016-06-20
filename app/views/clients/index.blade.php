@@ -15,22 +15,32 @@
             <a class="waves-effect waves-light btn" href="{{{action('ClientsController@create')}}}">Create New Client</a>
         </div>
 
-        <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
-        @foreach($clients as $index=>$client)
-                @if($index % 3 == 0)
-                <div class="row">
-                @endif
-                    <div class="col s3">
-                        <h3><a href="{{{ action('ClientsController@show', $client->id) }}}">Client: {{{$client->client_name}}}</a></h3>
-                        <p>Main Contact: {{{$client->main_poc_name}}}</p>
-                        <p>Main Contact Phone: {{{$client->main_poc_phone}}}</p>
-                        <p>Main Contact Email: {{{$client->main_poc_email}}}</p>
-                        <p>Main Contact Address: {{{$client->main_poc_address}}}</p> 
-                    </div>
-                @if($index % 3 == 2) 
-                </div> <!-- closes row -->
-                @endif
-        @endforeach 
+        <!-- expanded index visible on horizontal tablet and larger -->
+        <div class="hide-on-med-and-down">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Main POC Name</th>
+                        <th>Main POC Phone Number</th>
+                        <th>Main POC Email</th>
+                        <th>Main POC Address</th>
+                    </tr>
+                </thead>  
+                <tbody>
+                    @foreach($clients as $client)
+                        <tr>
+                             <td><a href="{{{ action('ClientsController@show', $client->id) }}}">{{{$client->client_name}}}</a></td>
+                             <td>{{{$client->main_poc_name}}}</td>
+                             <td>{{{$client->main_poc_phone}}}</td>
+                             <td><a href="mailto:{{{$client->main_poc_email}}}"></a>{{{$client->main_poc_email}}}</td>
+                             <td>{{{$client->main_poc_address}}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>   
+        </div>
+        
         
               
     </div> <!-- closes container -->
