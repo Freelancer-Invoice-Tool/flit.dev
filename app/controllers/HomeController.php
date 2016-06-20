@@ -22,7 +22,12 @@ class HomeController extends BaseController {
 
 	public function showSignup()
 	{
-		return View::make('users.signup');
+		if (!Auth::check()) {
+			return View::make('users.signup');
+		} else {
+			return Redirect::action('HomeController@showDashboard');
+		}
+
 	}
 
 	public function showDashboard()
