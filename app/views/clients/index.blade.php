@@ -40,7 +40,26 @@
                 </tbody>
             </table>   
         </div>
-        
+
+        <!-- condensed index visible on vertical tablet and smaller -->
+        <div id="mobile-project-index" class="hide-on-large-only">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Main POC Email</th>
+                    </tr>
+                </thead>  
+                <tbody>
+                    @foreach($clients as $client)
+                        <tr>
+                             <td><a href="{{{ action('ClientsController@show', $client->id) }}}">{{{$client->client_name}}}</a></td>
+                             <td><a href="mailto:{{{$client->main_poc_email}}}"></a>{{{$client->main_poc_email}}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>       
+        </div>
         
               
     </div> <!-- closes container -->
