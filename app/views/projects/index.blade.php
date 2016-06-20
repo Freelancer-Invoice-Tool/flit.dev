@@ -11,6 +11,9 @@
         <div>
             <h1>All Projects</h1>
         </div>
+        <div>
+            <a class="waves-effect waves-light btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
+        </div>
 
     <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
 
