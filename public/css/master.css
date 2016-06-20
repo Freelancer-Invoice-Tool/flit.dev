@@ -41,9 +41,11 @@ footer {
     padding-left: 15px;
 }
 
-/*modal popup size, desktop*/
-.modal {
+/*not working*/
+/*modal popup size, mobile view*/
+div#modal1.modal.open .mobile-modal {
     width: 45%;
+    height: 80%;
 }
 
 /*all below are dashboard icons*/
