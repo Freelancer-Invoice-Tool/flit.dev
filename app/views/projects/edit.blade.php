@@ -32,12 +32,12 @@
                 
                 <div class="input-field col s6">
                     <select id="project_status" name="project_status">
-                        <option value="started" selected>Started</option>
-                        <option value="in_progress">In Progress</option>
-                        <option value="project_submitted">Project Submitted</option>
-                        <option value="invoice_submitted">Invoice Submitted</option>
-                        <option value="invoice_approved">Invoice Approved</option>
-                        <option value="payment_received">Payment Received</option>
+                        <option label="Started" selected>Started</option>
+                        <option label="In Progress">In Progress</option>
+                        <option label="Project Submitted">Project Submitted</option>
+                        <option label="Invoice Submitted">Invoice Submitted</option>
+                        <option label="Invoice Approved">Invoice Approved</option>
+                        <option label="Payment Received">Payment Received</option>
                     </select>
                     <label>Project Status</label>
                 </div>
