@@ -15,11 +15,11 @@
 
         
         <div class="row">
-            {{ Form::model($project, array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
+            {{ Form::open(array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('name', null, array('id'=>'name')) }}
+                    {{ Form::text('name', $project->name, array('id'=>'name')) }}
                     {{ Form::label('name', 'Project Name') }}
                 </div>
             </div>
@@ -45,34 +45,55 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('due_date', null, array('id'=>'due_date')) }}
+                    {{ Form::text('due_date', $project->due_date, array('id'=>'due_date')) }}
                     {{ Form::label('due_date', 'Due Date') }}
                 </div>
             
                 <div class="input-field col s6">
-                    {{ Form::text('project_submitted_date', null, array('id'=>'project_submitted_date')) }}
+                    @if ((strpos($project->project_submitted_date, '-0001'))===false) 
+                        {{ Form::text('project_submitted_date', $project->project_submitted_date, array('id'=>'project_submitted_date')) }}
+                    @else
+                        {{ Form::text('project_submitted_date', '', array('id'=>'project_submitted_date')) }}
+                    @endif 
                     {{ Form::label('project_submitted_date', 'Date Project Submitted') }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('invoice_submitted_date', null, array('id'=>'invoice_submitted_date')) }}
+                    <!-- if/else in fields below prevent form from displaying weird '-0001' date if there's no date in mySQL -->
+                    @if ((strpos($project->invoice_submitted_date, '-0001'))===false) 
+                        {{ Form::text('invoice_submitted_date', $project->invoice_submitted_date, array('id'=>'invoice_submitted_date')) }}
+                    @else
+                        {{ Form::text('invoice_submitted_date', '', array('id'=>'invoice_submitted_date')) }}
+                    @endif 
                     {{ Form::label('invoice_submitted_date', 'Date Invoice Submitted') }}
                 </div>
             
                 <div class="input-field col s6">
-                    {{ Form::text('invoice_approval_date', null, array('id'=>'invoice_approval_date')) }}
+                    @if ((strpos($project->invoice_approval_date, '-0001'))===false) 
+                        {{ Form::text('invoice_approval_date', $project->invoice_approval_date, array('id'=>'invoice_approval_date')) }}
+                    @else
+                        {{ Form::text('invoice_approval_date', '', array('id'=>'invoice_approval_date')) }}
+                    @endif 
                     {{ Form::label('invoice_approval_date', 'Date Invoice Approved') }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('pay_date', null, array('id'=>'pay_date')) }}
+                    @if ((strpos($project->pay_date, '-0001'))===false) 
+                        {{ Form::text('pay_date', $project->pay_date, array('id'=>'pay_date')) }}
+                    @else
+                        {{ Form::text('pay_date', '', array('id'=>'pay_date')) }}
+                    @endif 
                     {{ Form::label('pay_date', 'Expected Pay Date') }}
                 </div>
             
                 <div class="input-field col s6">
-                    {{ Form::text('payment_received', null, array('id'=>'payment_received')) }}
+                    @if ((strpos($project->payment_received, '-0001'))===false) 
+                        {{ Form::text('payment_received', $project->payment_received, array('id'=>'payment_received')) }}
+                    @else
+                        {{ Form::text('payment_received', '', array('id'=>'payment_received')) }}
+                    @endif 
                     {{ Form::label('payment_received', 'Date Payment Received') }}
                 </div>
             </div>
