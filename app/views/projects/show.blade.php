@@ -86,7 +86,7 @@
 
             <div class="col s6">
                 <!-- Modal Trigger -->
-                <button data-target="modal1" class="btn modal-trigger delete-btn">Delete Client</button>
+                <button data-target="modal1" class="btn modal-trigger delete-btn">Delete Project</button>
             </div>
         </div> 
     </div> <!-- closes container -->
