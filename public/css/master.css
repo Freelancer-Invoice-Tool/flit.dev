@@ -129,13 +129,13 @@ button.delete-btn a:link, button.modal-trigger.delete-btn {
 
 /* label focus color */
 .input-field input[type=text]:focus + label, .input-field #description:focus + label,
-.input-field #project_notes:focus + label {
+.input-field #project_notes:focus + label, .input-field input[type=number]:focus + label {
  color: #fb5607;
 }
 
 /* label underline focus color */
 .input-field input[type=text]:focus, .input-field #description:focus,
-.input-field #project_notes:focus {
+.input-field #project_notes:focus, .input-field #payment_terms:focus {
  border-bottom: 1px solid #fb5607;
  box-shadow: 0 1px 0 0 #fb5607;
 }
