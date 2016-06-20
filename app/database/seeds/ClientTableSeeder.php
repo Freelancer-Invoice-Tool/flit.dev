@@ -6,7 +6,7 @@ class ClientTableSeeder extends Seeder
     {
 
         $client = new Client();
-        $client->user_id = User::id(1);
+        $client->user_id = User::find(1)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Stark Industries';
@@ -17,7 +17,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(2);
+        $client->user_id = User::find(2)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Stark Industries';
@@ -28,7 +28,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(3);
+        $client->user_id = User::find(3)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Stark Industries';
@@ -39,7 +39,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(3);
+        $client->user_id = User::find(1)->id;
         $client->payment_terms = 30;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Law Offices of Nelson and Murdock';
@@ -50,7 +50,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(2);
+        $client->user_id = User::find(2)->id;
         $client->payment_terms = 30;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Law Offices of Nelson and Murdock';
@@ -61,7 +61,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(1);
+        $client->user_id = User::find(3)->id;
         $client->payment_terms = 30;
         $client->submission_or_approval = 'submission';
         $client->client_name = 'Law Offices of Nelson and Murdock';
@@ -72,7 +72,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
         
         $client = new Client();
-        $client->user_id = User::id(1);
+        $client->user_id = User::find(1)->id;
         $client->payment_terms = 45;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Wayne Enterprises';
@@ -83,7 +83,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(2);
+        $client->user_id = User::find(2)->id;
         $client->payment_terms = 45;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Wayne Enterprises';
@@ -94,7 +94,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(3);
+        $client->user_id = User::find(3)->id;
         $client->payment_terms = 45;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Wayne Enterprises';
@@ -105,7 +105,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(3);
+        $client->user_id = User::find(1)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Queen Industries';
@@ -116,7 +116,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(2);
+        $client->user_id = User::find(2)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Queen Industries';
@@ -127,7 +127,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(1);
+        $client->user_id = User::find(3)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'Queen Industries';
@@ -138,7 +138,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(2);
+        $client->user_id = User::find(1)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'SHIELD';
@@ -149,7 +149,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(1);
+        $client->user_id = User::find(2)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'SHIELD';
@@ -160,7 +160,7 @@ class ClientTableSeeder extends Seeder
         $client->save();
 
         $client = new Client();
-        $client->user_id = User::id(3);
+        $client->user_id = User::find(3)->id;
         $client->payment_terms = 60;
         $client->submission_or_approval = 'approval';
         $client->client_name = 'SHIELD';

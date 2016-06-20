@@ -5,7 +5,7 @@ class ProjectTableSeeder extends Seeder
     public function run()
     {   
         $project = new Project();
-        $project->user_id = User::id(1);
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(4)->id;
         $project->name = 'Batarang';
         $project->description = 'Bat-shaped boomerang.';
@@ -26,7 +26,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(3);
+        $project->user_id = User::find(3)->id;
         $project->client_id = Client::find(3)->id;
         $project->name = 'Billy club';
         $project->description = 'Strong, collapsible walking stick.';
@@ -47,7 +47,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(2);
+        $project->user_id = User::find(2)->id;
         $project->client_id = Client::find(1)->id;
         $project->name = 'Arc Reactor';
         $project->description = 'Compact power source.';
@@ -68,7 +68,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(1);
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Shield';
         $project->description = 'Vibranium shield with red and white stripes and a white star in a blue circle in the middle.';
@@ -89,7 +89,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(2);
+        $project->user_id = User::find(2)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Indestructable Motorcycle';
         $project->description = 'A bike that won\'t break in a little fender-bender.';
@@ -110,7 +110,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(3);
+        $project->user_id = User::find(3)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Expandable pants';
         $project->description = 'Pants that will expand without shredding, and shrink back.';
@@ -131,7 +131,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(1);
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(4)->id;
         $project->name = 'Unhackable Database Application';
         $project->description = 'An application to store personal information about colleagues.';
@@ -152,7 +152,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(3);
+        $project->user_id = User::find(3)->id;
         $project->client_id = Client::find(3)->id;
         $project->name = 'Text Reader';
         $project->description = 'Text reader capable of recognizing legal jargon.';
@@ -173,7 +173,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(2);
+        $project->user_id = User::find(2)->id;
         $project->client_id = Client::find(1)->id;
         $project->name = 'AI Backup';
         $project->description = 'Complex database, storage, and security.';
@@ -194,7 +194,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(1);
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
@@ -215,7 +215,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(2);
+        $project->user_id = User::find(2)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
@@ -236,7 +236,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::id(3);
+        $project->user_id = User::find(3)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Trivia game';
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
