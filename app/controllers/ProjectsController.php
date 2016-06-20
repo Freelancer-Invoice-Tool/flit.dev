@@ -119,7 +119,9 @@ class ProjectsController extends \BaseController {
 	public function create()
 	{
 		if (Auth::check()) {
-			return View::make('projects.create');
+			$clients = Client::where('user_id', '=', Auth::id())->get();
+			// dd($clients);
+			return View::make('projects.create')->with('clients', $clients);
 		} else {
 			return $this->showMissing();
 		}
