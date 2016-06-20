@@ -33,27 +33,27 @@
                                 <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
                                 <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
                                 <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                                @if ((!is_null($project->project_submitted_date)))
+                                @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))
                                 <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
                                 @endif
-                                @if ((strpos($project->invoice_submitted_date, '-0001'))===false)
+                                @if ((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date))
                                 <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td> 
                                 @else
                                 <td> </td>
                                 @endif
-                                @if ((strpos($project->invoice_approval_date, '-0001'))===false)
+                                @if ((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date))
                                 <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
                                 @endif
-                                @if ((strpos($project->pay_date, '-0001'))===false)
+                                @if ((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date))
                                 <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
                                 @endif
-                                @if ((strpos($project->payment_received, '-0001'))===false)
+                                @if ((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received))
                                 <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
                                 @else
                                 <td> </td>
