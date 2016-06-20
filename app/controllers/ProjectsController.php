@@ -147,7 +147,12 @@ class ProjectsController extends \BaseController {
 	public function show($id)
 	{
 		$project = Project::find($id);
-		return View::make('projects.show')->with('project', $project);
+
+		if($project->client->user_id != Auth::id()){
+			return $this->showMissing();
+		}else{
+			return View::make('projects.show')->with('project', $project);
+		}
 	}
 
 
