@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Edit Project
+    FLIT: Edit Project
 @stop
 
 @section('content')
