@@ -11,6 +11,9 @@
         <div>
             <h1>All Clients</h1>
         </div>
+        <div>
+            <a class="waves-effect waves-light btn" href="{{{action('ClientsController@create')}}}">Create New Client</a>
+        </div>
 
         <!--foreach loop here to propagate data, will also need paginate/row thing prob  -->
         @foreach($clients as $index=>$client)
