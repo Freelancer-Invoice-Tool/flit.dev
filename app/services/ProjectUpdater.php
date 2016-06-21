@@ -18,10 +18,26 @@ class ProjectUpdater {
         $project->project_submitted = $request->input('project_submitted');
         $project->invoice_submitted = $request->input('invoice_submitted');
         $project->payment_received = parseDates($request->input('payment_received'));
-        $project->project_poc_name = $request->input('project_poc_name');
-        $project->project_poc_email = $request->input('project_poc_email');
-        $project->project_poc_phone = $request->input('project_poc_phone');
-        $project->project_poc_address = $request->input('project_poc_address');
+        if ($request->input('project_poc_name')) {
+            $project->project_poc_name=$request->input('project_poc_name');
+        } else {
+            $project->project_poc_name=$client->main_poc_name;
+        }
+        if ($request->input('project_poc_email')) {
+            $project->project_poc_email=$request->input('project_poc_email');
+        } else {
+            $project->project_poc_email=$client->main_poc_email;
+        }
+        if ($request->input('project_poc_phone')) {
+            $project->project_poc_phone=$request->input('project_poc_phone');
+        } else {
+            $project->project_poc_phone=$client->main_poc_phone;
+        }
+        if ($request->input('project_poc_address')) {
+            $project->project_poc_address=$request->input('project_poc_address');
+        } else {
+            $project->project_poc_address=$client->main_poc_email;
+        }
 
         if ($project->save() === false) {
             throw new RecordNotSavedException("Project failed to save, this should never happen. Investigate!");
