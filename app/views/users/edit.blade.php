@@ -1,13 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit Home Edit
+    FLIT Home Edit
 @stop
 
 @section('content')
 
 <main>
-
     <div class="container">
         <!-- model form automatically fills in user info as placeholders -->
         {{ Form::model($user, array('action' => array('UserController@update', $user->id), 'method' => 'PUT'))}}
