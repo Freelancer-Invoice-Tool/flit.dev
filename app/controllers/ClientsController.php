@@ -57,7 +57,6 @@ class ClientsController extends \BaseController {
 		return Redirect::action('ClientsController@show', $client->id)->withInput();
 	}
 
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -67,15 +66,18 @@ class ClientsController extends \BaseController {
 	public function show($id)
 	{
 		$client = Client::find($id);
+		$projects = Project::where('user_id', '=', Auth::id())
+			->where('due_date', '>', Carbon\Carbon::now())
+			->where('project_status', '!=', 'Payment Received')
+			->orderBy('due_date', 'desc')
+			->get();
 
 		if($client->user_id != Auth::id()){
 			return $this->showMissing();
 		}else{
-			return View::make('clients.show')->with('client', $client);	
+			return View::make('clients.show')->with('client', $client)->with('projects', $projects);	
 		}
-		
 	}
-
 
 	/**
 	 * Show the form for editing the specified resource.
