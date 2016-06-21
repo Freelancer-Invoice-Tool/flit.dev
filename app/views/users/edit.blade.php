@@ -19,7 +19,7 @@
 
             <div class="col s6">
                  <div class="row">
-                    <form class="col s12">
+                    <form class="col s10">
                         <div class="row">
                             <div class="input-field col s6">
                                 {{Form::text('first_name', null, array('class'=>'validate'))}}
@@ -33,7 +33,7 @@
 
                         <div class="row">
                             <div class="input-field col s12">
-                                {{ Form::email('email', null, array('class'=>'validate')) }}
+                                {{ Form::email('email', null, array('class'=>'validate', 'id'=>'email')) }}
                                 {{ Form::label('email', 'Email') }}
                             </div>
                         </div>
@@ -41,9 +41,8 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 {{ Form::password('password', null, array('class'=>'validate')) }}
-                                <!-- <input id="password" type="password" class="validate"> -->
+                              
                                 {{ Form::label('password', 'Password') }}
-                                <!-- <label for="password">Password</label> -->
                             </div>
                         </div>
 

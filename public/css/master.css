@@ -14,6 +14,16 @@ main {
     flex: 1 0 auto;
 }
 
+.alert-danger {
+    color: #c11111;
+    font-size: 1.2em;
+}
+
+.alert-success {
+    color: #16471a;
+    font-size: 1.2em;
+}
+
 nav, footer {
     background-color: #1a158a;
 }
@@ -22,8 +32,9 @@ nav, footer {
     background-color: #f4fff7;
 }
 
-/*text on side nav*/
-.side-nav a {
+/*text on side nav and dropdown menus*/
+.side-nav a,
+.dropdown-content li>span {
     color: #1a158a;
 }
 
@@ -132,14 +143,16 @@ button.delete-btn a:link, button.modal-trigger.delete-btn {
 /* label focus color */
 .input-field input[type=text]:focus + label, .input-field #description:focus + label,
 .input-field #project_notes:focus + label, .input-field input[type=number]:focus + label,
-.input-field #password:focus + label {
+.input-field #password:focus + label, .input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
  color: #fb5607;
 }
 
 /* label underline focus color */
 .input-field input[type=text]:focus, .input-field #description:focus,
 .input-field #project_notes:focus, .input-field #payment_terms:focus,
-.input-field #password:focus {
+.input-field #password:focus, .input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
  border-bottom: 1px solid #fb5607;
  box-shadow: 0 1px 0 0 #fb5607;
 }

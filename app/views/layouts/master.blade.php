@@ -57,7 +57,7 @@
         <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
     @endif
     @if (Session::has('errorMessage'))
-        <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+        <div class="alert alert-danger center-align">{{{ Session::get('errorMessage') }}}</div>
     @endif
 
     @yield('content')
