@@ -15,52 +15,58 @@
         <div class="right-align btn-margin">
             <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
         </div>
-
+        <div class="left-align">
+            <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+        </div>
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
             <table class="striped">
-                <tr>
-                    <th>Project</th>
-                    <th>Client</th>
-                    <th>Project Due Date</th>
-                    <th>Project Submit Date</th>
-                    <th>Invoice Submit Date</th>
-                    <th>Invoice Approval Date</th>
-                    <th>Projected Payment Date</th>
-                    <th>Payment Received Date</th>
-                </tr>
-                @foreach($projects as $project)
+                <thead>
                     <tr>
-                        <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
-                        <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
-                        <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                        @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))
-                        <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
-                        @else
-                        <td> </td>
-                        @endif
-                        @if ((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date))
-                        <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td> 
-                        @else
-                        <td> </td>
-                        @endif
-                        @if ((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date))
-                        <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
-                        @else
-                        <td> </td>
-                        @endif
-                        @if ((strpos($project->pay_date, '-0001')==false && !empty($project->pay_date)) || (strpos($project->pay_date, '0000')==false && !empty($project->pay_date)))
-                        <td>{{{calculatePayDate($project->client, $project)->format('m-d-Y')}}}</td>
-                        @else
-                        <td> </td>
-                        @endif
-                        @if ((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received))
-                        <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
-                        @else
-                        <td> </td>
-                        @endif
-                    </tr>
-                @endforeach  
+                        <th>Project</th>
+                        <th>Client</th>
+                        <th>Project Due Date</th>
+                        <th>Project Submit Date</th>
+                        <th>Invoice Submit Date</th>
+                        <th>Invoice Approval Date</th>
+                        <th>Projected Payment Date</th>
+                        <th>Payment Received Date</th>
+                    </tr>   
+                </thead>
+                <tbody>
+                    @foreach($projects as $project)
+                        <tr>
+                            <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
+                            <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
+                            <td>{{{$project->due_date->format('m-d-Y')}}}</td>
+                            @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))
+                            <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
+                            @else
+                            <td> </td>
+                            @endif
+                            @if ((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date))
+                            <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                            @else
+                            <td> </td>
+                            @endif
+                            @if ((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date))
+                            <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
+                            @else
+                            <td> </td>
+                            @endif
+                            @if ((strpos($project->pay_date, '-0001')==false && !empty($project->pay_date)) || (strpos($project->pay_date, '0000')==false && !empty($project->pay_date)))
+                            <td>{{{calculatePayDate($project->client, $project)->format('m-d-Y')}}}</td>
+                            @else
+                            <td> </td>
+                            @endif
+                            @if ((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received))
+                            <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
+                            @else
+                            <td> </td>
+                            @endif
+                        </tr>
+                    @endforeach      
+                </tbody>
             </table>
             {{ $projects->links() }}
         </div>

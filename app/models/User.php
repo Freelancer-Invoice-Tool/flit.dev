@@ -36,7 +36,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $validator->validate($request);
         $user = $userCreator->createUser($request);
        
-        
         return $user;
     }
 
@@ -45,10 +44,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $validator = new userValidator();
         $userUpdater = new userUpdater();
         
-
         $validator->validate($request);
         $user = $userUpdater->updateUser($request, $user);
-        
         
         return $user;
     }

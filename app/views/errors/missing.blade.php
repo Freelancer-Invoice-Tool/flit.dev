@@ -19,7 +19,11 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <a href="{{{action('HomeController@showDashboard')}}}">Return to Dashboard</a>
+                @if(Auth::check())
+                    <a href="{{{action('HomeController@showDashboard')}}}">Return to Dashboard</a>
+                @else
+                    <a href="{{{action('HomeController@showHome')}}}">Please Log In First</a>
+                @endif
             </div>
         </div>
     </div>

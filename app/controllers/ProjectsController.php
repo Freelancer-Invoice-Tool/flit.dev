@@ -22,108 +22,130 @@ class ProjectsController extends \BaseController {
 
 	public function index()
 	{
-		$project = Project::where('user_id', Auth::id())->paginate(15);
-    	$paginator = new MaterializePagination($project);
+		if(Auth::id()){
+			$project = Project::where('user_id', Auth::id())->paginate(15);
+	    	$paginator = new MaterializePagination($project);
 
-    	$due_projects=Project::where('user_id', Auth::id())
-    		->where('due_date', '!=', '0000-00-00')
-    		->where('project_submitted_date', '=', '0000-00-00')
-    		->get();
+	    	$due_projects=Project::where('user_id', Auth::id())
+	    		->where('due_date', '!=', '0000-00-00')
+	    		->where('project_submitted_date', '=', '0000-00-00')
+	    		->get();
 
-        $needs_invoice=Project::where('user_id', Auth::id())
-        	->where('project_submitted_date', '!=', '0000-00-00')
-        	->where('invoice_submitted_date', '=', '0000-00-00')
-    		->get();
-    		
-        $needs_approval=Project::where('user_id', Auth::id())
-        	->where('invoice_submitted_date', '!=', '0000-00-00')
-        	->where('invoice_approval_date', '=', '0000-00-00')
-    		->get();
+	        $needs_invoice=Project::where('user_id', Auth::id())
+	        	->where('project_submitted_date', '!=', '0000-00-00')
+	        	->where('invoice_submitted_date', '=', '0000-00-00')
+	    		->get();
+	    		
+	        $needs_approval=Project::where('user_id', Auth::id())
+	        	->where('invoice_submitted_date', '!=', '0000-00-00')
+	        	->where('invoice_approval_date', '=', '0000-00-00')
+	    		->get();
 
-        $awaiting_payment=Project::where('user_id', Auth::id())
-        	->where('invoice_approval_date', '!=', '0000-00-00')
-        	->where('payment_received', '=', '0000-00-00')
-    		->get();
+	        $awaiting_payment=Project::where('user_id', Auth::id())
+	        	->where('invoice_approval_date', '!=', '0000-00-00')
+	        	->where('payment_received', '=', '0000-00-00')
+	    		->get();
 
-        $project_completed=Project::where('user_id', Auth::id())
-        	->where('payment_received', '!=', '0000-00-00')
-    		->get();
+	        $project_completed=Project::where('user_id', Auth::id())
+	        	->where('payment_received', '!=', '0000-00-00')
+	    		->get();
 
-		return View::make('projects.index')
-			->with('projects', $project)->with('paginator', $paginator)
-			->with('due_projects', $due_projects)
-			->with('needs_invoice', $needs_invoice)
-			->with('needs_approval', $needs_approval)
-			->with('awaiting_payment', $awaiting_payment)
-			->with('project_completed', $project_completed);
+			return View::make('projects.index')
+				->with('projects', $project)->with('paginator', $paginator)
+				->with('due_projects', $due_projects)
+				->with('needs_invoice', $needs_invoice)
+				->with('needs_approval', $needs_approval)
+				->with('awaiting_payment', $awaiting_payment)
+				->with('project_completed', $project_completed);	
+		}else{
+			return $this->showMissing();
+		}	
 	}
 
 	public function showOverdue()
 	{
-		$projects = Project::where('user_id', '=', Auth::id())
-			->where('due_date', '<=', Carbon\Carbon::now())
-			->where('project_status', '!=', 'Payment Received')
-			->where('project_status', '!=', 'Project Submitted')
-			->where('project_status', '!=', 'Invoice Approved')
-			->where('project_status', '!=', 'Invoice Submitted')
-			->paginate(15);
+		if(Auth::id()){
+			$projects = Project::where('user_id', '=', Auth::id())
+				->where('due_date', '<=', Carbon\Carbon::now())
+				->where('project_status', '!=', 'Payment Received')
+				->where('project_status', '!=', 'Project Submitted')
+				->where('project_status', '!=', 'Invoice Approved')
+				->where('project_status', '!=', 'Invoice Submitted')
+				->paginate(15);
 
-    	$paginator = new MaterializePagination($projects);
+	    	$paginator = new MaterializePagination($projects);
 
-		return View::make('projects.overdue')
-			->with('projects', $projects)->with('paginator', $paginator);
+			return View::make('projects.overdue')
+				->with('projects', $projects)->with('paginator', $paginator);	
+		}else{
+			return $this->showMissing();
+		}
 	}
 
 	public function showDueDates()
 	{
-		$projects = Project::where('user_id', '=', Auth::id())
-			->where('due_date', '>', Carbon\Carbon::now())
-			->where(function($query)
-			{
-				$query->orWhere('project_status', '=', '')
-					->orWhere('project_status', '=', 'Started')
-					->orWhere('project_status', '=', 'In Progress');
-			})
-			->paginate(15);
+		if(Auth::id()){
+			$projects = Project::where('user_id', '=', Auth::id())
+				->where('due_date', '>', Carbon\Carbon::now())
+				->where(function($query)
+				{
+					$query->orWhere('project_status', '=', '')
+						->orWhere('project_status', '=', 'Started')
+						->orWhere('project_status', '=', 'In Progress');
+				})
+				->paginate(15);
 
-    	$paginator = new MaterializePagination($projects);
+	    	$paginator = new MaterializePagination($projects);
 
-		return View::make('projects.duedates')
-			->with('projects', $projects)->with('paginator', $paginator);
+			return View::make('projects.duedates')
+				->with('projects', $projects)->with('paginator', $paginator);	
+		}else{
+			return $this->showMissing();
+		}
+		
 	}
 
 	public function showPayDates()
 	{
-		$projects = Project::where('user_id', '=', Auth::id())
-			->where(function($query)
-			{
-				$query->orWhere('project_status', '=', 'Project Submitted')
-					->orWhere('project_status', '=', 'Invoice Submitted')
-					->orWhere('project_status', '=', 'Invoice Approved');
-			})
-			->paginate(15);
+		if(Auth::id()){
+			$projects = Project::where('user_id', '=', Auth::id())
+				->where(function($query)
+				{
+					$query->orWhere('project_status', '=', 'Project Submitted')
+						->orWhere('project_status', '=', 'Invoice Submitted')
+						->orWhere('project_status', '=', 'Invoice Approved');
+				})
+				->paginate(15);
 
-    	$paginator = new MaterializePagination($projects);
+	    	$paginator = new MaterializePagination($projects);
 
-		return View::make('projects.paydates')
-			->with('projects', $projects)->with('paginator', $paginator);
+			return View::make('projects.paydates')
+				->with('projects', $projects)->with('paginator', $paginator);	
+		}else{
+			return $this->showMissing();
+		}
+		
 	}
 
 	public function showArchive()
 	{
-		$projects = Project::where('user_id', '=', Auth::id())
-			->where('project_submitted_date', '!=', '0000-00-00')
-			->where(function($query)
-			{
-				$query->orWhere('project_status', '=', 'Payment Received');
-			})
-			->paginate(15);
+		if(Auth::id()){
+			$projects = Project::where('user_id', '=', Auth::id())
+				->where('project_submitted_date', '!=', '0000-00-00')
+				->where(function($query)
+				{
+					$query->orWhere('project_status', '=', 'Payment Received');
+				})
+				->paginate(15);
 
-		$paginator = new MaterializePagination($projects);
+			$paginator = new MaterializePagination($projects);
 
-		return View::make('projects.archive')
-			->with('projects', $projects)
-			->with('paginator', $paginator);
+			return View::make('projects.archive')
+				->with('projects', $projects)
+				->with('paginator', $paginator);	
+		}else{
+			return $this->showMissing();
+		}
 	}
 
 	/**
@@ -185,7 +207,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		if (Auth::check()) {
+		if (Auth::id()) {
 			$project = Project::find($id);
 			return View::make('projects.edit')->with('project', $project);
 		} else {
@@ -204,13 +226,9 @@ class ProjectsController extends \BaseController {
 	{
 		$project = Project::find($id);
 
-
-
 		$clientname = Input::get('client_name');
 
 		$clients = DB::table('clients')->where('client_name', $clientname)->get();
-
-
 
 		foreach($clients as $blah) {
 			if($project->client_id == $blah->id) {
@@ -232,7 +250,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		if (Auth::check()) {
+		if (Auth::id()) {
 			$project = Project::find($id);
 			$project->delete();
 
@@ -242,5 +260,4 @@ class ProjectsController extends \BaseController {
 			return $this->showMissing();
 		}
 	}
-
 }

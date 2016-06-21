@@ -22,7 +22,6 @@ class Project extends BaseModel
         $validator->validate($request);
         $project = $projectCreator->createProject($request, $user, $client);
        
-        
         return $project;
     }
 
@@ -31,7 +30,6 @@ class Project extends BaseModel
         $validator = new projectValidator();
         $projectUpdater = new projectUpdater();
         
-
         $validator->validate($request);
 
         $project = $projectUpdater->updateProject($project, $request, $user, $client);

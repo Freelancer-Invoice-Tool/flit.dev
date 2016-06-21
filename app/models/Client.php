@@ -25,10 +25,8 @@ class Client extends BaseModel
         $validator = new ClientValidator();
         $clientCreator = new ClientUpdater();
         
-
         $validator->validate($request);
         $client = $clientCreator->updateClient($client, $request, $user);
-        
         
         return $client;
     }
