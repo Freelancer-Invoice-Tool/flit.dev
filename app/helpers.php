@@ -11,3 +11,18 @@ function parseDates($dateString)
     return $result;
 
 }
+
+function calculatePayDate($client, $project)
+{
+    $paymentTerm = $client->payment_terms;
+
+    $invoiceStatus = $client->submission_or_approval;
+
+    if($invoiceStatus = 'submission'){
+        $payCountStart = $project->invoice_submitted_date;   
+    }elseif($invoiceStatus = 'approval'){
+        $payCountStart = $project->invoice_approval_date;
+    }
+
+    return $payCountStart->addDays($paymentTerm);
+}

@@ -26,9 +26,8 @@
                 @foreach($projects as $project)
                     <tr>
                         @if ((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date))
-                            <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                         @else
-                            <td> </td>
+                            <td> {{{calculatePayDate($project->client, $project)}}}</td>
                         @endif
 
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
