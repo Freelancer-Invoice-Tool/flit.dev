@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: My Clients
+    FLIT: My Clients
 @stop
 
 @section('content')
