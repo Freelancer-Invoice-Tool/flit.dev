@@ -14,14 +14,17 @@ main {
     flex: 1 0 auto;
 }
 
+/*alert messages styling*/
 .alert-danger {
     color: #c11111;
     font-size: 1.2em;
+    margin-top: 1.4em;
 }
 
 .alert-success {
-    color: #16471a;
+    color: #16741a;
     font-size: 1.2em;
+    margin-top: 1.4em;
 }
 
 nav, footer {
@@ -43,8 +46,9 @@ nav ul a, footer, footer a {
     color: #f4fff7;
 }
 
+/*to ensure space between content and footer*/
 footer {
-    justify-content: space-around;
+    margin-top: 1.3em;
 }
 
 /*navbar logo image*/
