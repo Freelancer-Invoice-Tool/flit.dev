@@ -14,14 +14,17 @@ main {
     flex: 1 0 auto;
 }
 
+/*alert messages styling*/
 .alert-danger {
     color: #c11111;
     font-size: 1.2em;
+    margin-top: 1.4em;
 }
 
 .alert-success {
-    color: #16471a;
+    color: #16741a;
     font-size: 1.2em;
+    margin-top: 1.4em;
 }
 
 nav, footer {
@@ -43,8 +46,9 @@ nav ul a, footer, footer a {
     color: #f4fff7;
 }
 
+/*to ensure space between content and footer*/
 footer {
-    justify-content: space-around;
+    margin-top: 1.3em;
 }
 
 /*navbar logo image*/
@@ -115,7 +119,8 @@ a {
 
 /*buttons on hover*/
 .edit-btn:hover, button.edit-btn a:hover,
-button.edit-btn a:active, button.edit-btn a:visited {
+button.edit-btn a:active, button.edit-btn a:visited,
+button.edit-btn a:focus, .edit-btn:focus {
     background-color: #2d5930;
     border: 1px solid #2d5930;
     color: #f4fff7;
@@ -123,7 +128,8 @@ button.edit-btn a:active, button.edit-btn a:visited {
 
 .delete-btn:hover, button.delete-btn a:hover,
 button.delete-btn a:active, button.delete-btn a:visited, 
-button.delete-btn a:link, button.modal-trigger.delete-btn {
+button.delete-btn a:link, button.modal-trigger.delete-btn,
+button.delete-btn a:focus, .delete-btn:focus {
     background-color: #c72828;
     border: 1px solid #c72828;
     color: #f4fff7;
