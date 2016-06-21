@@ -21,6 +21,10 @@
                     {{ Form::text('name', null, array('id'=>'name')) }}
                     {{ Form::label('name', 'Project Name') }}
                 </div>
+                <div class="input-field col s12">
+                    {{ Form::text('due_date', null, array('id'=>'due_date')) }}
+                    {{ Form::label('due_date', 'Due Date') }}
+                </div>
             </div>
         
             <div class="row">
@@ -76,12 +80,6 @@
                     {{Form::hidden('project_status', 'started', array('id'=>'project_status'))}}   
                 </div>
             <div class="row">
-                <div class="input-field col s6">
-                    {{ Form::text('due_date', null, array('id'=>'due_date')) }}
-                    {{ Form::label('due_date', 'Due Date') }}
-                </div>
-
-            
                 <div class="input-field col s6">
                     {{ Form::text('project_submitted_date', null, array('id'=>'project_submitted_date')) }}
                     {{ Form::label('project_submitted_date', 'Date Project Submitted') }}
