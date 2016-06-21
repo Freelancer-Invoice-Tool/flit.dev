@@ -13,7 +13,7 @@
             </div>
 
             <div class="row">
-                <div class="col s6 col offset-s6">
+                <div class="col s10 right-align">
                     <!-- new projects -->
                     <a class="tooltipped" data-position="top" data-tooltip="Add New Project" href="{{{action('ProjectsController@create')}}}"><i class="z-depth-1 folder-icon medium material-icons">create_new_folder</i></a>
             
@@ -26,7 +26,7 @@
             </div>
 
             <div class="row">
-                <div class="col s6 col offset-s6">
+                <div class="col s10 right-align">
                     <!-- late projects -->
                      <a class="tooltipped" data-position="bottom" data-tooltip="View Late Projects" href="{{{action('ProjectsController@showOverdue')}}}"><i class="z-depth-1 late-icon medium material-icons">assignment_late</i></a>
 
@@ -36,7 +36,7 @@
                     <!-- pay dates -->
                     <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@showPayDates')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
-                <div class="col s6 col offset-s6">
+                <div class="col s10 right-align">
 
                     <p class="flow-text">Projects Overdue: {{{$overdueProjects}}}</p>
 
