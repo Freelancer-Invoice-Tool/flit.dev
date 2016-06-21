@@ -109,25 +109,25 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
                     {{ Form::label('project_poc_name', 'Project Contact\'s Name') }}
+                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
                 </div>
            
                 <div class="input-field col s6">
-                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
                     {{ Form::label('project_poc_phone', 'Project Contact\'s Phone') }}
+                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
                     {{ Form::label('project_poc_email', 'Project Contact\'s Email') }}
+                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
                     {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
+                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
                 </div>
             </div>
  
@@ -177,9 +177,13 @@
                         $('#payment_terms').val(response.payment_terms);
                         $('#submission_or_approval').val(response.submission_or_approval);
                         $('#main_poc_name').val(response.main_poc_name);
+                        $('#project_poc_name').val(response.main_poc_name);
                         $('#main_poc_email').val(response.main_poc_email);
+                        $('#project_poc_email').val(response.main_poc_email);
                         $('#main_poc_phone').val(response.main_poc_phone);
+                        $('#project_poc_phone').val(response.main_poc_phone);
                         $('#main_poc_address').val(response.main_poc_address);
+                        $('#project_poc_address').val(response.main_poc_address);
                     },
                     fail: function(response){
                         console.log ("it failed");
