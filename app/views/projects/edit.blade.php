@@ -52,15 +52,16 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('due_date', $project->due_date, array('id'=>'due_date')) }}
+                    <input type="date" class="datepicker" id="due_date" name="due_date" value="{{{$project->due_date}}}">
+                    
                     {{ Form::label('due_date', 'Project Due Date') }}
                 </div>
             
                 <div class="input-field col s6">
                     @if ((strpos($project->project_submitted_date, '-0001'))===false) 
-                        {{ Form::text('project_submitted_date', $project->project_submitted_date, array('id'=>'project_submitted_date')) }}
+                        <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date" value="{{{$project->project_submitted_date}}}">
                     @else
-                        {{ Form::text('project_submitted_date', '', array('id'=>'project_submitted_date')) }}
+                        <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date" value="">
                     @endif 
                     {{ Form::label('project_submitted_date', 'Project Submit Date') }}
                 </div>
@@ -69,18 +70,18 @@
                 <div class="input-field col s6">
                     <!-- if/else in fields below prevent form from displaying weird '-0001' date if there's no date in mySQL -->
                     @if ((strpos($project->invoice_submitted_date, '-0001'))===false) 
-                        {{ Form::text('invoice_submitted_date', $project->invoice_submitted_date, array('id'=>'invoice_submitted_date')) }}
+                        <input type="date" class="datepicker" id="invoice_submitted_date" name="invoice_submitted_date" value="{{{$project->invoice_submitted_date}}}">
                     @else
-                        {{ Form::text('invoice_submitted_date', '', array('id'=>'invoice_submitted_date')) }}
+                        <input type="date" class="datepicker" id="invoice_submitted_date" name="invoice_submitted_date" value="">
                     @endif 
                     {{ Form::label('invoice_submitted_date', 'Invoice Submit Date') }}
                 </div>
             
                 <div class="input-field col s6">
                     @if ((strpos($project->invoice_approval_date, '-0001'))===false) 
-                        {{ Form::text('invoice_approval_date', $project->invoice_approval_date, array('id'=>'invoice_approval_date')) }}
+                        <input type="date" class="datepicker" id="invoice_approval_date" name="invoice_approval_date" value="{{{$project->invoice_approval_date}}}">
                     @else
-                        {{ Form::text('invoice_approval_date', '', array('id'=>'invoice_approval_date')) }}
+                        <input type="date" class="datepicker" id="invoice_approval_date" name="invoice_approval_date" value="">
                     @endif 
                     {{ Form::label('invoice_approval_date', 'Invoice Approval Date') }}
                 </div>
@@ -88,18 +89,18 @@
             <div class="row">
                 <div class="input-field col s6">
                     @if ((strpos($project->pay_date, '-0001'))===false) 
-                        {{ Form::text('pay_date', $project->pay_date, array('id'=>'pay_date')) }}
+                        <input type="date" class="datepicker" id="pay_date" name="pay_date" value="{{{$project->pay_date}}}">
                     @else
-                        {{ Form::text('pay_date', '', array('id'=>'pay_date')) }}
+                        <input type="date" class="datepicker" id="pay_date" name="pay_date" value="">
                     @endif 
                     {{ Form::label('pay_date', 'Projected Payment Date') }}
                 </div>
             
                 <div class="input-field col s6">
                     @if ((strpos($project->payment_received, '-0001'))===false) 
-                        {{ Form::text('payment_received', $project->payment_received, array('id'=>'payment_received')) }}
+                        <input type="date" class="datepicker" id="payment_received" name="payment_received" value="{{{$project->payment_received}}}">
                     @else
-                        {{ Form::text('payment_received', '', array('id'=>'payment_received')) }}
+                        <input type="date" class="datepicker" id="payment_received" name="payment_received" value="">
                     @endif 
                     {{ Form::label('payment_received', 'Payment Received Date') }}
                 </div>
@@ -153,6 +154,12 @@
     <script>
         $(document).ready(function() {
             $('select').material_select();
+
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+              });
+
         });    
     </script>
 @stop    
