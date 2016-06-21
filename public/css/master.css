@@ -14,6 +14,16 @@ main {
     flex: 1 0 auto;
 }
 
+.alert-danger {
+    color: #c11111;
+    font-size: 1.2em;
+}
+
+.alert-success {
+    color: #16471a;
+    font-size: 1.2em;
+}
+
 nav, footer {
     background-color: #1a158a;
 }
