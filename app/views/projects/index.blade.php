@@ -7,8 +7,9 @@
 @section('content')
 <main>
     <div class="container">
-        <div>
-            <h1>All Projects</h1>
+        <div class="row">
+            <h2 class="hide-on-med-and-down">All Projects</h2>
+            <h3 class="hide-on-large-only">All Projects</h3>
         </div>
 
         <div class="right-align btn-margin">

@@ -8,8 +8,9 @@
 <main>
 
     <div class="container">
-        <div>
-            <h1>Project Details</h1>
+        <div class="row">
+            <h2 class="hide-on-med-and-down">Project Details</h2>
+            <h3 class="hide-on-large-only">Project Details</h3>
         </div>
 
         <div class="row">

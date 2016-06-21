@@ -9,11 +9,11 @@
     <div class="container"> 
         <div class="row">
             <div>
-                <h2>Edit Project</h2>
+                <h2 class="hide-on-med-and-down">Edit Project</h2>
+                <h3 class="hide-on-large-only">Edit Project</h3>
             </div>
         </div>
 
-        
         <div>
             {{ Form::model($project, array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 

@@ -6,11 +6,11 @@
 
 @section('content')
 <main>
-<div class="container">
-
-    <div>
-        <h1>Overdue Projects</h1>
-    </div>
+    <div class="container">
+        <div class="row">
+            <h2 class="hide-on-med-and-down">Overdue Projects</h2>
+            <h3 class="hide-on-large-only">Overdue Projects</h3>
+        </div>
 
     <!-- expanded index visible on horizontal tablet and larger -->
     <div class="hide-on-med-and-down">

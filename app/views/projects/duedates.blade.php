@@ -7,9 +7,9 @@
 @section('content')
 <main>
     <div class="container">
-
-        <div>
-            <h1>Upcoming Project Due Dates</h1>
+        <div class="row">
+            <h2 class="hide-on-med-and-down">Due Dates</h2>
+            <h3 class="hide-on-large-only">Due Dates</h3>
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->

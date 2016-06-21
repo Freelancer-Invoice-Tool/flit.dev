@@ -9,7 +9,8 @@
     <div class="container">
         <div class="row">
             <div>
-                <h1>Edit Client Info</h1>
+                <h2 class="hide-on-med-and-down">Edit Client Info</h2>
+                <h3 class="hide-on-large-only">Edit Client Info</h3>
             </div>
         </div>
 

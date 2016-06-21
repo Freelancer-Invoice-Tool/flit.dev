@@ -1,13 +1,16 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: {{$client->client_name}}
+    FLIT: {{$client->client_name}}
 @stop
 
 @section('content')
 <main>
     <div class="container">
-        <h1 class="center-align">{{{ $client->client_name }}}</h1> 
+        <div class="row">
+            <h2 class="center-align hide-on-med-and-down">{{{ $client->client_name }}}</h2>
+            <h3 class="center-align hide-on-large-only">{{{ $client->client_name }}}</h3>
+        </div>
 
         <div class="section">
             <h3>Main Point of Contact</h3>
