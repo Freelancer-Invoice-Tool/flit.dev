@@ -82,6 +82,10 @@ a {
     color: #3a86ff;
 }
 
+.btn-margin {
+    margin-bottom: 10px;
+}
+
 /*delete/alert button background, border, text*/
 .delete-btn {
     background-color: #c11111;

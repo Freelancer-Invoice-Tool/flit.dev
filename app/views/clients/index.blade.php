@@ -11,8 +11,8 @@
         <div>
             <h1>All Clients</h1>
         </div>
-        <div>
-            <a class="waves-effect waves-light btn" href="{{{action('ClientsController@create')}}}">Create New Client</a>
+        <div class="right-align btn-margin">
+            <a class="waves-effect waves-light btn edit-btn" href="{{{action('ClientsController@create')}}}">Create New Client</a>
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->
