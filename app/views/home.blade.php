@@ -9,8 +9,10 @@
     <div class="container"> 
         <div class="row">
             <div class="col s6">
-                <h1>FLIT</h1>
-                <h5>Your Personal Assistant</h5>
+                <h2 class="hide-on-med-and-down">FLIT</h2>
+                <h3 class="hide-on-large-only">FLIT</h3>
+                <h5 class="hide-on-med-and-down">Your Personal Assistant</h5>
+                <h6 class="hide-on-large-only">Your Personal Assistant</h6>
             </div>
         </div>
 
@@ -20,7 +22,8 @@
 
                     <div class="row">
                         <div class="col s6 left-align">
-                            <h2>Log In</h2>
+                            <h3 class="hide-on-med-and-down">Log In</h3>
+                            <h4 class="hide-on-large-only">Log In</h4>
                         </div>
                     </div>
 
