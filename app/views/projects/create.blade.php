@@ -22,7 +22,7 @@
                     {{ Form::label('name', 'Project Name') }}
                 </div>
                 <div class="input-field col s12">
-                    {{ Form::text('due_date', null, array('id'=>'due_date')) }}
+                    <input type="date" class="datepicker" id="due_date" name="due_date">
                     {{ Form::label('due_date', 'Due Date') }}
                 </div>
             </div>
@@ -81,53 +81,53 @@
                 </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('project_submitted_date', null, array('id'=>'project_submitted_date')) }}
+                    <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date">
                     {{ Form::label('project_submitted_date', 'Date Project Submitted') }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('invoice_submitted_date', null, array('id'=>'invoice_submitted_date')) }}
+                    <input type="date" class="datepicker" id="invoice_submitted_date" name="invoice_submitted_date">
                     {{ Form::label('invoice_submitted_date', 'Date Invoice Submitted') }}
                 </div>
             
                 <div class="input-field col s6">
-                    {{ Form::text('invoice_approval_date', null, array('id'=>'invoice_approval_date')) }}
+                    <input type="date" class="datepicker" id="invoice_approval_date" name="invoice_approval_date">
                     {{ Form::label('invoice_approval_date', 'Date Invoice Approved') }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('pay_date', null, array('id'=>'pay_date')) }}
+                    <input type="date" class="datepicker" id="pay_date" name="pay_date">
                     {{ Form::label('pay_date', 'Exp Pay Date') }}
                 </div>
             
                 <div class="input-field col s6">
-                    {{ Form::text('payment_received', null, array('id'=>'payment_received')) }}
+                    <input type="date" class="datepicker" id="payment_received" name="payment_received">
                     {{ Form::label('payment_received', 'Date Payment Received') }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
                     {{ Form::label('project_poc_name', 'Project Contact\'s Name') }}
+                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
                 </div>
            
                 <div class="input-field col s6">
-                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
                     {{ Form::label('project_poc_phone', 'Project Contact\'s Phone') }}
+                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
                     {{ Form::label('project_poc_email', 'Project Contact\'s Email') }}
+                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
                     {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
+                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
                 </div>
             </div>
  
@@ -150,7 +150,10 @@
             $('select').material_select();
         });
 
-
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
 
         $(client_dropdown).change(function(){
             if ($(this).find(':selected').data('clientid')=='create') {
@@ -174,9 +177,13 @@
                         $('#payment_terms').val(response.payment_terms);
                         $('#submission_or_approval').val(response.submission_or_approval);
                         $('#main_poc_name').val(response.main_poc_name);
+                        $('#project_poc_name').val(response.main_poc_name);
                         $('#main_poc_email').val(response.main_poc_email);
+                        $('#project_poc_email').val(response.main_poc_email);
                         $('#main_poc_phone').val(response.main_poc_phone);
+                        $('#project_poc_phone').val(response.main_poc_phone);
                         $('#main_poc_address').val(response.main_poc_address);
+                        $('#project_poc_address').val(response.main_poc_address);
                     },
                     fail: function(response){
                         console.log ("it failed");
