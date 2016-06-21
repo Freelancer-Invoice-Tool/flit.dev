@@ -32,8 +32,9 @@ nav, footer {
     background-color: #f4fff7;
 }
 
-/*text on side nav*/
-.side-nav a {
+/*text on side nav and dropdown menus*/
+.side-nav a,
+.dropdown-content li>span {
     color: #1a158a;
 }
 
