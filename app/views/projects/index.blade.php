@@ -11,7 +11,7 @@
             <h1>All Projects</h1>
         </div>
 
-        <div>
+        <div class="right-align btn-margin">
             <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
         </div>
 
