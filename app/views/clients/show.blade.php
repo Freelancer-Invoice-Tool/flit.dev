@@ -25,10 +25,10 @@
                 <tbody>
                     <tr>
                         <td>{{{ $client->main_poc_name }}}</td>
-                        <td>{{{$client->payment_terms}}} days after invoice {{{$client->submission_or_approval}}}</td>
+                        <td class="hide-on-med-and-down">{{{$client->payment_terms}}} days after invoice {{{$client->submission_or_approval}}}</td>
                         <td>{{{$client->main_poc_email}}} </td>
-                        <td>{{{$client->main_poc_phone}}}</td>
-                        <td>{{{$client->main_poc_address}}}</td>
+                        <td class="hide-on-med-and-down">{{{$client->main_poc_phone}}}</td>
+                        <td class="hide-on-med-and-down">{{{$client->main_poc_address}}}</td>
                     </tr>
                 </tbody>   
             </table>
@@ -44,17 +44,17 @@
                 <thead>
                     <tr>
                         <th>Project Name</th>
-                        <th>Project Description</th>
-                        <th>Project Status</th>
+                        <th class="hide-on-med-and-down">Project Description</th>
+                        <th class="hide-on-med-and-down">Project Status</th>
                         <th>Project Due Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($client->projects as $project)
+                    @foreach($projects as $project)
                         <tr>
                             <td><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></td>  
-                            <td>{{{$project->description}}}</td>
-                            <td>{{{$project->project_status}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->description}}}</td>
+                            <td class="hide-on-med-and-down">{{{$project->project_status}}}</td>
                             <td>{{{((strpos($project->due_date, '-0001'))===false && !empty($project->due_date)) ? $project->due_date->format('m-d-Y') : ''}}}</td>
                         </tr>
                     @endforeach
