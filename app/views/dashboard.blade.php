@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Dashboard
+    FLIT: Dashboard
 @stop
 
 @section('content')
