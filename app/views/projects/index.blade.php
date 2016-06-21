@@ -14,7 +14,9 @@
         <div class="right-align btn-margin">
             <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
         </div>
-
+        <div class="left-align">
+            <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+        </div>
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
             <table class="striped">
