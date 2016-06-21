@@ -7,9 +7,9 @@
 @section('content')
 <main>
     <div class="container">
-
-        <div>
-            <h1>Projected Payments</h1>
+        <div class="row">
+            <h2 class="hide-on-med-and-down">Projected Payments</h2>
+            <h3 class="hide-on-large-only">Projected Payments</h3>
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->

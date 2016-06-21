@@ -1,16 +1,15 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit: Add New Project
+    FLIT: Add New Project
 @stop
 
 @section('content')
 <main>
     <div class="container"> 
-        <div class="row">
-            <div>
-                <h2>Add New Project</h2>
-            </div>
+        <div class="row">    
+            <h2 class="hide-on-med-and-down">Add New Project</h2>
+            <h3 class="hide-on-large-only">Add New Project</h3>
         </div>
 
         <div>
