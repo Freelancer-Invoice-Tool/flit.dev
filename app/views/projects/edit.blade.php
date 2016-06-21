@@ -14,7 +14,7 @@
         </div>
 
         
-        <div class="row">
+        <div>
             {{ Form::model($project, array('action'=>array('ProjectsController@update', $project->id), 'method'=>'PUT', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 
             <div class="row">
