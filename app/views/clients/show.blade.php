@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{{ $client->main_poc_name }}}</td>
                         <td class="hide-on-med-and-down">{{{$client->payment_terms}}} days after invoice {{{$client->submission_or_approval}}}</td>
-                        <td>{{{$client->main_poc_email}}} </td>
+                        <td><a href="mailto:{{{$client->main_poc_email}}}">{{{$client->main_poc_email}}} </td>
                         <td class="hide-on-med-and-down">{{{$client->main_poc_phone}}}</td>
                         <td class="hide-on-med-and-down">{{{$client->main_poc_address}}}</td>
                     </tr>
@@ -37,7 +37,7 @@
                 <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
             @endif    
         </div>
-       
+
         <div class="section">
             <h3>Projects</h3>
             <table>
