@@ -58,9 +58,8 @@ class ProjectsController extends \BaseController {
 				->with('awaiting_payment', $awaiting_payment)
 				->with('project_completed', $project_completed);	
 		}else{
-			return $this->showMissing;
-		}
-		
+			return $this->showMissing();
+		}	
 	}
 
 	public function showOverdue()
@@ -81,7 +80,6 @@ class ProjectsController extends \BaseController {
 		}else{
 			return $this->showMissing();
 		}
-		
 	}
 
 	public function showDueDates()
@@ -148,7 +146,6 @@ class ProjectsController extends \BaseController {
 		}else{
 			return $this->showMissing();
 		}
-		
 	}
 
 	/**
@@ -263,5 +260,4 @@ class ProjectsController extends \BaseController {
 			return $this->showMissing();
 		}
 	}
-
 }
