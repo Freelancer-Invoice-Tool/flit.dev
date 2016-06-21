@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Flit Home Login
+    FLIT Home Login
 @stop
 
 @section('content')
@@ -9,8 +9,8 @@
     <div class="container"> 
         <div class="row">
             <div class="col s6">
-                <h1>Flit</h1>
-                <p>Your Personal Assistant</p>
+                <h1>FLIT</h1>
+                <h5>Your Personal Assistant</h5>
             </div>
         </div>
 

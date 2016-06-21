@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div>
             {{ Form::open(array('action'=>'ProjectsController@store', 'class' => 'col s8 box', 'enctype' => 'multipart/form-data')) }}
                 
             <div class="row">
