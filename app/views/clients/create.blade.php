@@ -9,7 +9,8 @@
     <div class="container">
         <div class="row">
             <div class="col s10">
-                <h1>Create a New Client</h1>
+                <h2 class="hide-on-med-and-down">Create a New Client</h2>
+                <h3 class="hide-on-large-only">Create a New Client</h3>
             </div> 
         </div> 
 

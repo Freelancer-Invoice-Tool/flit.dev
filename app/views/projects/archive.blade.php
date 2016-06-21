@@ -7,8 +7,9 @@
 @section('content')
     <main>
         <div class="container">
-            <div>
-                <h1>Project Archive</h1>   
+            <div class="row">
+                <h2 class="hide-on-med-and-down">Project Archive</h2>
+                <h3 class="hide-on-large-only">Project Archive</h3>   
             </div>
 
             <!-- expanded index visible on horizontal tablet and larger -->
