@@ -29,7 +29,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="client_dropdown" name="client_dropdown">
-                    <option label='select' selected>Select from dropdown</option>
+                    <option data-clientid='select' label='select' selected>Select from dropdown</option>
                     <option data-clientid='create' label='create_new'>Create new</option>
                     @foreach($clients as $client)
                         <option data-clientid="{{{ $client->id }}}" label="{{{ $client->client_name }}}">{{{ $client->client_name }}}</option>
@@ -161,9 +161,26 @@
                 $('#payment_terms').val("");
                 $('#submission_or_approval').val("");
                 $('#main_poc_name').val("");
+                $('#project_poc_name').val("");
                 $('#main_poc_email').val("");
+                $('#project_poc_email').val("");
                 $('#main_poc_phone').val("");
+                $('#project_poc_phone').val("");
                 $('#main_poc_address').val("");
+                $('#project_poc_address').val("");
+            } else if ($(this).find(':selected').data('select')=='create') {
+                $("#create_client").addClass("hide");
+                $('#client_name').val("");
+                $('#payment_terms').val("");
+                $('#submission_or_approval').val("");
+                $('#main_poc_name').val("");
+                $('#project_poc_name').val("");
+                $('#main_poc_email').val("");
+                $('#project_poc_email').val("");
+                $('#main_poc_phone').val("");
+                $('#project_poc_phone').val("");
+                $('#main_poc_address').val("");
+                $('#project_poc_address').val("");
             } else if ($(this).find(':selected').data('clientid') > 0) {
                 $("#create_client").addClass("hide");
                 var clientid = ($(this).find(':selected').data('clientid'));
