@@ -89,35 +89,11 @@
             </div>
         </div>
         <!-- end of client creation fields -->
-
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date">
-                {{ Form::label('project_submitted_date', 'Project Submittal') }}
-            </div>
-        
-            <div class="input-field col s6">
-                <input type="date" class="datepicker" id="invoice_submitted_date" name="invoice_submitted_date">
-                {{ Form::label('invoice_submitted_date', 'Invoice Submittal') }}
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="date" class="datepicker" id="invoice_approval_date" name="invoice_approval_date">
-                {{ Form::label('invoice_approval_date', 'Invoice Approval') }}
-            </div>
-       
-            <div class="input-field col s6">
-                <input type="date" class="datepicker" id="pay_date" name="pay_date">
-                {{ Form::label('pay_date', 'Payment Date') }}
-            </div>
-        </div>
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="date" class="datepicker" id="payment_received" name="payment_received">
-                {{ Form::label('payment_received', 'Payment Received') }}
+                <input id="budgeted_amount" name="budgeted_amount">
+                {{ Form::label('budgeted_amount', 'Budgeted Amount') }}
             </div>
             <div class="input-field col s6">
                 {{ Form::label('project_poc_name', 'Project Contact Name') }}
