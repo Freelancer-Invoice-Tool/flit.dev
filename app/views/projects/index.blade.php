@@ -59,7 +59,7 @@
                             @else
                             <td> </td>
                             @endif
-                            @if ((strpos($project->pay_date, '-0001')==false && !empty($project->pay_date)) || (strpos($project->pay_date, '0000')==false && !empty($project->pay_date)))
+                            @if ($project->pay_date=0)
                             <td>{{{calculatePayDate($project->client, $project)->format('m-d-Y')}}}</td>
                             @else
                             <td> </td>

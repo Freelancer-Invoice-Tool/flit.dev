@@ -25,11 +25,6 @@ class ProjectsController extends \BaseController {
 		if(Auth::id()){
 			$project = Project::where('user_id', Auth::id())
 				->where('payment_received', '=', '0000-00-00')
-				->where(function($query)
-				{
-					$query->where('project_status', '!=', 'Payment Received')
-						->where('project_submitted_date', '=', '0000-00-00');	
-				})
 				->paginate(15);
 	    	$paginator = new MaterializePagination($project);
 

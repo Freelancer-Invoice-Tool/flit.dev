@@ -21,6 +21,12 @@
                 {{ Form::label('name', 'Project Name') }}
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+                {{Form::textarea('description', null, array('id'=>'description', 'class'=> 'form-control other-class another materialize-textarea'))}}
+                {{ Form::label('description', 'Description') }}
+            </div>
+        </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
