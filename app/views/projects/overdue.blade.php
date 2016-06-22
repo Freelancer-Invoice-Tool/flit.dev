@@ -17,7 +17,7 @@
         <table class="striped centered">
             <thead>
                 <tr>
-                    <th class="center-align">Due Date</th>
+                    <th class="center-align no-wrap">Due Date</th>
                     <th class="center-align">Name</th>
                     <th class="center-align">Status</th>
                     <th class="center-align">Client</th>
