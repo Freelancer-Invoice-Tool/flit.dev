@@ -133,8 +133,8 @@ class ProjectsController extends \BaseController {
 	{
 		if(Auth::id()){
 			$projects = Project::where('user_id', '=', Auth::id())
-				->where('project_status', '=', 'Payment Received')
-				->where('project_submitted_date', '!=', '0000-00-00')
+				// ->where('project_status', '=', 'Payment Received')
+				->where('payment_received', '!=', '0000-00-00')
 				->paginate(15);
 
 			$paginator = new MaterializePagination($projects);
@@ -223,6 +223,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		// dd(Input::get('invoice_submitted_date'));
 		$project = Project::find($id);
 
 		$clientname = Input::get('client_name');
