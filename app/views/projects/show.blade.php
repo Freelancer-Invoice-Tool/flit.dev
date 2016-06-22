@@ -34,7 +34,7 @@
                             <td class="hide-on-med-and-down">{{$project->project_status}} <a href="{{action('ProjectsController@edit', $project->id)}}">update status</a> </td>
                             <td>{{{$project->due_date->format('m-d-Y')}}}</td>
                             <td class="hide-on-med-and-down">${{{number_format($project->budgeted_amount, 2)}}}</td>
-                            <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? $project->pay_date->format('m-d-Y') : ''}}}</td>
+                            <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? calculatePayDate($project->client, $project)->format('m-d-Y') : ''}}}</td>
                         </tr>     
                     </tbody> 
                 </table>
