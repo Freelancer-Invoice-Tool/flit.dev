@@ -69,7 +69,7 @@
         <!-- condensed index visible on vertical tablet and smaller -->
         <div id="mobile-project-index" class="hide-on-large-only">
             <h5>30 Day View</h5>
-            <table class="striped">
+            <table class="striped centered">
                 <thead>
                     <tr>
                         <th>Project</th>    
