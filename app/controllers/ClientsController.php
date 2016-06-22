@@ -54,10 +54,9 @@ class ClientsController extends \BaseController {
 	{	
 		$name=Input::get('client_name');
 		// dd($name);
-		$isDuplicate = DB::table('clients')
-			->where('user_id', '=', Auth::id())
-			->where('client_name', '=', $name)->get();
-		if(empty($isDuplicate)) {
+		$isNotDuplicate = Client::where('user_id', '=', Auth::id())
+			->where('client_name', '=', $name)->first();
+		if(empty($isNotDuplicate)) {
 			$client = Client::validateAndCreate(Request::instance(), User::find(Auth::id()));
 
 			return Redirect::action('ClientsController@show', $client->id)->withInput();
