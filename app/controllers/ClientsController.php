@@ -51,10 +51,21 @@ class ClientsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		$client = Client::validateAndCreate(Request::instance(), User::find(Auth::id()));
+	{	
+		$name=Input::get('client_name');
+		// dd($name);
+		$isDuplicate = DB::table('clients')
+			->where('user_id', '=', Auth::id())
+			->where('client_name', '=', $name)->get();
+		if(empty($isDuplicate)) {
+			$client = Client::validateAndCreate(Request::instance(), User::find(Auth::id()));
 
-		return Redirect::action('ClientsController@show', $client->id)->withInput();
+			return Redirect::action('ClientsController@show', $client->id)->withInput();
+		} else {
+			Session::flash('errorMessage', "There's already a client with that name! Please modify the client name.");
+			return Redirect::back()->withInput();
+		}
+			
 	}
 
 	/**
