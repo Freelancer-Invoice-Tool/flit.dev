@@ -24,6 +24,7 @@
                             <th>Client</th> 
                             <th class="hide-on-med-and-down">Project Status</th> 
                             <th>Project Due Date</th>
+                            <th class="hide-on-med-and-down">Budgeted Amount</th>
                             <th class="hide-on-med-and-down">Projected Payment Date</th>    
                         </tr>    
                     </thead>
@@ -32,7 +33,8 @@
                             <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
                             <td class="hide-on-med-and-down">{{$project->project_status}} <a href="{{action('ProjectsController@edit', $project->id)}}">update status</a> </td>
                             <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                            <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? $project->pay_date->format('m-d-Y') : ''}}}</td>
+                            <td class="hide-on-med-and-down">${{{number_format($project->budgeted_amount, 2)}}}</td>
+                            <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? calculatePayDate($project->client, $project)->format('m-d-Y') : ''}}}</td>
                         </tr>     
                     </tbody> 
                 </table>
@@ -41,17 +43,19 @@
                     <thead>
                         <tr>
                             <th>Project Submit Date</th>
-                            <th>Invoice Submit Date</th>
-                            <th>Invoice Approval Date</th>
-                            <th>Payment Received Date</th>
+                            <th class="hide-on-med-and-down">Invoice Submit Date</th>
+                            <th class="hide-on-med-and-down">Invoice Approval Date</th>
+                            <th class="hide-on-med-and-down">Payment Received Date</th>
+                            <th>Actual Payment</th>
                         </tr>
                     </thead> 
                     <tbody>
                         <tr>
                             <td>{{{((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date)) ? $project->project_submitted_date->format('m-d-Y') : ''}}}</td>
-                            <td>{{{((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date)) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
-                            <td>{{{((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date)) ? $project->invoice_approval_date->format('m-d-Y') : ''}}}</td>
-                            <td>{{{((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received)) ? $project->payment_received->format('m-d-Y') : ''}}}</td>
+                            <td class="hide-on-med-and-down">{{{((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date)) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
+                            <td class="hide-on-med-and-down">{{{((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date)) ? $project->invoice_approval_date->format('m-d-Y') : ''}}}</td>
+                            <td class="hide-on-med-and-down">{{{((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received)) ? $project->payment_received->format('m-d-Y') : ''}}}</td>
+                            <td>${{{number_format($project->actual_amount, 2)}}}</td>
                         </tr>
                     </tbody>  
                 </table>

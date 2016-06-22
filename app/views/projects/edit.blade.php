@@ -107,6 +107,16 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
+                    {{Form::text('budgeted_amount', null, array('id'=>'budgeted_amount'))}}
+                    {{Form::label('budgeted_amount', 'Budgeted Amount')}}    
+                </div>
+                <div class="input-field col s6">
+                    {{Form::text('actual_amount', null, array('id'=>'actual_amount'))}}
+                    {{Form::label('actual_amount', 'Actual Amount')}}  
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
                     {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
                     {{ Form::label('project_poc_name', 'Project Point of Contact Name') }}
                 </div>

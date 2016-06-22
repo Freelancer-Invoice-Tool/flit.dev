@@ -17,6 +17,7 @@
             <table class="striped">
                 <tr>
                     <th>Projected Payment Date</th>
+                    <th>Budgeted Amount</th>
                     <th>Project</th>
                     <th>Project Submit Date</th>
                     <th>Client</th>
@@ -30,6 +31,7 @@
                             <td> {{{calculatePayDate($project->client, $project)}}}</td>
                         @endif
 
+                        <td>${{{number_format($project->budgeted_amount)}}}</td>
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
                         
                         @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))

@@ -2,8 +2,6 @@
 class ProjectCreator {
     public function createProject(Illuminate\Http\Request $request, User $user, Client $client) {
         $project = new Project;
-
-        // dd($request->input('project_submitted_date'));
         
         $project->user_id = $user->id;
         $project->client_id = $client->id;
@@ -15,6 +13,8 @@ class ProjectCreator {
         $project->invoice_submitted_date = parseDates($request->input('invoice_submitted_date'));
         $project->invoice_approval_date = parseDates($request->input('invoice_approval_date'));
         $project->pay_date = parseDates($request->input('pay_date'));
+        $project->budgeted_amount = $request->input('budgeted_amount');
+        $project->actual_amount = $request->input('actual_amount');
         $project->project_status = $request->input('project_status');
         $project->project_submitted = $request->input('project_submitted');
         $project->invoice_submitted = $request->input('invoice_submitted');

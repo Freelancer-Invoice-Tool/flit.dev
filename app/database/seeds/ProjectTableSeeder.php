@@ -15,6 +15,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 150000;
+        $project->actual_amount = 149560;
         $project->project_status = 'Payment Received';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -36,6 +38,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 500;
+        $project->actual_amount= 0;
         $project->project_status = 'In Progress';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -57,6 +61,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '2016-05-21';
         $project->invoice_approval_date = '2016-06-05';
         $project->pay_date = '';
+        $project->budgeted_amount = 15000000;
+        $project->actual_amount = 0;
         $project->project_status = 'Started';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -78,6 +84,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '2016-02-10';
         $project->invoice_approval_date = '2016-02-14';
         $project->pay_date = '';
+        $project->budgeted_amount = 5000000;
+        $project->actual_amount = 0;
         $project->project_status = 'Invoice Submitted';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -99,6 +107,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 60000;
+        $project->actual_amount = 65000;
         $project->project_status = 'Payment Received';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -120,6 +130,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 1000;
+        $project->actual_amount = 0;
         $project->project_status = 'In Progress';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -141,6 +153,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 250000;
+        $project->actual_amount = 0;
         $project->project_status = 'Started';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -162,6 +176,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 500;
+        $project->budgeted_amount = 0;
         $project->project_status = 'Project Submitted';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -183,6 +199,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 500000;
+        $project->actual_amount = 0;
         $project->project_status = 'Invoice Approved';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -204,6 +222,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 850750;
+        $project->actual_amount = 0;
         $project->project_status = 'In Progress';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -225,6 +245,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 850750;
+        $project->actual_amount = 0;
         $project->project_status = 'In Progress';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
@@ -246,6 +268,8 @@ class ProjectTableSeeder extends Seeder
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
         $project->pay_date = '';
+        $project->budgeted_amount = 850750;
+        $project->actual_amount = 0;
         $project->project_status = 'In Progress';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
