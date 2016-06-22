@@ -7,22 +7,23 @@
 @section('content')
 <main>
     <div class="container">
-        <div class="row">
-            <div class="col s10">
-                <h2 class="hide-on-med-and-down">Create a New Client</h2>
-                <h3 class="hide-on-large-only">Create a New Client</h3>
-            </div> 
-        </div> 
-
-        <div class="row">
-            <div class="col s10 alert-danger">
-                <div id="errors">
-                    <h3>{{ $errors->first('client_name', '<span class="help-block">:message</span>') }}</h3> 
+        <div class="section">
+            <div class="row">
+                <div class="col s10">
+                    <h2 class="hide-on-med-and-down">Create a New Client</h2>
+                    <h3 class="hide-on-large-only">Create a New Client</h3>
                 </div> 
-            </div>
-        </div>
+            </div> 
 
-        {{Form::open(array('action' => 'ClientsController@store'))}} 
+            <div class="row">
+                <div class="col s10 alert-danger">
+                    <div id="errors">
+                        <h3>{{ $errors->first('client_name', '<span class="help-block">:message</span>') }}</h3> 
+                    </div> 
+                </div>
+            </div>
+
+            {{Form::open(array('action' => 'ClientsController@store'))}} 
             <div class="row">
                 <div class="col s10 input-field">
                     {{Form::label('client_name', 'Client Name')}} 
@@ -79,6 +80,8 @@
                 </div>
             </div>
         {{Form::close()}}
+
+        </div>
     </div>
 </main>
 @stop
