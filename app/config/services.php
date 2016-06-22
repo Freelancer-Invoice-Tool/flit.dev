@@ -15,12 +15,8 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
-	),
-
-	'mandrill' => array(
-		'secret' => '',
+		'domain' => 'https://api.mailgun.net/v3/flit.site',
+		'secret' => $_ENV['MAILGUN_SECRET'],
 	),
 
 	'stripe' => array(
