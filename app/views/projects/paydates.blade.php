@@ -85,16 +85,14 @@
 
                         <td>
                             <a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a>
-                            
+
                             <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
                         </td>
-
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>        
-
     </div> <!-- closes container -->      
 </main>
 @stop
