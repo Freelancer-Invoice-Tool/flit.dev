@@ -9,7 +9,8 @@
     <div class="container">
         <div>
             <div class="row">
-                <h3>Welcome {{{Auth::user()->first_name}}}</h3>
+                <h3 class="hide-on-med-and-down">Welcome {{{Auth::user()->first_name}}}</h3>
+                <h4 class="hide-on-large-only">Welcome {{{Auth::user()->first_name}}}</h4>
             </div>
 
             <div class="row">
@@ -21,16 +22,16 @@
                     <a class="tooltipped" data-position="top" data-tooltip="Add New Client" href="{{{action('ClientsController@create')}}}"><i class="z-depth-1 person-icon medium material-icons">person_add</i></a>
                 
                     <!-- due dates -->
-                     <a class="tooltipped" data-position="top" data-tooltip="View Due Dates" href="{{{action('ProjectsController@showDueDates')}}}"><i class="z-depth-1 cal-icon medium material-icons">today</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="All Due Dates" href="{{{action('ProjectsController@showDueDates')}}}"><i class="z-depth-1 cal-icon medium material-icons">today</i></a>
               
                     <!-- late projects -->
-                     <a class="tooltipped" data-position="bottom" data-tooltip="View Late Projects" href="{{{action('ProjectsController@showOverdue')}}}"><i class="z-depth-1 late-icon medium material-icons">assignment_late</i></a>
+                     <a class="tooltipped" data-position="top" data-tooltip="Late Projects" href="{{{action('ProjectsController@showOverdue')}}}"><i class="z-depth-1 late-icon medium material-icons">assignment_late</i></a>
 
                     <!-- all contacts -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View All Clients" href="{{{action('ClientsController@index')}}}"><i class="z-depth-1 group-icon medium material-icons">group</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="All Clients" href="{{{action('ClientsController@index')}}}"><i class="z-depth-1 group-icon medium material-icons">group</i></a>
 
                     <!-- pay dates -->
-                    <a class="tooltipped" data-position="bottom" data-tooltip="View Pay Dates" href="{{{action('ProjectsController@showPayDates')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
+                    <a class="tooltipped" data-position="top" data-tooltip="Payment Dates" href="{{{action('ProjectsController@showPayDates')}}}"><i class="z-depth-1 money-icon medium material-icons">monetization_on</i></a>
                 </div>
             </div>   
 
@@ -43,12 +44,12 @@
 
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
-            <table class="striped centered responsive-table">
             <h4>30 Day View</h4>
+            <table class="striped centered responsive-table">
                 <thead>
                     <tr>
                         <th data-field="project">Project</th>
-                        <th data-field="dueDates">Project Due Date</th>
+                        <th data-field="dueDates">Due Date</th>
                         <th data-field="description" class="truncate">Description</th>
                     </tr>
                 </thead>
@@ -67,15 +68,12 @@
 
         <!-- condensed index visible on vertical tablet and smaller -->
         <div id="mobile-project-index" class="hide-on-large-only">
-            <table class="striped responsive-table">
-            <h4>30 Day View</h4>
+            <h5>30 Day View</h5>
+            <table class="striped">
                 <thead>
                     <tr>
-                        <th>
-                            <p class="top-align">Project</p>
-                            <p>Due Date</p>
-                        </th>
-                        <th data-field="description" class="truncate">Description</th>
+                        <th>Project</th>    
+                        <th>Due Date</th>
                     </tr>
                 </thead>
 
@@ -83,10 +81,9 @@
                         @foreach($projects as $project)
                     <tr>
                         <td>
-                            <p><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></p>
-                            <p>{{{$project->due_date->format('m-d-Y')}}}</p>
+                            <a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a>
                         </td>
-                        <td class="truncate">{{{$project->description}}}</td>
+                        <td>{{{$project->due_date->format('m-d-Y')}}}</td>
                     </tr>
                         @endforeach
                 </tbody>
