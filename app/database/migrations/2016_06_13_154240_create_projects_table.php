@@ -27,6 +27,8 @@ class CreateProjectsTable extends Migration {
             $table->date('invoice_submitted_date')->nullable();
             $table->date('invoice_approval_date')->nullable();
             $table->date('pay_date')->nullable();
+            $table->decimal('budgeted_amount', 15, 2)->nullable();
+            $table->decimal('actual_amount', 15, 2)->nullable();
             $table->string('project_status')->nullable();
             $table->boolean('project_submitted')->nullable();
             $table->boolean('invoice_submitted')->nullable();
