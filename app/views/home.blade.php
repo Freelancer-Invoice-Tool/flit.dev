@@ -60,12 +60,12 @@
 
                         <div class="mobile-login row hide-on-large-only">
                             <div class="col s12">
-                                <p>Don't have an account?</p>
+                                <p class="center-align">Don't have an account?</p>
                             </div>
                         </div>
 
                         <div class="row hide-on-large-only">
-                            <div class="col s6">
+                            <div class="col s12 no-wrap center-align">
                                 <a href="{{{action('HomeController@showSignup')}}}">Sign Up</a>
                             </div>
                         </div>
