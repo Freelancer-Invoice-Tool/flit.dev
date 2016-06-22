@@ -54,10 +54,9 @@ class ClientsController extends \BaseController {
 	{	
 		$name=Input::get('client_name');
 		// dd($name);
-		$isDuplicate = DB::table('clients')
-			->where('user_id', '=', Auth::id())
-			->where('client_name', '=', $name)->get();
-		if(empty($isDuplicate)) {
+		$isNotDuplicate = Client::where('user_id', '=', Auth::id())
+			->where('client_name', '=', $name)->first();
+		if(empty($isNotDuplicate)) {
 			$client = Client::validateAndCreate(Request::instance(), User::find(Auth::id()));
 
 			return Redirect::action('ClientsController@show', $client->id)->withInput();
@@ -79,7 +78,6 @@ class ClientsController extends \BaseController {
 		$client = Client::find($id);
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where('client_id', '=', $client->id)
-			->where('due_date', '>', Carbon\Carbon::now())
 			->where('project_status', '!=', 'Payment Received')
 			->orderBy('due_date', 'desc')
 			->get();

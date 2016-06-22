@@ -16,6 +16,7 @@
             <h3 class="center-align hide-on-med-and-down">Main Point of Contact</h3>
             <h4 class="center-align hide-on-large-only">Main Point of Contact</h4>
 
+            <!-- Top portion -->
             <table class="centered">
                 <thead>
                     <tr>
@@ -47,6 +48,7 @@
             @endif 
         </div>
 
+        <!-- bottom portion: list of projects -->
         <div class="section">
             <h3 class="center-align hide-on-med-and-down">Projects</h3>
             <h4 class="center-align hide-on-large-only">Projects</h4>
