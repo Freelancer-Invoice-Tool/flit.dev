@@ -12,25 +12,30 @@
             <h3 class="hide-on-large-only">All Projects</h3>
         </div>
 
-        <div class="right-align btn-margin">
-            <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
+        <div class="row">
+            <div class="col s12 right-align btn-margin">
+                <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
+            </div>
         </div>
-        <div class="left-align">
-            <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+        <div class="row">
+            <div class="col s6 left-align">
+                <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+            </div>
         </div>
+        
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
-            <table class="striped">
+            <table class="striped centered">
                 <thead>
                     <tr>
-                        <th>Project</th>
+                        <th>Name</th>
                         <th>Client</th>
-                        <th>Project Due Date</th>
-                        <th>Project Submit Date</th>
-                        <th>Invoice Submit Date</th>
-                        <th>Invoice Approval Date</th>
-                        <th>Projected Payment Date</th>
-                        <th>Payment Received Date</th>
+                        <th>Due Date</th>
+                        <th>Project Submitted</th>
+                        <th>Invoice Submitted</th>
+                        <th>Invoice Approved</th>
+                        <th>Projected Payment</th>
+                        <th>Payment Received</th>
                     </tr>   
                 </thead>
                 <tbody>
@@ -69,6 +74,7 @@
                 </tbody>
             </table>
             {{ $projects->links() }}
+
         </div>
 
         <!-- condensed index visible on vertical tablet and smaller -->
