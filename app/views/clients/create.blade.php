@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col s10 input-field">
                     {{Form::label('client_name', 'Client Name')}} 
-                    {{Form::text('client_name', Input::old('title'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.'))}}
+                    {{Form::text('client_name', Input::old('client_name'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. ABC Company, Inc.'))}}
                 </div> 
             </div>
 
