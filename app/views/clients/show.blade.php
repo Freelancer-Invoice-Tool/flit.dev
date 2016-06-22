@@ -13,7 +13,8 @@
         </div>
 
         <div class="section">
-            <h3>Main Point of Contact</h3>
+            <h3 class="center-align hide-on-med-and-down">Main Point of Contact</h3>
+            <h4 class="center-align hide-on-large-only">Main Point of Contact</h4>
 
             <table class="centered">
                 <thead>
@@ -37,19 +38,25 @@
             </table>
 
             @if(Auth::check())
+            <div class="row hide-on-med-and-down">
                 <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
-            @endif    
+            </div>
+            <div class="row hide-on-large-only center-align">
+                <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit Client</a></button>
+            </div>   
+            @endif 
         </div>
 
         <div class="section">
-            <h3>Projects</h3>
-            <table>
+            <h3 class="center-align hide-on-med-and-down">Projects</h3>
+            <h4 class="center-align hide-on-large-only">Projects</h4>
+            <table class="centered">
                 <thead>
                     <tr>
-                        <th>Project Name</th>
-                        <th class="hide-on-med-and-down">Project Description</th>
-                        <th class="hide-on-med-and-down">Project Status</th>
-                        <th>Project Due Date</th>
+                        <th>Name</th>
+                        <th class="hide-on-med-and-down">Description</th>
+                        <th class="hide-on-med-and-down">Status</th>
+                        <th>Due Date</th>
                     </tr>
                 </thead>
                 <tbody>
