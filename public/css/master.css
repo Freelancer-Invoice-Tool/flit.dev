@@ -163,5 +163,41 @@ button.delete-btn a:focus, .delete-btn:focus {
  box-shadow: 0 1px 0 0 #fb5607;
 }
 
+/*all below is for date-picker calendar*/
+/*for month section*/
+.picker__date-display {
+    background-color: #8338ec;
+    color: #f4fff7;
+}
+
+/*for day section*/
+.picker__weekday-display {
+    background-color: #5b27a5;
+    color: #f4fff7;
+}
+
+/*for day selected*/
+.picker__day--selected, 
+.picker--focused .picker__day--selected {
+    background-color: #8338ec;
+    color: #f4fff7;
+}
+
+/*color of date display background*/
+.picker__box {
+    background-color: #f4fff7;
+}
+
+/*for today's date, "close" and "today" labels*/
+.picker__day.picker__day--today,
+.picker__close, .picker__today {
+    color: #8338ec;
+}
+
+
+
+
+
+
 
 

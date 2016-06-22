@@ -9,7 +9,8 @@
 
     <div class="container">
         <div>
-            <h1>All Clients</h1>
+            <h2 class="hide-on-med-and-down">All Clients</h2>
+            <h3 class="hide-on-large-only">All Clients</h3>
         </div>
         <div class="right-align btn-margin">
             <a class="waves-effect waves-light btn edit-btn" href="{{{action('ClientsController@create')}}}">Create New Client</a>

@@ -7,9 +7,9 @@
 @section('content')
 <main>
     <div class="container">
-
-        <div>
-            <h1>Projected Payments</h1>
+        <div class="row">
+            <h2 class="hide-on-med-and-down">Projected Payments</h2>
+            <h3 class="hide-on-large-only">Projected Payments</h3>
         </div>
 
         <!-- expanded index visible on horizontal tablet and larger -->
@@ -26,9 +26,8 @@
                 @foreach($projects as $project)
                     <tr>
                         @if ((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date))
-                            <td>{{{$project->pay_date->format('m-d-Y')}}}</td>
                         @else
-                            <td> </td>
+                            <td> {{{calculatePayDate($project->client, $project)}}}</td>
                         @endif
 
                         <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
