@@ -54,7 +54,7 @@
                 <div class="input-field col s6">
                     <input type="date" class="datepicker" id="due_date" name="due_date" value="{{{$project->due_date}}}">
                     
-                    {{ Form::label('due_date', 'Project Due Date') }}
+                    {{ Form::label('due_date', 'Due Date') }}
                 </div>
             
                 <div class="input-field col s6">
@@ -63,9 +63,10 @@
                     @else
                         <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date" value="">
                     @endif 
-                    {{ Form::label('project_submitted_date', 'Project Submit Date') }}
+                    {{ Form::label('project_submitted_date', 'Project Submittal') }}
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s6">
                     <!-- if/else in fields below prevent form from displaying weird '-0001' date if there's no date in mySQL -->
@@ -74,7 +75,7 @@
                     @else
                         <input type="date" class="datepicker" id="invoice_submitted_date" name="invoice_submitted_date" value="">
                     @endif 
-                    {{ Form::label('invoice_submitted_date', 'Invoice Submit Date') }}
+                    {{ Form::label('invoice_submitted_date', 'Invoice Submittal') }}
                 </div>
             
                 <div class="input-field col s6">
@@ -83,9 +84,10 @@
                     @else
                         <input type="date" class="datepicker" id="invoice_approval_date" name="invoice_approval_date" value="">
                     @endif 
-                    {{ Form::label('invoice_approval_date', 'Invoice Approval Date') }}
+                    {{ Form::label('invoice_approval_date', 'Invoice Approval') }}
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s6">
                     @if ((strpos($project->pay_date, '-0001'))===false) 
@@ -93,7 +95,7 @@
                     @else
                         <input type="date" class="datepicker" id="pay_date" name="pay_date" value="">
                     @endif 
-                    {{ Form::label('pay_date', 'Projected Payment Date') }}
+                    {{ Form::label('pay_date', 'Payment Date') }}
                 </div>
             
                 <div class="input-field col s6">
@@ -102,32 +104,34 @@
                     @else
                         <input type="date" class="datepicker" id="payment_received" name="payment_received" value="">
                     @endif 
-                    {{ Form::label('payment_received', 'Payment Received Date') }}
+                    {{ Form::label('payment_received', 'Payment Received') }}
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
-                    {{ Form::label('project_poc_name', 'Project Point of Contact Name') }}
+                    {{ Form::label('project_poc_name', 'Contact Name') }}
                 </div>
            
                 <div class="input-field col s6">
                     {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
-                    {{ Form::label('project_poc_phone', 'Project Point of Contact Phone') }}
+                    {{ Form::label('project_poc_phone', 'Contact Phone') }}
                 </div>
             </div>
+
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
-                    {{ Form::label('project_poc_email', 'Project Point of Contact Email') }}
+                    {{ Form::label('project_poc_email', 'Contact Email') }}
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
+            
+                <div class="input-field col s6">
                     {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
-                    {{ Form::label('project_poc_address', 'Project Point of Contact Address') }}
+                    {{ Form::label('project_poc_address', 'Contact Address') }}
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s12">
                     {{Form::textarea('project_notes', null, array('id'=>'project_notes', 'class'=> 'form-control other-class another materialize-textarea', 'value' => $project->project_notes))}}
@@ -159,7 +163,6 @@
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15 // Creates a dropdown of 15 years to control year
               });
-
         });    
     </script>
 @stop    
