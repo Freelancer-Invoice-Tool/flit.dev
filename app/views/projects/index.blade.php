@@ -12,25 +12,30 @@
             <h3 class="hide-on-large-only">All Projects</h3>
         </div>
 
-        <div class="right-align btn-margin">
-            <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
+        <div class="row">
+            <div class="col s12 right-align btn-margin">
+                <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
+            </div>
         </div>
-        <div class="left-align">
-            <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+        <div class="row">
+            <div class="col s6 left-align">
+                <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+            </div>
         </div>
+        
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
-            <table class="striped">
+            <table class="striped centered">
                 <thead>
                     <tr>
-                        <th>Project</th>
+                        <th>Name</th>
                         <th>Client</th>
-                        <th>Project Due Date</th>
-                        <th>Project Submit Date</th>
-                        <th>Invoice Submit Date</th>
-                        <th>Invoice Approval Date</th>
-                        <th>Projected Payment Date</th>
-                        <th>Payment Received Date</th>
+                        <th>Due Date</th>
+                        <th>Project Submitted</th>
+                        <th>Invoice Submitted</th>
+                        <th>Invoice Approved</th>
+                        <th>Projected Payment</th>
+                        <th>Payment Received</th>
                     </tr>   
                 </thead>
                 <tbody>
@@ -73,41 +78,42 @@
 
         <!-- condensed index visible on vertical tablet and smaller -->
         <div id="mobile-project-index" class="hide-on-large-only">
-
+        
             @if ($due_projects->count()>0)
-                <h2>Projects Due</h2>
-                <table class="striped">
+            <div class="section">
+                <h4>Projects Due</h4>
+                <table class="striped centered">
                     <tr>
-                        <th>
-                            <p>Project</p>
+                        <th class="center-align">
+                            <p>Name</p>
                             <p>Client</p>
                         </th>
-                        <th>Project Due Date</th>
+                        <th class="center-align">Due Date</th>
                     </tr>
                     @foreach($due_projects as $due_project)
-                        
-                            <tr>
-                                <td>
-                                    <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$due_project->name}}}</a></p>
-                                    <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
-                                </td>
-                                <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
-                            </tr>
-                       
+                        <tr>
+                            <td>
+                                <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$due_project->name}}}</a></p>
+                                <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
+                            </td>
+                            <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
+                        </tr>
                     @endforeach
                 </table>
+            </div>
             @endif
 
             @if($needs_invoice->count()>0)
-                <h2>Needs Invoice Issued</h2>
-                <table class="striped">
+            <div class="section">
+                <h4>Needs Invoice Issued</h4>
+                <table class="striped centered">
                     <tr>
-                        <th>
-                            <p>Project</p>
+                        <th class="center-align">
+                            <p>Name</p>
                             <p>Client</p>
                         </th>
-                        <th>Project Submit Date</th>
-                        <th>Conditions</th>
+                        <th class="center-align">Submittal Date</th>
+                        <th class="center-align">Conditions</th>
                     </tr>
                     @foreach($needs_invoice as $uninvoiced_project)
                             <tr>
@@ -121,18 +127,20 @@
                             </tr>
                     @endforeach
                 </table>
+            </div>
             @endif
 
             @if($needs_approval->count()>0)
-                <h2>Invoice Needs Approval</h2>
-                <table class="striped">
+            <div class="section">
+                <h4>Invoice Needs Approval</h4>
+                <table class="striped centered">
                     <tr>
-                        <th>
-                            <p>Project</p>
+                        <th class="center-align">
+                            <p>Name</p>
                             <p>Client</p>
                         </th>
-                        <th>Invoice Submit Date</th>
-                        <th>Conditions</th>
+                        <th class="center-align">Submittal Date</th>
+                        <th class="center-align">Conditions</th>
                     </tr>
                     @foreach($needs_approval as $unapproved_project)
                         <tr>
@@ -145,17 +153,19 @@
                         </tr>
                     @endforeach
                 </table>
+            </div>
             @endif
 
             @if($awaiting_payment->count()>0)
-                <h2>Awaiting Payment</h2>
-                <table class="striped">
+            <div class="section">
+                <h4>Awaiting Payment</h4>
+                <table class="striped centered">
                     <tr>
-                        <th>
-                            <p>Project</p>
+                        <th class="center-align">
+                            <p>Name</p>
                             <p>Client</p>
                         </th>
-                        <th>Projected Payment Date</th>
+                        <th class="center-align">Projected Payment Date</th>
                     </tr>
                     @foreach($awaiting_payment as $unpaid_project)
                         
@@ -168,8 +178,8 @@
                             </tr>
                     @endforeach
                 </table>
+            </div>
             @endif
-
         </div>         
     </div> <!-- closes container -->      
 </main>
