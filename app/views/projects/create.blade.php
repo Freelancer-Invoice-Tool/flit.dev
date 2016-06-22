@@ -110,24 +110,24 @@
             <div class="row">
                 <div class="input-field col s6">
                     {{ Form::label('project_poc_name', 'Project Contact\'s Name') }}
-                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
+                    {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name', 'placeholder'=>'e.g. Joe Blow')) }}
                 </div>
            
                 <div class="input-field col s6">
                     {{ Form::label('project_poc_phone', 'Project Contact\'s Phone') }}
-                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
+                    {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone', 'placeholder' => 'e.g. 210-867-5309')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     {{ Form::label('project_poc_email', 'Project Contact\'s Email') }}
-                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
+                    {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email', 'placeholder' => 'e.g. jblow@example.com')) }}
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
-                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
+                    {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address', 'placeholder' => 'e.g. 123 Some Street Anytown, TX 78253')) }}
                 </div>
             </div>
  
