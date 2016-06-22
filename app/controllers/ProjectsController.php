@@ -91,8 +91,7 @@ class ProjectsController extends \BaseController {
 				->where('due_date', '>', Carbon\Carbon::now())
 				->where(function($query)
 				{
-					$query->orWhere('project_status', '=', '')
-						->orWhere('project_status', '=', 'Started')
+					$query->orWhere('project_status', '=', 'Started')
 						->orWhere('project_status', '=', 'In Progress');
 				})
 				->paginate(15);
@@ -113,8 +112,7 @@ class ProjectsController extends \BaseController {
 			$projects = Project::where('user_id', '=', Auth::id())
 				->where(function($query)
 				{
-					$query->orWhere('project_status', '=', 'Project Submitted')
-						->orWhere('project_status', '=', 'Invoice Submitted')
+					$query->orWhere('project_status', '=', 'Invoice Submitted')
 						->orWhere('project_status', '=', 'Invoice Approved');
 				})
 				->paginate(15);
