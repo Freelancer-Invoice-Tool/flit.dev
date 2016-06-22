@@ -41,7 +41,8 @@
             </div>
         </div>
 
-        <div>
+        <!-- expanded index visible on horizontal tablet and larger -->
+        <div class="hide-on-med-and-down">
             <table class="striped centered responsive-table">
             <h4>30 Day View</h4>
                 <thead>
@@ -62,6 +63,34 @@
                         @endforeach
                 </tbody>
           </table>
+        </div>
+
+        <!-- condensed index visible on vertical tablet and smaller -->
+        <div id="mobile-project-index" class="hide-on-large-only">
+            <table class="striped responsive-table">
+            <h4>30 Day View</h4>
+                <thead>
+                    <tr>
+                        <th>
+                            <p class="top-align">Project</p>
+                            <p>Due Date</p>
+                        </th>
+                        <th data-field="description" class="truncate">Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                        @foreach($projects as $project)
+                    <tr>
+                        <td>
+                            <p><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></p>
+                            <p>{{{$project->due_date->format('m-d-Y')}}}</p>
+                        </td>
+                        <td class="truncate">{{{$project->description}}}</td>
+                    </tr>
+                        @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </main>
