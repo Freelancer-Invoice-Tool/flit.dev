@@ -52,9 +52,10 @@
                 <table class="striped centered responsive-table">
                     <thead>
                         <tr>
-                            <th data-field="project">Project</th>
-                            <th data-field="dueDates">Due Date</th>
-                            <th data-field="description" class="truncate">Description</th>
+                            <th class="center-align" data-field="project">Project</th>
+                            <th class="center-align"  data-field="dueDates">Due Date</th>
+                            <th class="center-align"  data-field="projectStatus">Status</th>
+                            <th class="center-align"  data-field="description" class="truncate">Description</th>
                         </tr>
                     </thead>
 
@@ -63,6 +64,7 @@
                         <tr>
                             <td><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></td>
                             <td>{{{$project->due_date->format('m-d-Y')}}}</td>
+                            <td>{{{$project->project_status}}}</td>
                             <td>{{{$project->description}}}</td>
                         </tr>
                             @endforeach
@@ -79,7 +81,10 @@
                     <thead>
                         <tr>
                             <th>Project</th>    
-                            <th>Due Date</th>
+                            <th>
+                                <p>Due Date</p>
+                                <p>Status</p>
+                            </th>
                         </tr>
                     </thead>
 
@@ -89,7 +94,10 @@
                             <td>
                                 <a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a>
                             </td>
-                            <td>{{{$project->due_date->format('m-d-Y')}}}</td>
+                            <td>
+                                <p>{{{$project->due_date->format('m-d-Y')}}}<p>
+                                <p>{{{$project->project_status}}}</p>
+                            </td>
                         </tr>
                             @endforeach
                     </tbody>
