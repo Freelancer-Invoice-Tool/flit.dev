@@ -29,7 +29,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="client_dropdown" name="client_dropdown">
-                    <option label='select' selected>Select from dropdown</option>
+                    <option data-clientid='select' label='select' selected>Select from dropdown</option>
                     <option data-clientid='create' label='create_new'>Create new</option>
                     @foreach($clients as $client)
                         <option data-clientid="{{{ $client->id }}}" label="{{{ $client->client_name }}}">{{{ $client->client_name }}}</option>
@@ -75,9 +75,9 @@
         </div>
         <!-- end of client creation fields -->
 
-            <div class="input-field col s12">
-                {{Form::hidden('project_status', 'started', array('id'=>'project_status'))}}   
-            </div>
+        <div class="input-field col s12">
+            {{Form::hidden('project_status', 'started', array('id'=>'project_status'))}}   
+        </div>
         <div class="row">
             <div class="input-field col s6">
                 <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date">
@@ -109,24 +109,24 @@
         <div class="row">
             <div class="input-field col s6">
                 {{ Form::label('project_poc_name', 'Project Contact\'s Name') }}
-                {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name')) }}
+                {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name', 'placeholder'=>'e.g. Joe Blow')) }}
             </div>
        
             <div class="input-field col s6">
                 {{ Form::label('project_poc_phone', 'Project Contact\'s Phone') }}
-                {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone')) }}
+                {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone', 'placeholder' => 'e.g. 210-867-5309')) }}
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 {{ Form::label('project_poc_email', 'Project Contact\'s Email') }}
-                {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email')) }}
+                {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email', 'placeholder' => 'e.g. jblow@example.com')) }}
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 {{ Form::label('project_poc_address', 'Project Contact\'s Address') }}
-                {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address')) }}
+                {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address', 'placeholder' => 'e.g. 123 Some Street Anytown, TX 78253')) }}
             </div>
         </div>
 
@@ -161,9 +161,26 @@
                 $('#payment_terms').val("");
                 $('#submission_or_approval').val("");
                 $('#main_poc_name').val("");
+                $('#project_poc_name').val("");
                 $('#main_poc_email').val("");
+                $('#project_poc_email').val("");
                 $('#main_poc_phone').val("");
+                $('#project_poc_phone').val("");
                 $('#main_poc_address').val("");
+                $('#project_poc_address').val("");
+            } else if ($(this).find(':selected').data('select')=='create') {
+                $("#create_client").addClass("hide");
+                $('#client_name').val("");
+                $('#payment_terms').val("");
+                $('#submission_or_approval').val("");
+                $('#main_poc_name').val("");
+                $('#project_poc_name').val("");
+                $('#main_poc_email').val("");
+                $('#project_poc_email').val("");
+                $('#main_poc_phone').val("");
+                $('#project_poc_phone').val("");
+                $('#main_poc_address').val("");
+                $('#project_poc_address').val("");
             } else if ($(this).find(':selected').data('clientid') > 0) {
                 $("#create_client").addClass("hide");
                 var clientid = ($(this).find(':selected').data('clientid'));
