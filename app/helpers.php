@@ -26,3 +26,13 @@ function calculatePayDate($client, $project)
 
     return $payCountStart->addDays($paymentTerm);
 }
+
+function sendMail()
+{
+    Mail::later(30,'emails.welcome', $data, function($message)
+    {
+        $message->to('$user->email', '$user->first_name')->subject('Welcome!');
+    });
+
+    return $message;
+}
