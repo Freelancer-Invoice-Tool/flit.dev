@@ -17,7 +17,7 @@
         <table class="striped centered">
             <thead>
                 <tr>
-                    <th class="center-align">Due Date</th>
+                    <th class="center-align no-wrap">Due Date</th>
                     <th class="center-align">Name</th>
                     <th class="center-align">Status</th>
                     <th class="center-align">Client</th>
@@ -26,7 +26,8 @@
                     <th class="center-align">Description</th>
                 </tr>
             </thead>
-            @foreach($projects as $project)
+            <tbody>
+                @foreach($projects as $project)
                 <tr>
                     <td>{{{$project->due_date->format('m-d-Y')}}}</td>
 
@@ -41,7 +42,8 @@
                     <td>{{{$project->description}}}</td>
 
                 </tr>
-            @endforeach  
+                @endforeach 
+            </tbody> 
         </table>
         {{ $projects->links() }}
     </div>
@@ -59,15 +61,17 @@
                 </tr>
             </thead>
 
-            @foreach($projects as $project)    
-            <tr>
-                <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                <td>
-                    <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
-                    <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
-                </td>
-            </tr>
-            @endforeach
+            <tbody>
+                @foreach($projects as $project)    
+                <tr>
+                    <td>{{{$project->due_date->format('m-d-Y')}}}</td>
+                    <td>
+                        <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></p>
+                        <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></p>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>        
 </div> <!-- closes container -->      

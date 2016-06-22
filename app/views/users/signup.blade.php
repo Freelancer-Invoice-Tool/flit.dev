@@ -9,14 +9,14 @@
 <main>
 
     <div class="container">
-        <div class="row">
+        <div class="section row">
             <div class="col s6">
                 <h2 class="hide-on-med-and-down">Sign Up</h2>
                 <h3 class="hide-on-large-only">Sign Up</h3>
             </div>
         </div>
 
-        <div>
+        <div class="section">
         {{ Form::open(array('action'=>'UserController@store')) }}
                       
             <div class="row">

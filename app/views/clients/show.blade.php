@@ -7,9 +7,11 @@
 @section('content')
 <main>
     <div class="container">
-        <div class="row">
-            <h2 class="center-align hide-on-med-and-down">{{{ $client->client_name }}}</h2>
-            <h3 class="center-align hide-on-large-only">{{{ $client->client_name }}}</h3>
+        <div class="section">
+            <div class="row">
+                <h2 class="center-align hide-on-med-and-down">{{{ $client->client_name }}}</h2>
+                <h3 class="center-align hide-on-large-only">{{{ $client->client_name }}}</h3>
+            </div>
         </div>
 
         <div class="section">
@@ -37,7 +39,9 @@
                     </tr>
                 </tbody>   
             </table>
+        </div>
 
+        <div class="section">
             @if(Auth::check())
             <div class="row hide-on-med-and-down">
                 <button class="btn edit-btn"><a href="{{{ action('ClientsController@edit', $client->id) }}}">Edit This Client</a></button>
