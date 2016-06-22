@@ -70,7 +70,6 @@
             @endforeach
         </table>
     </div>        
-
 </div> <!-- closes container -->      
 </main>
 @stop
