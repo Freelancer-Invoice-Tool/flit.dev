@@ -78,7 +78,6 @@ class ClientsController extends \BaseController {
 		$client = Client::find($id);
 		$projects = Project::where('user_id', '=', Auth::id())
 			->where('client_id', '=', $client->id)
-			->where('due_date', '>', Carbon\Carbon::now())
 			->where('project_status', '!=', 'Payment Received')
 			->orderBy('due_date', 'desc')
 			->get();
