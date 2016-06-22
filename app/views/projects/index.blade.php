@@ -170,29 +170,6 @@
                 </table>
             @endif
 
-            @if($project_completed->count()>0)
-                <h2>Project Completed</h2>
-                <table class="striped">
-                    <tr>
-                        <th>
-                            <p>Project</p>
-                            <p>Client</p>
-                        </th>
-                        <th>Projected Payment Date</th>
-                        <th>Actual Payment Date</th>
-                    </tr>
-                    @foreach($project_completed as $completed_project)
-                        <tr>
-                            <td>
-                                <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$completed_project->name}}}</a></p>
-                                <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$completed_project->client->client_name}}}</a></p>
-                            </td>
-                            <td>{{{$completed_project->pay_date->format('m-d-Y')}}}</td>
-                            <td>{{{$completed_project->payment_received->format('m-d-Y')}}}</td>
-                        </tr>
-                    @endforeach
-                </table>
-            @endif
         </div>         
     </div> <!-- closes container -->      
 </main>

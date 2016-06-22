@@ -23,7 +23,9 @@ class ProjectsController extends \BaseController {
 	public function index()
 	{
 		if(Auth::id()){
-			$project = Project::where('user_id', Auth::id())->paginate(15);
+			$project = Project::where('user_id', Auth::id())
+				->where('payment_received', '=', '0000-00-00')
+				->paginate(15);
 	    	$paginator = new MaterializePagination($project);
 
 	    	$due_projects=Project::where('user_id', Auth::id())
