@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section hide-on-med-and-down">
             <div class="row center-align">
                 <div class="col s6">
                     <a href="{{{action('ProjectsController@edit', $project->id)}}}" class="waves-effect waves-light btn edit-btn">Edit Project</a>
@@ -128,6 +128,22 @@
                 </div>
             </div> 
         </div>
+
+        <div class="section hide-on-large-only">
+            <div class="row center-align">
+                <div class="col s12">
+                    <a href="{{{action('ProjectsController@edit', $project->id)}}}" class="waves-effect waves-light btn edit-btn">Edit Project</a>
+                </div>
+            </div>
+
+            <div class="row center-align">
+                <div class="col s12">
+                    <!-- Modal Trigger -->
+                    <button data-target="modal1" class="btn modal-trigger delete-btn">Delete Project</button>
+                </div>
+            </div> 
+        </div>
+
     </div> <!-- closes container -->
     
     <!-- Modal Structure -->
