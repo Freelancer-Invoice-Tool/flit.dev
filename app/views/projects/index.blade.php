@@ -102,8 +102,8 @@
                         <tr>
                             <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                             <td>
-                                <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$due_project->name}}}</a></p>
-                                <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
+                                <p><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></p>
+                                <p><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
                             </td>
                         </tr>
                     @endforeach
@@ -126,8 +126,8 @@
                     @foreach($needs_invoice as $uninvoiced_project)
                             <tr>
                                 <td>
-                                    <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$uninvoiced_project->name}}}</a></p>
-                                    <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></p>
+                                    <p><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></p>
+                                    <p><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></p>
                                 </td>
                                 <td>{{{$uninvoiced_project->project_submitted_date->format('m-d-Y')}}}</td>
                                 <!-- verify payment conditions exist for client-->
@@ -153,10 +153,10 @@
                     @foreach($needs_approval as $unapproved_project)
                         <tr>
                             <td>
-                                <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$unapproved_project->name}}}</a></p>
-                                <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></p>
+                                <p><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></p>
+                                <p><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></p>
                             </td>
-                            <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td>
+                            <td>{{{$unapproved_project->invoice_submitted_date->format('m-d-Y')}}}</td>
                             <td>{{{Client::find($unapproved_project->client_id)->payment_terms}}} {{{Client::find($unapproved_project->client_id)->submission_or_approval}}}</td>
                         </tr>
                     @endforeach
@@ -169,20 +169,20 @@
                 <h4>Awaiting Payment</h4>
                 <table class="striped centered">
                     <tr>
-                        <th class="center-align">Payment Date</th>
                         <th class="center-align">
                             <p>Name</p>
                             <p>Client</p>
                         </th>
+                        <th class="center-align">Payment Date</th>
                     </tr>
                     @foreach($awaiting_payment as $unpaid_project)
                         
                             <tr>
-                                <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
                                 <td>
-                                    <p><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$unpaid_project->name}}}</a></p>
-                                    <p><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></p>
+                                    <p><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></p>
+                                    <p><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></p>
                                 </td>
+                                <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
                             </tr>
                     @endforeach
                 </table>
