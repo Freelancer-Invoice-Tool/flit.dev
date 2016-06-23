@@ -44,13 +44,21 @@ Route::get('clients/ajax/{id}', 'ClientsController@getClient');
 
 Route::get('mail-test', function(){
 
-
-    $view = 'emails.welcome';
+    $overdueProjects = Project::where('user_id', '=', Auth::id())
+            ->where('due_date', '<=', Carbon\Carbon::now())
+            ->where('project_status', '!=', 'Payment Received')
+            ->where('project_status', '!=', 'Project Submitted')
+            ->where('project_status', '!=', 'Invoice Approved')
+            ->where('project_status', '!=', 'Invoice Submitted')
+            ->count();
+    $view = 'emails.summary';
     $toEmail = 'kriscates81@gmail.com';
     $toHuman = 'Kristen';
     $subject = 'Welcome';
     $data = [
-        'user' => User::first()
+        'user' => User::first(),
+        'projects' => Project::all(),
+        'overdueProjects' => $overdueProjects
     ];
 
     sendMail($view, $toEmail, $toHuman, $subject, $data);
