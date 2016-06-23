@@ -21,7 +21,7 @@ class ProjectUpdater {
         $projectStatus = $request->input('project_status');
         $project->project_status = $projectStatus;
 
-        // dd($request->input('invoice_approval_date'));
+        // dd($request->input('payment_received'));
         
         if ($projectStatus == 'Invoice Submitted' && $request->input('invoice_submitted_date') == '') {
             $project->invoice_submitted_date = parseDates('now');
@@ -29,7 +29,7 @@ class ProjectUpdater {
             $project->invoice_approval_date = parseDates('now');
         }elseif ($projectStatus == 'Project Submitted' && $request->input('project_submitted_date') == '') {
            $project->project_submitted_date = parseDates('now');
-        }elseif ($projectStatus == 'Payment Received' && $request->input('project->payment_received') == '') {
+        }elseif ($projectStatus == 'Payment Received' && $request->input('payment_received') == '') {
             $project->payment_received = parseDates('now');
         }
 

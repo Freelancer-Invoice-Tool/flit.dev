@@ -44,22 +44,36 @@ Route::get('clients/ajax/{id}', 'ClientsController@getClient');
 
 Route::get('mail-test', function(){
 
-    $overdueProjects = Project::where('user_id', '=', Auth::id())
-            ->where('due_date', '<=', Carbon\Carbon::now())
-            ->where('project_status', '!=', 'Payment Received')
-            ->where('project_status', '!=', 'Project Submitted')
-            ->where('project_status', '!=', 'Invoice Approved')
-            ->where('project_status', '!=', 'Invoice Submitted')
-            ->count();
-    $view = 'emails.summary';
-    $toEmail = 'kriscates81@gmail.com';
-    $toHuman = 'Kristen';
-    $subject = 'Welcome';
-    $data = [
-        'user' => User::first(),
-        'projects' => Project::all(),
-        'overdueProjects' => $overdueProjects
-    ];
+    $user = Auth::user();
 
-    sendMail($view, $toEmail, $toHuman, $subject, $data);
+    // foreach ($users as $user) {
+        // dd($user);
+        $projects = Project::where('user_id', '=', $user->id)
+                ->where('due_date', '>', Carbon\Carbon::now())
+                ->where('due_date', '<', Carbon\Carbon::now()->addMonth())
+                ->where('project_status', '!=', 'Payment Received')
+                ->orderBy('due_date', 'asc')->get();
+
+        $overdueProjects = Project::where('user_id', '=', $user->id)
+                ->where('due_date', '<=', Carbon\Carbon::now())
+                ->where('project_status', '!=', 'Payment Received')
+                ->where('project_status', '!=', 'Project Submitted')
+                ->where('project_status', '!=', 'Invoice Approved')
+                ->where('project_status', '!=', 'Invoice Submitted')
+                ->count();
+
+        $view = 'emails.summary';
+        $toEmail = $user->email;
+        // dd($toEmail);
+        $toHuman = $user->first_name;
+        $subject = 'Your Weekly Summary';
+        $data = [
+            'user' => $user,
+            'projects' => $projects,
+            'overdueProjects' => $overdueProjects
+        ];
+        // sleep(2);
+        sendMail($view, $toEmail, $toHuman, $subject, $data);
+    // }
+    
 });

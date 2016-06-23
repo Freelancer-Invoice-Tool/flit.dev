@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-	    "stripe/stripe-php": "3.*"
+	    "stripe/stripe-php": "3.*",
+	    "guzzlehttp/guzzle": "~4.0"
 	},
 	"autoload": {
 		"classmap": [
@@ -37,6 +38,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable",
-	"guzzlehttp/guzzle": "~4.0"
+	"minimum-stability": "stable"
 }
