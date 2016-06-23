@@ -158,7 +158,7 @@
                 <!-- Modal Trigger -->
             <div class="row center-align">
                 <div class="col s10"> 
-                    <button data-target="modal1" class="btn modal-trigger delete-btn">Delete Client</button>
+                    <button data-target="modal2" class="btn modal-trigger delete-btn">Delete Client</button>
                 </div>
             </div>
 
@@ -166,7 +166,7 @@
         </div>
 
         <!-- Modal Structure -->
-        <div id="modal1" class="modal mobile-modal">
+        <div id="modal2" class="modal mobile-modal">
             <form method="POST" action="{{{action('ClientsController@destroy', $client->id)}}}">
             {{Form::token()}}
                 <input type="hidden" name="_method" value="DELETE">
@@ -176,7 +176,7 @@
                 </div>
                 <div class="modal-footer row">
                     <div class="col s12">
-                        <button class="btn edit-btn"><a href="{{{ action('ClientsController@show', $client->id) }}}" class=" modal-action modal-close">Keep</a></button>
+                        <button class="btn edit-btn"><a href="{{{ action('ClientsController@show', $client->id) }}}" class="modal-action modal-close">Keep</a></button>
                     </div>
                 </div>
                 <div class="modal-footer row">

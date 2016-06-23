@@ -79,9 +79,10 @@
             </div>
 
             <div class="section">
-                {{ $projects->links() }}
-            </div>
-
+                <ul class="pagination center-align">
+                    {{ $paginator->render() }}
+                </ul>    
+            </div> 
         </div>
 
         <!-- condensed index visible on vertical tablet and smaller -->

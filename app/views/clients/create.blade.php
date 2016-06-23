@@ -38,12 +38,15 @@
                 </div>
             </div>
 
-
             <div class="row">
-                <div class="col s10 input-field">
-                    {{Form::label('submission_or_approval', 'Does Payment Term start on invoice approval or invoice submission?')}} 
-                    {{Form::text('submission_or_approval', Input::old('submission_or_approval'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. submission'))}} 
-                </div>
+                <div class="input-field col s10">
+                    <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="submission">Submission</option>
+                      <option value="approval">Approval</option>
+                    </select>
+                    <label>Terms start on invoice approval or invoice submission?</label>
+                </div>        
             </div>
 
             <div class="row">
@@ -84,4 +87,15 @@
         </div>
     </div>
 </main>
+@stop
+
+@section('bottom-script')
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 @stop

@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.email')
 
 @section('content')
     
-    <h3>{{{$user->first_name}}}, Here is Your Weekly Summary</h3>
+    <h3>{{{ $user['first_name'] }}}, Here is Your Weekly Summary</h3>
 
     <div class="row">
         <div class="col s12 center-align">
@@ -19,13 +19,12 @@
                     <th data-field="description" class="truncate">Description</th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach($projects as $project)
                     <tr>
-                        <td><a href="{{{action('ProjectsController@show', $project->id)}}}">{{{$project->name}}}</a></td>
-                        <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                        <td>{{{$project->description}}}</td>
+                        <td><a href="{{{action('ProjectsController@show', $project['id'])}}}">{{{$project['name']}}}</a></td>
+                        <td>{{{ $project['due_date']}}}</td>
+                        <td>{{{$project['description']}}}</td>
                     </tr>
                 @endforeach
             </tbody>

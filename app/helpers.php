@@ -16,12 +16,16 @@ function calculatePayDate($client, $project)
 {
     $paymentTerm = $client->payment_terms;
 
-    $invoiceStatus = $client->submission_or_approval;
+    $clientPaymentPolicy = $client->submission_or_approval;
+    $projectHasInvoiceApprovalDate = !empty($project->invoice_approval_date) &&
+                                      strpos($project->invoice_approval_date->format('Y'), '-') !== 0;
 
-    if($invoiceStatus == 'submission'){
+    if($clientPaymentPolicy == 'submission'){
         $payCountStart = $project->invoice_submitted_date;   
-    }elseif($invoiceStatus == 'approval'){
+    }elseif($clientPaymentPolicy == 'approval' && $projectHasInvoiceApprovalDate){
         $payCountStart = $project->invoice_approval_date;
+    } else {
+        return null;
     }
 
     return $payCountStart->addDays($paymentTerm);

@@ -27,7 +27,16 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
+                @if (!Auth::check()) 
+                    <a href="{{{action('HomeController@showHome')}}}" class="brand-logo hide-on-med-and-down"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
+
+                    <a href="{{{action('HomeController@showHome')}}}" class="brand-logo hide-on-large-only"><img class="responsive-img" src="/../../img/compLogo.png"></a>
+                @else
+                    <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo hide-on-med-and-down"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
+
+                    <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo hide-on-large-only"><img class="responsive-img" src="/../../img/compLogo.png"></a>
+                @endif
+
                 @if (Auth::check())
                     <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -49,28 +58,24 @@
                 @endif
             </div>
         </nav>
-
-
     </header>
 
     @if (Session::has('successMessage'))
         <div class="alert alert-success center-align">{{{ Session::get('successMessage') }}}</div>
     @endif
+
     @if (Session::has('errorMessage'))
         <div class="alert alert-danger center-align">{{{ Session::get('errorMessage') }}}</div>
     @endif
 
     @yield('content')
 
-
-
     <footer>
         <div class="row">
             <div class="col s10">
-                <p>
-                    &#169; 2016
+                <p> 
                     <span class="hide-on-med-and-down">
-                    <a href="http://kristenlcates.com/" target="_blank">  |  Kristen Cates</a> 
+                    <a href="http://kristenlcates.com/" target="_blank">&#169; 2016  |  Kristen Cates</a> 
                     <a href="https://www.linkedin.com/in/alan-lauritzen-02a078104" target="_blank">  |  Alan Lauritzen</a>
                     <a href="http://bobbieoconnor.me/" target="_blank">  |  Bobbie O'Connor</a>
                     </span>
