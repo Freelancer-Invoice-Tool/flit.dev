@@ -41,3 +41,17 @@ Route::post('/', 'UserController@auth');
 Route::get('/logout', 'UserController@logout');
 
 Route::get('clients/ajax/{id}', 'ClientsController@getClient');
+
+Route::get('mail-test', function(){
+
+
+    $view = 'emails.welcome';
+    $toEmail = 'kriscates81@gmail.com';
+    $toHuman = 'Kristen';
+    $subject = 'Welcome';
+    $data = [
+        'user' => User::first()
+    ];
+
+    sendMail($view, $toEmail, $toHuman, $subject, $data);
+});
