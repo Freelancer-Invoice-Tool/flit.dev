@@ -15,10 +15,9 @@
     
             <div class="row">
                 <div class="col s12 center-align">
-                    <h3>{{{$project->name}}}</h3>
-                </div>
-                <div class="col s12 center-align">
-                    <p class="flow-text">{{{$project->description}}}</p>
+                    <h3 class="hide-on-med-and-down">{{{$project->name}}}</h3>
+                    <h4 class="center-align hide-on-large-only">{{{ $project->name }}}</h4>
+                        <p class="flow-text">{{{$project->description}}}</p>
                 </div>
             </div>
                 
@@ -51,7 +50,8 @@
         </div>   <!-- closes top section  -->
 
         <div class="section">
-            <h4>Project Milestones</h4>
+            <h4 class="center-align hide-on-med-and-down">Project Milestones</h4>
+            <h5 class="center-align hide-on-large-only">Project Milestones</h5>
             <table class="centered striped">
                 <thead>
                     <tr>
@@ -79,7 +79,8 @@
         </div> <!-- closes project section -->
 
         <div class="section">
-            <h4>{{{$project->client->client_name}}} Project Point of Contact</h4>
+            <h4 class="center-align hide-on-med-and-down">{{{$project->client->client_name}}} Project Point of Contact</h4>
+            <h5 class="center-align hide-on-large-only">{{{$project->client->client_name}}} Project Point of Contact</h5>
             <table class="centered striped">
                 <thead>
                     <tr>
@@ -103,15 +104,17 @@
             </table>
         </div> <!-- closes contact section -->
 
-        <div class="section">
-            <div class="row">
-                <h4>Project Notes</h4>
-            </div>
-            <div>
+        <div class="section center-align">
+            <div class="row center-align">
+                <h4 class="center-align hide-on-med-and-down">Project Notes</h4>
+                <h5 class="center-align hide-on-large-only">Project Notes</h5>
+            
                 <a href="{{{action('ProjectsController@edit', $project->id)}}}">Add some notes</a>
             </div>
             <div class="row">
-                <p>{{{$project->project_notes}}}</p>
+                <div class="col s10">
+                    <p>{{{$project->project_notes}}}</p>
+                </div>
             </div>
         </div>
 
