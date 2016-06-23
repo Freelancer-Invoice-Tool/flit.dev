@@ -125,6 +125,7 @@
             </div>
         </div> 
     </div>
+    <input type="hidden" name="project_status" value="Started">
     {{ Form::close() }}    
 </div>
 </main>

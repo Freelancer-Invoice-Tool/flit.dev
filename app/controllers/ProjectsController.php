@@ -135,7 +135,6 @@ class ProjectsController extends \BaseController {
 	{
 		if(Auth::id()){
 			$projects = Project::where('user_id', '=', Auth::id())
-				// ->where('project_status', '=', 'Payment Received')
 				->where('payment_received', '!=', '0000-00-00')
 				->paginate(15);
 
