@@ -15,6 +15,7 @@
             <div class="col s6">
                 <h2 class="hide-on-med-and-down">Sign Up</h2>
                 <h3 class="hide-on-large-only">Sign Up</h3>
+                <p>Enjoy all the benefits of FLIT for a one-time fee of $4.99!</p>
             </div>
         </div>
 
@@ -106,9 +107,9 @@
             // Open Checkout with further options:
             handler.open({
                 name: 'Flit',
-                description: 'subscription',
-                amount: 999,
-                address:true,
+                description: 'Freelance Invoicing Tool',
+                amount: 499,
+                // address:true,
                 allowRememberMe: false
             });
             e.preventDefault();
