@@ -92,7 +92,7 @@
         
         <div class="row">
             <div class="input-field col s6">
-                <input id="budgeted_amount" name="budgeted_amount">
+                <input type="text" id="budgeted_amount" name="budgeted_amount">
                 {{ Form::label('budgeted_amount', 'Budgeted Amount') }}
             </div>
             <div class="input-field col s6">

@@ -29,7 +29,7 @@
                         <th class="center-align hide-on-med-and-down">Project Status</th> 
                         <th class="center-align">Due Date</th>
                         <th class="center-align hide-on-med-and-down">Budgeted Amount</th>
-                        <th class="center-align hide-on-med-and-down">Payment Date</th>    
+                        <th class=" center-align hide-on-med-and-down">Payment Date</th>    
                     </tr>    
                 </thead>
                 <tbody>
@@ -37,19 +37,18 @@
                         <td><a href="{{action('ClientsController@show', $project->client_id)}}">{{{$project->client->client_name}}}</a></td>
 
                         <td class="hide-on-med-and-down">
-                            <p>{{$project->project_status}}</p> 
+                            <p>{{$project->project_status}} </p>
                             <a href="{{action('ProjectsController@edit', $project->id)}}">update status</a>
                         </td>
-
                         <td>{{{$project->due_date->format('m-d-Y')}}}</td>
 
                         <td class="hide-on-med-and-down">${{{number_format($project->budgeted_amount, 2)}}}</td>
 
-                        <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? calculatePayDate($project->client, $project)->format('m-d-Y') : ''}}}</td>
+                        <td class="hide-on-med-and-down">{{{((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date)) ? $project->pay_date->format('m-d-Y') : ''}}}</td>
                     </tr>     
                 </tbody> 
             </table>
-        </div> <!-- closes top section -->
+        </div>   <!-- closes top section  -->
 
         <div class="section">
             <h4>Project Milestones</h4>
@@ -143,7 +142,6 @@
                 </div>
             </div> 
         </div>
-
     </div> <!-- closes container -->
     
     <!-- Modal Structure -->

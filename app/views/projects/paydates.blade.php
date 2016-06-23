@@ -33,8 +33,9 @@
                 @foreach($projects as $project)
                     <tr>
                         @if ((strpos($project->pay_date, '-0001'))===false && !empty($project->pay_date))
+                            <td>{{{$project->pay_date}}}</td>
                         @else
-                            <td> {{{calculatePayDate($project->client, $project)}}}</td>
+                            <td> </td>
                         @endif
 
                         <td>${{{number_format($project->budgeted_amount)}}}</td>

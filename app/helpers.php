@@ -18,21 +18,19 @@ function calculatePayDate($client, $project)
 
     $invoiceStatus = $client->submission_or_approval;
 
-    if($invoiceStatus = 'submission'){
+    if($invoiceStatus == 'submission'){
         $payCountStart = $project->invoice_submitted_date;   
-    }elseif($invoiceStatus = 'approval'){
+    }elseif($invoiceStatus == 'approval'){
         $payCountStart = $project->invoice_approval_date;
     }
 
     return $payCountStart->addDays($paymentTerm);
 }
 
-function sendMail()
+function sendMail($view, $toEmail, $toHuman, $subject, $data = [])
 {
-    Mail::later(30,'emails.welcome', $data, function($message)
+    Mail::later(30, $view, $data, function($message) use ($toEmail, $toHuman, $subject)
     {
-        $message->to('$user->email', '$user->first_name')->subject('Welcome!');
+        $message->to($toEmail, $toHuman)->subject($subject);
     });
-
-    return $message;
 }
