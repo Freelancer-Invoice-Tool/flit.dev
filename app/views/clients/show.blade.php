@@ -11,7 +11,6 @@
             <div class="row">
                 <h2 class="hide-on-med-and-down">Client Details</h2>
                 <h3 class="hide-on-large-only">Client Details</h3>
-                <a href="{{{action('ClientsController@index')}}}">Show All Clients</a>
             </div>
 
             <div class="row">
