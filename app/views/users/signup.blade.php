@@ -8,6 +8,8 @@
 
 <main>
 
+    <?php require_once('../config.php'); ?>
+
     <div class="container">
         <div class="section row">
             <div class="col s6">
@@ -17,6 +19,7 @@
         </div>
 
         <div class="section">
+
         {{ Form::open(array('action'=>'UserController@store')) }}
                       
             <div class="row">
@@ -47,7 +50,7 @@
             <!-- expanded index visible on horizontal tablet and larger -->
             <div class="row hide-on-med-and-down">
                 <div class="col s6 hide-on-med-and-down">
-                    <button type="submit" class="btn waves-effect waves-light edit-btn no-wrap">Create Account</button>
+                    <button type="submit" class="btn waves-effect waves-light edit-btn no-wrap" id="create_account">Create Account</button>
                 </div>
                 
                 <div class="col s6 hide-on-med-and-down">
@@ -81,3 +84,38 @@
 </main>
 @stop
 
+@section('bottom-script')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_NZaksNaAciYW6RnKHIJNGJ3w',
+            image: '/img/compLogo.png',
+            locale: 'auto',
+            token: function(token) {
+              // You can access the token ID with `token.id`.
+              // Get the token ID to your server-side code for use.
+            },
+            closed: function() {
+                return action('UserController@store');
+            }
+        });
+
+        $('#create_account').on('click', function(e) {
+            // Open Checkout with further options:
+            handler.open({
+                name: 'Flit',
+                description: 'subscription',
+                amount: 999,
+                address:true,
+                allowRememberMe: false
+            });
+            e.preventDefault();
+        });
+
+        // Close Checkout on page navigation:
+        $(window).on('popstate', function() {
+            handler.close();
+        });
+    </script>
+@stop
