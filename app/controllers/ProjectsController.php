@@ -225,7 +225,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// dd(Input::get('invoice_submitted_date'));
+		// dd(Input::all());
 		$project = Project::find($id);
 
 		$clientname = Input::get('client_name');

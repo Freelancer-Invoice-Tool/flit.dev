@@ -39,12 +39,12 @@
                 
                 <div class="input-field col s6">
                     <select id="project_status" name="project_status">
-                        <option label="Started" selected>Started</option>
-                        <option label="In Progress">In Progress</option>
-                        <option label="Project Submitted">Project Submitted</option>
-                        <option label="Invoice Submitted">Invoice Submitted</option>
-                        <option label="Invoice Approved">Invoice Approved</option>
-                        <option label="Payment Received">Payment Received</option>
+                        <option label="Started" {{ $project->project_status == 'Started' ? 'selected' : '' }}>Started</option>
+                        <option label="In Progress" {{ $project->project_status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                        <option label="Project Submitted" {{ $project->project_status == 'Project Submitted' ? 'selected' : '' }}>Project Submitted</option>
+                        <option label="Invoice Submitted" {{ $project->project_status == 'Invoice Submitted' ? 'selected' : '' }}>Invoice Submitted</option>
+                        <option label="Invoice Approved" {{ $project->project_status == 'Invoice Approved' ? 'selected' : '' }}>Invoice Approved</option>
+                        <option label="Payment Received" {{ $project->project_status == 'Payment Received' ? 'selected' : '' }}>Payment Received</option>
                     </select>
                     <label>Project Status</label>
                 </div>
