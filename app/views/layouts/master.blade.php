@@ -27,7 +27,10 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
+                <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo hide-on-med-and-down"><img class="compLogo responsive-img" src="/../../img/compLogo.png"></a>
+
+                <a href="{{{action('HomeController@showDashboard')}}}" class="brand-logo hide-on-large-only"><img class="responsive-img" src="/../../img/compLogo.png"></a>
+
                 @if (Auth::check())
                     <a href="#" data-activates="mobile-view" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
