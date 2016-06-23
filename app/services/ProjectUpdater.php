@@ -21,19 +21,22 @@ class ProjectUpdater {
         $projectStatus = $request->input('project_status');
         $project->project_status = $projectStatus;
 
+        // dd($request->input('invoice_approval_date'));
         
         if ($projectStatus == 'Invoice Submitted' && $request->input('invoice_submitted_date') == '') {
             $project->invoice_submitted_date = parseDates('now');
-        }elseif($projectStatus == 'Invoice Approved' &&  $request->input('invoice_approved_date') == ''){
+        }elseif($projectStatus == 'Invoice Approved' &&  $request->input('invoice_approval_date') == ''){
             $project->invoice_approval_date = parseDates('now');
         }elseif ($projectStatus == 'Project Submitted' && $request->input('project_submitted_date') == '') {
            $project->project_submitted_date = parseDates('now');
         }elseif ($projectStatus == 'Payment Received' && $request->input('project->payment_received') == '') {
             $project->payment_received = parseDates('now');
-        }  
-        $project->save();
-        $project->pay_date = calculatePayDate($project->client, $project);      
+        }
 
+        if (in_array($project->project_status ,['Invoice Submitted', 'Invoice Approved'])) {
+            $project->pay_date = calculatePayDate($project->client, $project);      
+        }
+        
         if ($request->input('project_poc_name')) {
             $project->project_poc_name=$request->input('project_poc_name');
         } else {
