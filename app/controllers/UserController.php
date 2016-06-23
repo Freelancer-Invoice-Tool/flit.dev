@@ -49,7 +49,7 @@ class UserController extends \BaseController {
         Auth::attempt(array('email' => $email, 'password' => $password));
         Session::flash('successMessage', 'Congratulations, you\'ve created your account! Welcome to your new dashboard!');
 
-        sendMail();
+        // sendMail();
 
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
