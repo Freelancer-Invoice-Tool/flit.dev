@@ -29,7 +29,7 @@ class ProjectTableSeeder extends Seeder
 
         $project = new Project();
         $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(4)->id;
+        $project->client_id = Client::find(6)->id;
         $project->name = 'Billy club';
         $project->description = 'Strong, collapsible walking stick.';
         $project->project_notes = '';
@@ -166,7 +166,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(3)->id;
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(4)->id;
         $project->name = 'Text Reader';
         $project->description = 'Text reader capable of recognizing legal jargon.';
