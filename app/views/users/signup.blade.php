@@ -20,7 +20,7 @@
 
         <div class="section">
 
-        {{ Form::open(array('action'=>'UserController@store')) }}
+        {{ Form::open(array('action'=>'UserController@store', 'id'=>"signup_form")) }}
                       
             <div class="row">
                 <div class="input-field col s6">
@@ -97,7 +97,8 @@
               // Get the token ID to your server-side code for use.
             },
             closed: function() {
-                return action('UserController@store');
+                $('#signup_form').submit();
+                console.log("it ran");
             }
         });
 
@@ -116,6 +117,7 @@
         // Close Checkout on page navigation:
         $(window).on('popstate', function() {
             handler.close();
+
         });
     </script>
 @stop
