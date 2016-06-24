@@ -21,28 +21,69 @@ class ProjectUpdater {
         $projectStatus = $request->input('project_status');
         $project->project_status = $projectStatus;
         
-        // sets date to today if user doesn't select a different date
-        if ($projectStatus == 'Invoice Submitted' && $request->input('invoice_submitted_date') == '') {
-            $project->invoice_submitted_date = parseDates('now');
-        }elseif($projectStatus == 'Invoice Approved' &&  $request->input('invoice_approval_date') == ''){
-            $project->invoice_approval_date = parseDates('now');
-        }elseif ($projectStatus == 'Project Submitted' && $request->input('project_submitted_date') == '') {
-           $project->project_submitted_date = parseDates('now');
-        }elseif ($projectStatus == 'Payment Received' && $request->input('payment_received') == '') {
-            $project->payment_received = parseDates('now');
-        }
+        switch($projectStatus) {
+           case 'Payment Received':
+               if(Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') == ''
+                   && Input::get('invoice_submitted_date') == ''
+                   && Input::get('payment_received') == '') {
+                       $project->payment_received = parseDates('now');
+                       $project->invoice_approval_date = parseDates('now');
+                       $project->invoice_submitted_date = parseDates('now');
+                       $project->project_submitted_date = parseDates('now');
+               } else if (Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') != ''
+                   && Input::get('invoice_submitted_date') == ''
+                   && Input::get('payment_received') == '') {
+                       $project->payment_received = parseDates('now');
+                       $project->invoice_approval_date = parseDates('now');
+                       $project->invoice_submitted_date = parseDates('now');
+               } else if (Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') != ''
+                   && Input::get('invoice_submitted_date') != ''
+                   && Input::get('payment_received') == '') {
+                       $project->payment_received = parseDates('now');
+                       $project->invoice_approval_date = parseDates('now');
+               } else if (Input::get('invoice_approval_date') != ''
+                   && Input::get('project_submitted_date') != ''
+                   && Input::get('invoice_submitted_date') != ''
+                   && Input::get('payment_received') == '') {
+                       $project->payment_received = parseDates('now');
+               }
+               break;
+           case 'Invoice Approved':
+               if(Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') == ''
+                   && Input::get('invoice_submitted_date') == '') {
+                       $project->invoice_approval_date = parseDates('now');
+                       $project->invoice_submitted_date = parseDates('now');
+                       $project->project_submitted_date = parseDates('now');
+               } else if(Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') == ''
+                   && Input::get('invoice_submitted_date') != '') {
+                       $project->invoice_approval_date = parseDates('now');
+                       $project->project_submitted_date = parseDates('now');
+               } else if(Input::get('invoice_approval_date') == ''
+                   && Input::get('project_submitted_date') != ''
+                   && Input::get('invoice_submitted_date') != '') {
+                       $project->invoice_approval_date = parseDates('now');
+               }
 
-        // sets dates for statuses in previous steps if user doesn't select those statuses
-        if ($projectStatus == 'Invoice Submitted' && $request->input('project_submitted_date') == ''){
-            $project->project_submitted_date = parseDates('now');
-        }elseif ($projectStatus == 'Invoice Approved' && $request->input('invoice_submitted_date') == '' || $request->input('project_submitted_date') == '') {
-            $project->invoice_submitted_date = parseDates('now');
-            $project->project_submitted_date = parseDates('now');
-        }elseif ($projectStatus == 'Payment Received' && $request->input('invoice_approval_date') == '' || $request->input('invoice_submitted_date') == '' || $request->input('project_submitted')) {
-            $project->invoice_approval_date = parseDates('now');
-            $project->invoice_submitted_date = parseDates('now');
-            $project->project_submitted_date = parseDates('now');
-        }
+               break;
+           case 'Invoice Submitted':
+               if(Input::get('invoice_submitted_date') == '' && Input::get('project_submitted_date') == '') {
+                   $project->invoice_submitted_date = parseDates('now');
+                   $project->project_submitted_date = parseDates('now');
+               } else if(Input::get('invoice_submitted_date') == '' && Input::get('project_submitted_date') != '') {
+                   $project->invoice_submitted_date = parseDates('now');
+               }
+               break;
+           case 'Project Submitted':
+               if(Input::get('project_submitted_date') == '') {
+                   $project->project_submitted_date = parseDates('now');
+               }
+               break;
+       }
 
         // calculates the projected pay date based on the invoice status
         if (in_array($project->project_status ,['Invoice Submitted', 'Invoice Approved'])) {
