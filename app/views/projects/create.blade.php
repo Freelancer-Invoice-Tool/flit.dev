@@ -92,8 +92,8 @@
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="budgeted_amount" name="budgeted_amount">
                 {{ Form::label('budgeted_amount', 'Budgeted Amount') }}
+                {{Form::text('budgeted_amount', null, array('placeholder'=>'e.g. 1000 (no commas)'))}}
             </div>
             <div class="input-field col s6">
                 {{ Form::label('project_poc_name', 'Project Contact Name') }}
