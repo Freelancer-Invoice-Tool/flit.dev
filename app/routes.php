@@ -42,7 +42,9 @@ Route::get('/logout', 'UserController@logout');
 
 Route::get('clients/ajax/{id}', 'ClientsController@getClient');
 
-Route::get('mail-test', function(){
-
+// Route::get('mail-test', function(){
+   
+   
+//     sendMail($view, $toEmail, $toHuman, $subject, $data);
     
-});
+// });
