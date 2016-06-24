@@ -30,11 +30,19 @@
                     {{Form::label('payment_terms', 'Payment Terms (in number of days)')}} 
                     {{Form::number('payment_terms', Input::old('payment_terms'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. 30', 'value' => $client->payment_terms))}}
                 </div> 
-            
+
                 <div class="input-field col s6">
-                    {{Form::label('submission_or_approval', 'Does Payment Term start on invoice approval or invoice submission?')}} 
-                    {{Form::text('submission_or_approval', Input::old('submission_or_approval'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. submission', 'value' => $client->submission_or_approval))}} 
-                </div>
+                    <select>
+                    @if ($client->submission_or_approval=='submission')
+                        <option value="submission" selected>Submission</option>
+                        <option value="approval">Approval</option>
+                    @else
+                        <option value="submission" selected>Submission</option>
+                        <option value="approval" selected>Approval</option>
+                    @endif
+                    </select>
+                    <label>Terms start on invoice approval or invoice submission?</label>
+                </div>        
             </div>
 
             <div class="row">
@@ -190,10 +198,13 @@
 </main> 
 @stop
 @section('bottom-script')
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
     <script>
         $(document).ready(function(){
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
+            $('select').material_select();
           });
     </script>
 @stop

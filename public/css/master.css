@@ -3,7 +3,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: url(/../../img/white_wall_hash.png) no-repeat center fixed;
+    background-color: #f4fff7;
     background-size: cover;
     font-family: 'Merriweather', serif;
     color: #02020d;
