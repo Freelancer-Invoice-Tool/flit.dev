@@ -33,6 +33,7 @@ function calculatePayDate($client, $project)
 
 function sendMail($view, $toEmail, $toHuman, $subject, $data = [])
 {
+
     Mail::later(30, $view, $data, function($message) use ($toEmail, $toHuman, $subject)
     {
         $message->to($toEmail, $toHuman)->subject($subject);
