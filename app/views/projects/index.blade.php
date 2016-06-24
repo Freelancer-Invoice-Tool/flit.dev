@@ -80,8 +80,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($due_project->pay_date=0)
-                                            <td>{{{calculatePayDate($due_project->client, $due_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($due_project->pay_date))
+                                            <td>{{{$due_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -117,8 +117,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($uninvoiced_project->pay_date=0)
-                                            <td>{{{calculatePayDate($uninvoiced_project->client, $uninvoiced_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($uninvoiced_project->pay_date))
+                                            <td>{{{$uninvoiced_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -154,8 +154,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($unapproved_project->pay_date=0)
-                                            <td>{{{calculatePayDate($unapproved_project->client, $unapproved_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unapproved_project->pay_date))
+                                            <td>{{{$unapproved_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
