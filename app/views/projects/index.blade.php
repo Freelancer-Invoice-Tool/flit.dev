@@ -18,170 +18,195 @@
                     <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
                 </div>
             </div>
+
+            <div class="row hide-on-med-and-down">
+                <p>Filter projects</p>
+                <input type="checkbox" id="projects_due" name="projects_due" checked>
+                <label for="projects_due">Projects due
+                </label>
+                <input type="checkbox" id="projects_to_invoice" name="projects_to_invoice" checked>
+                <label for="projects_to_invoice">Invoice has not been submitted</label>
+                <input type="checkbox" id="projects_needing_approval" name="projects_needing_approval" checked>
+                <label for="projects_needing_approval">Awaiting approval</label>
+                <input type="checkbox" id="projects_awaiting_payment" name="projects_awaiting_payment" checked>
+                <label for="projects_awaiting_payment">Awaiting payment</label>
+            </div>
+
             <div class="row">
                 <div class="col s6 left-align">
                     <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
                 </div>
             </div>
+            
         </div>
         
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
             <div class="section">
                 <table class="striped centered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Client</th>
-                            <th>Due Date</th>
-                            <th>Project Submitted</th>
-                            <th>Invoice Submitted</th>
-                            <th>Invoice Approved</th>
-                            <th>Projected Payment</th>
-                            <th>Payment Received</th>
-                        </tr>   
-                    </thead>
                     <tbody>
-                    @if ($due_projects->count()>0)
-                        @foreach($due_projects as $due_project)
+                        <thead>
                             <tr>
-                                <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
-                                <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
-                                <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
-                                @if (Project::checkForDate($due_project->project_submitted_date))
-                                    <td>{{{$due_project->project_submitted_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($due_project->invoice_submitted_date))
-                                    <td>{{{$due_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($due_project->invoice_approval_date))
-                                    <td>{{{$due_project->invoice_approval_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if ($due_project->pay_date=0)
-                                    <td>{{{calculatePayDate($due_project->client, $due_project)->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($due_project->payment_received))
-                                    <td>{{{$due_project->payment_received->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                    @endif
+                                <th>Name</th>
+                                <th>Client</th>
+                                <th>Due Date</th>
+                                <th>Project Submitted</th>
+                                <th>Invoice Submitted</th>
+                                <th>Invoice Approved</th>
+                                <th>Projected Payment</th>
+                                <th>Payment Received</th>
+                            </tr>   
+                        </thead>
+                    
+                        <div id="proj_due">
+                            @if ($due_projects->count()>0)
+                                @foreach($due_projects as $due_project)
+                                    <tr class="proj_due">
+                                        <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
+                                        <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
+                                        <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($due_project->project_submitted_date))
+                                            <td>{{{$due_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($due_project->invoice_submitted_date))
+                                            <td>{{{$due_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($due_project->invoice_approval_date))
+                                            <td>{{{$due_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if ($due_project->pay_date=0)
+                                            <td>{{{calculatePayDate($due_project->client, $due_project)->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($due_project->payment_received))
+                                            <td>{{{$due_project->payment_received->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </div>
 
-                    @if ($needs_invoice->count()>0)
-                        @foreach($needs_invoice as $uninvoiced_project)
-                            <tr>
-                                <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
-                                <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
-                                <td>{{{$uninvoiced_project->due_date->format('m-d-Y')}}}</td>
-                                @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
-                                    <td>{{{$uninvoiced_project->project_submitted_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($uninvoiced_project->invoice_submitted_date))
-                                    <td>{{{$uninvoiced_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($uninvoiced_project->invoice_approval_date))
-                                    <td>{{{$uninvoiced_project->invoice_approval_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if ($uninvoiced_project->pay_date=0)
-                                    <td>{{{calculatePayDate($uninvoiced_project->client, $uninvoiced_project)->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($uninvoiced_project->payment_received))
-                                    <td>{{{$uninvoiced_project->payment_received->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                    @endif
+                        <div id="proj_to_invoice">
+                            @if ($needs_invoice->count()>0)
+                                @foreach($needs_invoice as $uninvoiced_project)
+                                    <tr class="proj_to_invoice">
+                                        <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
+                                        <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
+                                        <td>{{{$uninvoiced_project->due_date->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
+                                            <td>{{{$uninvoiced_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($uninvoiced_project->invoice_submitted_date))
+                                            <td>{{{$uninvoiced_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($uninvoiced_project->invoice_approval_date))
+                                            <td>{{{$uninvoiced_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if ($uninvoiced_project->pay_date=0)
+                                            <td>{{{calculatePayDate($uninvoiced_project->client, $uninvoiced_project)->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($uninvoiced_project->payment_received))
+                                            <td>{{{$uninvoiced_project->payment_received->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </div>
 
-                    @if ($needs_approval->count()>0)    
-                        @foreach($needs_approval as $unapproved_project)
-                            <tr>
-                                <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
-                                <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
-                                <td>{{{$unapproved_project->due_date->format('m-d-Y')}}}</td>
-                                @if (Project::checkForDate($unapproved_project->project_submitted_date))
-                                    <td>{{{$unapproved_project->project_submitted_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unapproved_project->invoice_submitted_date))
-                                    <td>{{{$unapproved_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unapproved_project->invoice_approval_date))
-                                    <td>{{{$unapproved_project->invoice_approval_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if ($unapproved_project->pay_date=0)
-                                    <td>{{{calculatePayDate($unapproved_project->client, $unapproved_project)->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unapproved_project->payment_received))
-                                    <td>{{{$unapproved_project->payment_received->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                    @endif
+                        <div id="proj_need_approval">
+                            @if ($needs_approval->count()>0)
+                                @foreach($needs_approval as $unapproved_project)
+                                    <tr class="proj_need_approval">
+                                        <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
+                                        <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
+                                        <td>{{{$unapproved_project->due_date->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unapproved_project->project_submitted_date))
+                                            <td>{{{$unapproved_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unapproved_project->invoice_submitted_date))
+                                            <td>{{{$unapproved_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unapproved_project->invoice_approval_date))
+                                            <td>{{{$unapproved_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if ($unapproved_project->pay_date=0)
+                                            <td>{{{calculatePayDate($unapproved_project->client, $unapproved_project)->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unapproved_project->payment_received))
+                                            <td>{{{$unapproved_project->payment_received->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </div>
                         
-                        @foreach($awaiting_payment as $unpaid_project)
-                            <tr>
-                                <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
-                                <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
-                                <td>{{{$unpaid_project->due_date->format('m-d-Y')}}}</td>
-                                @if (Project::checkForDate($unpaid_project->project_submitted_date))
-                                    <td>{{{$unpaid_project->project_submitted_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unpaid_project->invoice_submitted_date))
-                                    <td>{{{$unpaid_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unpaid_project->invoice_approval_date))
-                                    <td>{{{$unpaid_project->invoice_approval_date->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if ($unpaid_project->pay_date=0)
-                                    <td>{{{calculatePayDate($unpaid_project->client, $unpaid_project)->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                                @if (Project::checkForDate($unpaid_project->payment_received))
-                                    <td>{{{$unpaid_project->payment_received->format('m-d-Y')}}}</td>
-                                @else
-                                    <td> </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                              
+                        <div id="proj_await_pay">                 
+                            @if ($awaiting_payment->count()>0)
+                                @foreach($awaiting_payment as $unpaid_project)
+                                    <tr class="proj_await_pay">
+                                        <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
+                                        <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
+                                        <td>{{{$unpaid_project->due_date->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unpaid_project->project_submitted_date))
+                                            <td>{{{$unpaid_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unpaid_project->invoice_submitted_date))
+                                            <td>{{{$unpaid_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unpaid_project->invoice_approval_date))
+                                            <td>{{{$unpaid_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if ($unpaid_project->pay_date=0)
+                                            <td>{{{calculatePayDate($unpaid_project->client, $unpaid_project)->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                        @if (Project::checkForDate($unpaid_project->payment_received))
+                                            <td>{{{$unpaid_project->payment_received->format('m-d-Y')}}}</td>
+                                        @else
+                                            <td> </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </div>                              
                     </tbody>
-                </table>
+                </table>    
             </div>
 
             <div class="section">
@@ -300,4 +325,55 @@
         </div>         
     </div> <!-- closes container -->      
 </main>
+@stop
+
+
+@section('bottom-script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+
+    $(projects_due).change(function(){
+        if ($('#projects_due').prop("checked")){
+            console.log('its checked!');
+            $('.proj_due').removeClass('hide');
+        } else {
+            console.log('unchecked');
+            $('.proj_due').addClass('hide');
+        }
+    });
+
+    $(projects_to_invoice).change(function(){
+        if ($('#projects_to_invoice').prop("checked")){
+            console.log('its checked!');
+            $('.proj_to_invoice').removeClass('hide');
+        } else {
+            console.log('unchecked');
+            $('.proj_to_invoice').addClass('hide');
+        }
+    });
+
+    $(projects_needing_approval).change(function(){
+        if ($('#projects_needing_approval').prop("checked")){
+            console.log('its checked!');
+            $('.proj_need_approval').removeClass('hide');
+        } else {
+            console.log('unchecked');
+            $('.proj_need_approval').addClass('hide');
+        }
+    });
+
+    $(projects_awaiting_payment).change(function(){
+        if ($('#projects_awaiting_payment').prop("checked")){
+            console.log('its checked!');
+            $('.proj_await_pay').removeClass('hide');
+        } else {
+            console.log('unchecked');
+            $('.proj_await_pay').addClass('hide');
+        }
+    });
+
+
+</script>
+
 @stop
