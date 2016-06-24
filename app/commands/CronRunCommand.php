@@ -95,7 +95,37 @@ class CronRunCommand extends Command {
 		// You can use any of the available schedules and pass it an anonymous function
 		$this->everyFiveMinutes(function()
 		{
-			
+			$users = User::all();
+
+		    foreach ($users as $user) {
+		    
+		        $projects = Project::where('user_id', '=', $user->id)
+		                ->where('due_date', '>', Carbon\Carbon::now())
+		                ->where('due_date', '<', Carbon\Carbon::now()->addMonth())
+		                ->where('project_status', '!=', 'Payment Received')
+		                ->orderBy('due_date', 'asc')->get();
+
+		        $overdueProjects = Project::where('user_id', '=', $user->id)
+		                ->where('due_date', '<=', Carbon\Carbon::now())
+		                ->where('project_status', '!=', 'Payment Received')
+		                ->where('project_status', '!=', 'Project Submitted')
+		                ->where('project_status', '!=', 'Invoice Approved')
+		                ->where('project_status', '!=', 'Invoice Submitted')
+		                ->count();
+
+		        $view = 'emails.summary';
+		        $toEmail = $user->email;
+		        $toHuman = $user->first_name;
+		        $subject = 'Your Weekly Summary';
+		        $data = [
+		            'user' => $user,
+		            'projects' => $projects,
+		            'overdueProjects' => $overdueProjects
+		        ];
+		       
+		        sendMail($view, $toEmail, $toHuman, $subject, $data);
+		    }
+    
 			$this->messages[] = 'success!!';
 		});
 

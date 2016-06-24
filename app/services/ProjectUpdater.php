@@ -20,9 +20,8 @@ class ProjectUpdater {
 
         $projectStatus = $request->input('project_status');
         $project->project_status = $projectStatus;
-
-        // dd($request->input('payment_received'));
         
+        // sets date to today if user doesn't select a different date
         if ($projectStatus == 'Invoice Submitted' && $request->input('invoice_submitted_date') == '') {
             $project->invoice_submitted_date = parseDates('now');
         }elseif($projectStatus == 'Invoice Approved' &&  $request->input('invoice_approval_date') == ''){
@@ -33,6 +32,19 @@ class ProjectUpdater {
             $project->payment_received = parseDates('now');
         }
 
+        // sets dates for statuses in previous steps if user doesn't select those statuses
+        if ($projectStatus == 'Invoice Submitted' && $request->input('project_submitted_date') == ''){
+            $project->project_submitted_date = parseDates('now');
+        }elseif ($projectStatus == 'Invoice Approved' && $request->input('invoice_submitted_date') == '' || $request->input('project_submitted_date') == '') {
+            $project->invoice_submitted_date = parseDates('now');
+            $project->project_submitted_date = parseDates('now');
+        }elseif ($projectStatus == 'Payment Received' && $request->input('invoice_approval_date') == '' || $request->input('invoice_submitted_date') == '' || $request->input('project_submitted')) {
+            $project->invoice_approval_date = parseDates('now');
+            $project->invoice_submitted_date = parseDates('now');
+            $project->project_submitted_date = parseDates('now');
+        }
+
+        // calculates the projected pay date based on the invoice status
         if (in_array($project->project_status ,['Invoice Submitted', 'Invoice Approved'])) {
             $project->pay_date = calculatePayDate($project->client, $project);      
         }
