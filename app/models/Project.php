@@ -43,4 +43,9 @@ class Project extends BaseModel
         return array('created_at', 'updated_at', 'deleted_at', 'due_date', 'project_submitted_date', 'invoice_submitted_date', 'pay_date', 'invoice_approval_date', 'payment_received');
     }
 
+    public static function checkForDate($field)
+    {
+        return (strpos($field, '-0001'))===false && !empty($field);
+    }
+
 }

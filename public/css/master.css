@@ -61,6 +61,7 @@ footer {
 i {
     color: #f4fff7;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .folder-icon {
@@ -103,12 +104,18 @@ a {
     color: #3a86ff;
 }
 
+#overdueAlert {
+    color: #02020d;
+    font-size: 1.5em;
+}
+
 .btn-margin {
     margin-bottom: 10px;
 }
 
 /*delete/alert button background, border, text*/
-.delete-btn {
+.delete-btn, button.delete-btn a, button.modal-trigger.delete-btn,
+button.delete-btn a:active, button.delete-btn a:visited {
     background-color: #c11111;
     border: 1px solid #c11111;
     border-radius: 5px;
@@ -116,7 +123,8 @@ a {
 }
 
 /*edit/submit/save button background, border, text*/
-.edit-btn, button.edit-btn a {
+.edit-btn, button.edit-btn a, 
+button.edit-btn a:active, button.edit-btn a:visited {
     background-color: #16471a;
     border: 1px solid #16471a;
     border-radius: 5px;
@@ -125,7 +133,6 @@ a {
 
 /*buttons on hover*/
 .edit-btn:hover, button.edit-btn a:hover,
-button.edit-btn a:active, button.edit-btn a:visited,
 button.edit-btn a:focus, .edit-btn:focus {
     background-color: #2d5930;
     border: 1px solid #2d5930;
@@ -133,8 +140,7 @@ button.edit-btn a:focus, .edit-btn:focus {
 }
 
 .delete-btn:hover, button.delete-btn a:hover,
-button.delete-btn a:active, button.delete-btn a:visited, 
-button.delete-btn a:link, button.modal-trigger.delete-btn,
+button.modal-trigger.delete-btn:hover,
 button.delete-btn a:focus, .delete-btn:focus {
     background-color: #c72828;
     border: 1px solid #c72828;

@@ -42,38 +42,144 @@
                         </tr>   
                     </thead>
                     <tbody>
-                        @foreach($projects as $project)
+                    @if ($due_projects->count()>0)
+                        @foreach($due_projects as $due_project)
                             <tr>
-                                <td><a href="{{{ action('ProjectsController@show', $project->id) }}}">{{{$project->name}}}</a></td>
-                                <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
-                                <td>{{{$project->due_date->format('m-d-Y')}}}</td>
-                                @if ((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date))
-                                <td>{{{$project->project_submitted_date->format('m-d-Y')}}}</td>
+                                <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
+                                <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
+                                <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($due_project->project_submitted_date))
+                                    <td>{{{$due_project->project_submitted_date->format('m-d-Y')}}}</td>
                                 @else
-                                <td> </td>
+                                    <td> </td>
                                 @endif
-                                @if ((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date))
-                                <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                @if (Project::checkForDate($due_project->invoice_submitted_date))
+                                    <td>{{{$due_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
                                 @else
-                                <td> </td>
+                                    <td> </td>
                                 @endif
-                                @if ((strpos($project->invoice_approval_date, '-0001'))===false && !empty($project->invoice_approval_date))
-                                <td>{{{$project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($due_project->invoice_approval_date))
+                                    <td>{{{$due_project->invoice_approval_date->format('m-d-Y')}}}</td>
                                 @else
-                                <td> </td>
+                                    <td> </td>
                                 @endif
-                                @if ($project->pay_date=0)
-                                <td>{{{calculatePayDate($project->client, $project)->format('m-d-Y')}}}</td>
+                                @if ($due_project->pay_date=0)
+                                    <td>{{{calculatePayDate($due_project->client, $due_project)->format('m-d-Y')}}}</td>
                                 @else
-                                <td> </td>
+                                    <td> </td>
                                 @endif
-                                @if ((strpos($project->payment_received, '-0001'))===false && !empty($project->payment_received))
-                                <td>{{{$project->payment_received->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($due_project->payment_received))
+                                    <td>{{{$due_project->payment_received->format('m-d-Y')}}}</td>
                                 @else
-                                <td> </td>
+                                    <td> </td>
                                 @endif
                             </tr>
-                        @endforeach      
+                        @endforeach
+                    @endif
+
+                    @if ($needs_invoice->count()>0)
+                        @foreach($needs_invoice as $uninvoiced_project)
+                            <tr>
+                                <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
+                                <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
+                                <td>{{{$uninvoiced_project->due_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
+                                    <td>{{{$uninvoiced_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($uninvoiced_project->invoice_submitted_date))
+                                    <td>{{{$uninvoiced_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($uninvoiced_project->invoice_approval_date))
+                                    <td>{{{$uninvoiced_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if ($uninvoiced_project->pay_date=0)
+                                    <td>{{{calculatePayDate($uninvoiced_project->client, $uninvoiced_project)->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($uninvoiced_project->payment_received))
+                                    <td>{{{$uninvoiced_project->payment_received->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                    @endif
+
+                    @if ($needs_approval->count()>0)    
+                        @foreach($needs_approval as $unapproved_project)
+                            <tr>
+                                <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
+                                <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
+                                <td>{{{$unapproved_project->due_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($unapproved_project->project_submitted_date))
+                                    <td>{{{$unapproved_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unapproved_project->invoice_submitted_date))
+                                    <td>{{{$unapproved_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unapproved_project->invoice_approval_date))
+                                    <td>{{{$unapproved_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if ($unapproved_project->pay_date=0)
+                                    <td>{{{calculatePayDate($unapproved_project->client, $unapproved_project)->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unapproved_project->payment_received))
+                                    <td>{{{$unapproved_project->payment_received->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                    @endif
+                        
+                        @foreach($awaiting_payment as $unpaid_project)
+                            <tr>
+                                <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
+                                <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
+                                <td>{{{$unpaid_project->due_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($unpaid_project->project_submitted_date))
+                                    <td>{{{$unpaid_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unpaid_project->invoice_submitted_date))
+                                    <td>{{{$unpaid_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unpaid_project->invoice_approval_date))
+                                    <td>{{{$unpaid_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if ($unpaid_project->pay_date=0)
+                                    <td>{{{calculatePayDate($unpaid_project->client, $unpaid_project)->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                                @if (Project::checkForDate($unpaid_project->payment_received))
+                                    <td>{{{$unpaid_project->payment_received->format('m-d-Y')}}}</td>
+                                @else
+                                    <td> </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                              
                     </tbody>
                 </table>
             </div>
@@ -101,11 +207,11 @@
                     </tr>
                     @foreach($due_projects as $due_project)
                         <tr>
-                            <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                             <td>
                                 <p><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></p>
                                 <p><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></p>
                             </td>
+                            <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -183,7 +289,9 @@
                                     <p><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></p>
                                     <p><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></p>
                                 </td>
-                                <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
+                                @if (Project::checkForDate($unpaid_project->pay_date))
+                                    <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
+                                @endif
                             </tr>
                     @endforeach
                 </table>

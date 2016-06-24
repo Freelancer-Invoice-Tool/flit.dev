@@ -96,10 +96,10 @@
             token: function(token) {
               // You can access the token ID with `token.id`.
               // Get the token ID to your server-side code for use.
+                $('#signup_form').submit();
             },
             closed: function() {
-                $('#signup_form').submit();
-                console.log("it ran");
+                
             }
         });
 
