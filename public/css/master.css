@@ -158,6 +158,12 @@ button.delete-btn a:focus, .delete-btn:focus {
     color: #f4fff7;
 }
 
+/*filter checkmark*/
+[type="checkbox"]:checked+label:before {
+border-right: 2px solid #fb5607;
+border-bottom: 2px solid #fb5607;
+}
+
 /* label focus color */
 .input-field input[type=text]:focus + label, .input-field #description:focus + label,
 .input-field #project_notes:focus + label, .input-field input[type=number]:focus + label,
