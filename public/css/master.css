@@ -61,6 +61,7 @@ footer {
 i {
     color: #f4fff7;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .folder-icon {
@@ -101,6 +102,11 @@ table.striped>tbody>tr:nth-child(odd) {
 /*link color*/
 a {
     color: #3a86ff;
+}
+
+#overdueAlert {
+    color: #02020d;
+    font-size: 1.5em;
 }
 
 .btn-margin {

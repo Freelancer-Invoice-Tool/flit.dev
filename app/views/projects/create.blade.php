@@ -17,22 +17,18 @@
             
         <div class="row">
             <div class="input-field col s12">
-                {{ Form::text('name', null, array('id'=>'name')) }}
-                {{ Form::label('name', 'Project Name') }}
+                {{Form::text('name', null, array('id'=>'name')) }}
+                {{Form::label('name', 'Project Name') }}
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 {{Form::textarea('description', null, array('id'=>'description', 'class'=> 'form-control other-class another materialize-textarea'))}}
-                {{ Form::label('description', 'Description') }}
+                {{Form::label('description', 'Description') }}
             </div>
         </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
-                <input type="date" class="datepicker" id="due_date" name="due_date">
-                {{ Form::label('due_date', 'Due Date') }}
-            </div>
             <div class="input-field col s6">
                 <select id="client_dropdown" name="client_dropdown">
                     <option data-clientid='select' label='select' selected>Select One</option>
@@ -42,6 +38,10 @@
                     @endforeach
                 </select>
                 <label>Client</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="date" class="datepicker" id="due_date" name="due_date">
+                {{Form::label('due_date', 'Due Date') }}
             </div>
         </div>
     
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="input-field col s6">
                     {{Form::label('main_poc_phone', 'Main Contact Phone')}}
-                {{Form::text('main_poc_phone', Input::old('main_poc_phone'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. 210-867-5309'))}}
+                    {{Form::text('main_poc_phone', Input::old('main_poc_phone'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. 210-867-5309'))}}
                 </div>
 
                 <div class="input-field col s6">
@@ -92,30 +92,30 @@
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="budgeted_amount" name="budgeted_amount">
-                {{ Form::label('budgeted_amount', 'Budgeted Amount') }}
+                {{Form::label('budgeted_amount', 'Budgeted Amount') }}
+                {{Form::text('budgeted_amount', null, array('placeholder'=>'e.g. 1000 (no commas)'))}}
             </div>
             <div class="input-field col s6">
-                {{ Form::label('project_poc_name', 'Project Contact Name') }}
-                {{ Form::text('project_poc_name', null, array('id'=>'project_poc_name', 'placeholder'=>'e.g. Joe Blow')) }}
+                {{Form::label('project_poc_name', 'Project Contact Name') }}
+                {{Form::text('project_poc_name', null, array('id'=>'project_poc_name', 'placeholder'=>'e.g. Joe Blow')) }}
             </div>
         </div>
        
         <div class="row">
             <div class="input-field col s6">
-                {{ Form::label('project_poc_phone', 'Project Contact Phone') }}
-                {{ Form::text('project_poc_phone', null, array('id'=>'project_poc_phone', 'placeholder' => 'e.g. 210-867-5309')) }}
+                {{Form::label('project_poc_phone', 'Project Contact Phone') }}
+                {{Form::text('project_poc_phone', null, array('id'=>'project_poc_phone', 'placeholder' => 'e.g. 210-867-5309')) }}
             </div>
             <div class="input-field col s6">
-                {{ Form::label('project_poc_email', 'Project Contact Email') }}
-                {{ Form::text('project_poc_email', null, array('id'=>'project_poc_email', 'placeholder' => 'e.g. jblow@example.com')) }}
+                {{Form::label('project_poc_email', 'Project Contact Email') }}
+                {{Form::text('project_poc_email', null, array('id'=>'project_poc_email', 'placeholder' => 'e.g. jblow@example.com')) }}
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s12">
-                {{ Form::label('project_poc_address', 'Project Contact Address') }}
-                {{ Form::text('project_poc_address', null, array('id'=>'project_poc_address', 'placeholder' => 'e.g. 123 Some Street Anytown, TX 78253')) }}
+                {{Form::label('project_poc_address', 'Project Contact Address') }}
+                {{Form::text('project_poc_address', null, array('id'=>'project_poc_address', 'placeholder' => 'e.g. 123 Some Street Anytown, TX 78253')) }}
             </div>
         </div>
 
@@ -126,7 +126,7 @@
         </div> 
     </div>
     <input type="hidden" name="project_status" value="Started">
-    {{ Form::close() }}    
+    {{Form::close() }}    
 </div>
 </main>
 @stop
