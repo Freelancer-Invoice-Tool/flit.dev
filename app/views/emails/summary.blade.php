@@ -16,7 +16,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table align="center" border="1" cellpadding="0" cellspacing="0" width="600" style=" border: 1px solid #153643;">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
                                 <tr>
                                     <td align="center" style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 24px;">
         
@@ -32,29 +32,25 @@
                                 </tr>
 
                                 <tr align="center">
-                                    <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 20px;">
+                                    <td style="padding: 20px 0px 10px 5px; color: #153643; font-family: serif; font-size: 20px;">
                                         <b>Upcoming Project Due Dates</b>
                                     </td>
 
-                                    <table align="center" border="1" cellpadding="0" cellspacing="0" width="600">
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="400" style="padding-bottom: 0px;">
                                         
                                         <tr align="center">
-                                            <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;">
+                                            <td style="padding: 20px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;">
                                                 <b>Project</b>
                                             </td>
-                                            <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;">
+                                            <td style="padding: 20px 5px 10px 0px; color: #153643; font-family: serif; font-size: 18px;">
                                                 <b>Project Due Date</b>
-                                            </td>
-                                            <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 16px;">
-                                                <b>Description</b>
                                             </td>
                                         </tr>
                                           
                                         @foreach($projects as $project)
                                             <tr align="center">
-                                                <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;"><a href="{{{action('ProjectsController@show', $project['id'])}}}">{{{$project['name']}}}</a></td>
-                                                <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;">{{{ $project['due_date']}}}</td>
-                                                <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 16px;">{{{$project['description']}}}</td>
+                                                <td style="padding: 0px 0px 5px 5px; color: #153643; font-family: serif; font-size: 18px;"><a href="{{{action('ProjectsController@show', $project['id'])}}}">{{{$project['name']}}}</a></td>
+                                                <td style="padding: 0px 5px 5px 0px; color: #153643; font-family: serif; font-size: 18px;">{{{ $project['due_date']}}}</td>
                                             </tr>
                                         @endforeach
                                        
