@@ -22,7 +22,7 @@
                             </tr>
                             <tr>
                                 <td style="padding: 40px 0px 10px 5px; color: #153643; font-family: serif; font-size: 18px;">
-                                    {{-- <p>Dear {{{$user['first_name']}}},</p><br> --}}
+                                    <p>Dear {{{$user['first_name']}}},</p><br>
                                 </td>
                             </tr>
                             <tr>
