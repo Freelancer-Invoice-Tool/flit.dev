@@ -191,8 +191,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($unpaid_project->pay_date=0)
-                                            <td>{{{calculatePayDate($unpaid_project->client, $unpaid_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unpaid_project->pay_date))
+                                            <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
