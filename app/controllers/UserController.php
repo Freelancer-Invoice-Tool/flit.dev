@@ -43,13 +43,22 @@ class UserController extends \BaseController {
     public function store()
     {
         $user = User::validateAndCreate(Request::instance());
+
         $email=Input::get('email');
+        // dd('kriscates81@gmail.com', $email);
         $password=Input::get('password');
         
         Auth::attempt(array('email' => $email, 'password' => $password));
         Session::flash('successMessage', 'Congratulations, you\'ve created your account! Welcome to your new dashboard!');
 
-        // sendMail();
+        $view = 'emails.welcome';
+        $toHuman = Input::get('first_name');
+        $subject = 'Welcome to FLIT';
+        $data = [
+            'user' => $user,
+        ];
+
+        sendMail($view, $email, $toHuman, $subject, $data);
 
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }

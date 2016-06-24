@@ -88,12 +88,9 @@ class CronRunCommand extends Command {
 	 */
 	public function fire()
 	{
-		/**
-		 * EXAMPLES
-		 */
 
 		// You can use any of the available schedules and pass it an anonymous function
-		$this->everyFiveMinutes(function()
+		$this->mondays(function()
 		{
 			$users = User::all();
 
@@ -127,17 +124,6 @@ class CronRunCommand extends Command {
 		    }
     
 			$this->messages[] = 'success!!';
-		});
-
-		// Another example:
-		// Send the admin an email every day
-		$this->dailyAt('09:00', function()
-		{
-			// This uses the mailer class
-			Mail::send('hello', array(), function($message)
-			{
-				$message->to('admin@mydomain.com', 'Cron Job')->subject('I am still running!');
-			});
 		});
 
 		$this->finish();

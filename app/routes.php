@@ -43,5 +43,6 @@ Route::get('/logout', 'UserController@logout');
 Route::get('clients/ajax/{id}', 'ClientsController@getClient');
 
 Route::get('mail-test', function(){
+
     
 });
