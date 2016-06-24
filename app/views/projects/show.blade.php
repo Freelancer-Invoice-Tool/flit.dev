@@ -15,13 +15,15 @@
     
             <div class="row">
                 <div class="col s12 center-align">
-                    <h3>{{{$project->name}}}</h3>
+                    <h4>{{{$project->name}}}</h4>
                 </div>
                 <div class="col s12 center-align">
-                    <p class="flow-text">{{{$project->description}}}</p>
+                    <h6>{{{$project->description}}}</h6>
                 </div>
             </div>
+        </div> <!-- ends head section -->
                 
+        <div class="section">
             <table class="centered striped">
                 <thead>
                     <tr>
@@ -29,7 +31,7 @@
                         <th class="center-align hide-on-med-and-down">Project Status</th> 
                         <th class="center-align">Due Date</th>
                         <th class="center-align hide-on-med-and-down">Budgeted Amount</th>
-                        <th class=" center-align hide-on-med-and-down">Payment Date</th>    
+                        <th class=" center-align hide-on-med-and-down">Est. Payment Date</th>    
                     </tr>    
                 </thead>
                 <tbody>
@@ -48,10 +50,9 @@
                     </tr>     
                 </tbody> 
             </table>
-        </div>   <!-- closes top section  -->
+        </div>   <!-- closes client section  -->
 
         <div class="section">
-            <h4>Project Milestones</h4>
             <table class="centered striped">
                 <thead>
                     <tr>
@@ -79,11 +80,10 @@
         </div> <!-- closes project section -->
 
         <div class="section">
-            <h4>{{{$project->client->client_name}}} Project Point of Contact</h4>
             <table class="centered striped">
                 <thead>
                     <tr>
-                        <th class="center-align">Name</th>
+                        <th class="center-align">Contact</th>
                         <th class="center-align hide-on-med-and-down">Phone</th>
                         <th class="center-align">Email</th>
                         <th class="center-align hide-on-med-and-down">Address</th>
@@ -104,15 +104,20 @@
         </div> <!-- closes contact section -->
 
         <div class="section">
-            <div class="row">
-                <h4>Project Notes</h4>
-            </div>
-            <div>
-                <a href="{{{action('ProjectsController@edit', $project->id)}}}">Add some notes</a>
-            </div>
-            <div class="row">
-                <p>{{{$project->project_notes}}}</p>
-            </div>
+            <table class="centered striped">
+                <thead>
+                    <tr>
+                        <th class="center-align">Project Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{{$project->project_notes}}}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{{action('ProjectsController@edit', $project->id)}}}">Add some notes</a>
+                </tbody>
+            </table>
         </div>
 
         <div class="section hide-on-med-and-down">
@@ -142,23 +147,22 @@
                 </div>
             </div> 
         </div>
-    </div> <!-- closes container -->
     
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <form method="POST" action="{{{action('ProjectsController@destroy', $project->id)}}}">
-        {{Form::token()}}
-            <input type="hidden" name="_method" value="DELETE">
-            <div class="modal-content">
-                <h4>Are You Sure?</h4>
-                <p>If you delete this project, you won't be able to retrieve it!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn delete-btn">Delete</button>
-                <button class="btn edit-btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class="modal-action modal-close">Keep</a></button>
-            </div>
-        </form>
-        
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <form method="POST" action="{{{action('ProjectsController@destroy', $project->id)}}}">
+            {{Form::token()}}
+                <input type="hidden" name="_method" value="DELETE">
+                <div class="modal-content">
+                    <h4>Are You Sure?</h4>
+                    <p>If you delete this project, you won't be able to retrieve it!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn delete-btn">Delete</button>
+                    <button class="btn edit-btn"><a href="{{{ action('ProjectsController@show', $project->id) }}}" class="modal-action modal-close">Keep</a></button>
+                </div>
+            </form>
+        </div>    
     </div>     
 </main>
 @stop
