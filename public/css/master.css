@@ -104,6 +104,11 @@ a {
     color: #3a86ff;
 }
 
+#overdueAlert {
+    color: #02020d;
+    font-size: 1.5em;
+}
+
 .btn-margin {
     margin-bottom: 10px;
 }

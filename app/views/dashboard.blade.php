@@ -39,7 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12 center-align">
-                        <p class="flow-text">Projects Overdue: {{{$overdueProjects}}}</p>
+                        <a id="overdueAlert" href="{{{action('ProjectsController@showOverdue')}}}">Projects Overdue: {{{$overdueProjects}}}</a>
                     </div>
                 </div>
             </div>   
