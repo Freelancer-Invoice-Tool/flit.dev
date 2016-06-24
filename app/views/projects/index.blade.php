@@ -18,9 +18,14 @@
                     <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
                 </div>
             </div>
+            <div class="row">
+                <div class="col s12 right-align">
+                    <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+                </div>
+            </div>
 
             <div class="row hide-on-med-and-down">
-                <p>Filter projects</p>
+                <p>Filter projects:</p>
                 <input type="checkbox" id="projects_due" name="projects_due" checked>
                 <label for="projects_due">Projects due
                 </label>
@@ -32,11 +37,6 @@
                 <label for="projects_awaiting_payment">Awaiting payment</label>
             </div>
 
-            <div class="row">
-                <div class="col s6 left-align">
-                    <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
-                </div>
-            </div>
             
         </div>
         
