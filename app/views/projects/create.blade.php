@@ -30,10 +30,6 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="date" class="datepicker" id="due_date" name="due_date">
-                {{ Form::label('due_date', 'Due Date') }}
-            </div>
-            <div class="input-field col s6">
                 <select id="client_dropdown" name="client_dropdown">
                     <option data-clientid='select' label='select' selected>Select One</option>
                     <option data-clientid='create' label='create_new'>Create New</option>
@@ -42,6 +38,10 @@
                     @endforeach
                 </select>
                 <label>Client</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="date" class="datepicker" id="due_date" name="due_date">
+                {{ Form::label('due_date', 'Due Date') }}
             </div>
         </div>
     
