@@ -302,6 +302,5 @@ class ProjectTableSeeder extends Seeder
         $project->project_poc_phone = '';
         $project->project_poc_address = '';
         $project->save();
-        
     }
 }
