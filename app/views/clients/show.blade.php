@@ -9,14 +9,19 @@
     <div class="container">
         <div class="section">
             <div class="row">
-                <h2 class="center-align hide-on-med-and-down">{{{ $client->client_name }}}</h2>
-                <h3 class="center-align hide-on-large-only">{{{ $client->client_name }}}</h3>
+                <h2 class="hide-on-med-and-down">Client Details</h2>
+                <h3 class="hide-on-large-only">Client Details</h3>
+            </div>
+
+            <div class="row">
+                <h3 class="center-align hide-on-med-and-down">{{{ $client->client_name }}}</h3>
+                <h4 class="center-align hide-on-large-only">{{{ $client->client_name }}}</h4>
             </div>
         </div>
 
         <div class="section">
-            <h3 class="center-align hide-on-med-and-down">Main Point of Contact</h3>
-            <h4 class="center-align hide-on-large-only">Main Point of Contact</h4>
+            <h4 class="center-align hide-on-med-and-down">Main Point of Contact</h4>
+            <h5 class="center-align hide-on-large-only">Main Point of Contact</h5>
 
             <!-- Top portion -->
             <table class="centered">
@@ -54,8 +59,8 @@
 
         <!-- bottom portion: list of projects -->
         <div class="section">
-            <h3 class="center-align hide-on-med-and-down">Projects</h3>
-            <h4 class="center-align hide-on-large-only">Projects</h4>
+            <h4 class="center-align hide-on-med-and-down">Projects</h4>
+            <h5 class="center-align hide-on-large-only">Projects</h5>
             <table class="centered">
                 <thead>
                     <tr>

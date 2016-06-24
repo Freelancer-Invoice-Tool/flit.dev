@@ -39,6 +39,8 @@ class HomeController extends BaseController {
 			->where('project_status', '!=', 'Payment Received')
 			->orderBy('due_date', 'asc')->paginate(9);
 
+		// dd($projects);
+		
 		//for overdue alert on dashboard
 		$overdueProjects = Project::where('user_id', '=', Auth::id())
 			->where('due_date', '<=', Carbon\Carbon::now())

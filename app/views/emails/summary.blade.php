@@ -1,6 +1,5 @@
-@extends('layouts.email')
 
-@section('content')
+
     
     <h3>{{{ $user['first_name'] }}}, Here is Your Weekly Summary</h3>
 
@@ -30,4 +29,3 @@
             </tbody>
         </table>
 </div>
-@stop
