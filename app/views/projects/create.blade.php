@@ -59,10 +59,16 @@
                     {{Form::label('payment_terms', 'Payment Terms (in number of days)')}} 
                     {{Form::number('payment_terms', Input::old('payment_terms'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. 30'))}} 
                 </div>
+        <!-- submission/approval drop-down -->
                 <div class="input-field col s6">
-                    {{Form::label('submission_or_approval', 'Does Payment Term start on invoice approval or invoice submission?')}} 
-                    {{Form::text('submission_or_approval', Input::old('submission_or_approval'), array('class' => 'form-control other-class another', 'placeholder' => 'e.g. submission'))}} 
-                </div>
+                    <select id="submission_or_approval" name="submission_or_approval">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option data-subapp='submission' value="submission">Submission</option>
+                      <option data-subapp='approval' value="approval">Approval</option>
+                    </select>
+                    <label>Terms start on invoice approval or invoice submission?</label>
+                </div>        
+            
             </div>
 
             <div class="row">
@@ -144,12 +150,28 @@
             selectYears: 15 // Creates a dropdown of 15 years to control year
         });
 
+        $(submission_or_approval).change(function(){
+            if($(this).find(':selected').data('subapp')=='submission') {
+                $('#submission_or_approval').val("submission");
+            } else if($(this).find(':selected').data('subapp')=='approval') {
+                $('#submission_or_approval').val("approval");
+            } else {
+                $('#submission_or_approval').val("");
+            }
+        })
+
         $(client_dropdown).change(function(){
             if ($(this).find(':selected').data('clientid')=='create') {
                 $("#create_client").removeClass("hide");
                 $('#client_name').val("");
                 $('#payment_terms').val("");
-                $('#submission_or_approval').val("");
+                if($(this).find(':selected').data('subapp')=='submission') {
+                    $('#submission_or_approval').val("submission");
+                } else if($(this).find(':selected').data('subapp')=='approval') {
+                    $('#submission_or_approval').val("approval");
+                } else {
+                    $('#submission_or_approval').val("");
+                }
                 $('#main_poc_name').val("");
                 $('#project_poc_name').val("");
                 $('#main_poc_email').val("");
@@ -162,7 +184,13 @@
                 $("#create_client").addClass("hide");
                 $('#client_name').val("");
                 $('#payment_terms').val("");
-                $('#submission_or_approval').val("");
+                if($(this).find(':selected').data('subapp')=='submission') {
+                    $('#submission_or_approval').val("submission");
+                } else if($(this).find(':selected').data('subapp')=='approval') {
+                    $('#submission_or_approval').val("approval");
+                } else {
+                    $('#submission_or_approval').val("");
+                }
                 $('#main_poc_name').val("");
                 $('#project_poc_name').val("");
                 $('#main_poc_email').val("");
@@ -200,7 +228,13 @@
                 $("#create_client").addClass("hide");
                 $('#client_name').val("");
                 $('#payment_terms').val("");
-                $('#submission_or_approval').val("");
+                if($(this).find(':selected').data('subapp')=='submission') {
+                    $('#submission_or_approval').val("submission");
+                } else if($(this).find(':selected').data('subapp')=='approval') {
+                    $('#submission_or_approval').val("approval");
+                } else {
+                    $('#submission_or_approval').val("");
+                }
                 $('#main_poc_name').val("");
                 $('#main_poc_email').val("");
                 $('#main_poc_phone').val("");

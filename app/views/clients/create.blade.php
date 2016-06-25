@@ -40,7 +40,7 @@
 
             <div class="row">
                 <div class="input-field col s10">
-                    <select>
+                    <select id="submission_or_approval" name="submission_or_approval">
                       <option value="" disabled selected>Choose your option</option>
                       <option value="submission">Submission</option>
                       <option value="approval">Approval</option>
