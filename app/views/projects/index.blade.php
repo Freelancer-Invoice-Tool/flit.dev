@@ -5,12 +5,7 @@
 @stop
 
 @section('top-script')
-    <style>
-
-        .material-icons.green { color: green; }
-        td>i>.material-icons.orange601 { color: #FB8C00; }
     
-    </style>
 @stop
 
 @section('content')
@@ -58,7 +53,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Client</th>
-                                <th>Due Date</th>
+                                <th>Due Date
+                                    <span style="visibility:hidden">longdatehere</span></th>
                                 <th>Project Submitted</th>
                                 <th>Invoice Submitted</th>
                                 <th>Invoice Approved</th>
@@ -73,7 +69,7 @@
                                     <tr class="proj_due">
                                         <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
-                                        <td><i class="material-icons green">&#xE5CA;</i></td>
+                                        <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                                         @if (Project::checkForDate($due_project->project_submitted_date))
                                             <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
@@ -110,7 +106,7 @@
                                     <tr class="proj_to_invoice">
                                         <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
-                                        <td>{{{$uninvoiced_project->due_date->format('m-d-Y')}}}</td>
+                                        <td><i class="material-icons green">&#xE5CA;</i>
                                         @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
                                             <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
