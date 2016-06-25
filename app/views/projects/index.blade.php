@@ -27,9 +27,14 @@
                     <a class="waves-effect waves-light btn edit-btn" href="{{{action('ProjectsController@create')}}}">Create New Project</a>
                 </div>
             </div>
+            <div class="row">
+                <div class="col s12 right-align">
+                    <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
+                </div>
+            </div>
 
             <div class="row hide-on-med-and-down">
-                <p>Filter projects</p>
+                <p>Filter projects:</p>
                 <input type="checkbox" id="projects_due" name="projects_due" checked>
                 <label for="projects_due">Projects due
                 </label>
@@ -41,11 +46,6 @@
                 <label for="projects_awaiting_payment">Awaiting payment</label>
             </div>
 
-            <div class="row">
-                <div class="col s6 left-align">
-                    <a href="{{{action('ProjectsController@showArchive', Auth::id())}}}">View Project Archive</a>
-                </div>
-            </div>
             
         </div>
         
@@ -89,8 +89,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($due_project->pay_date=0)
-                                            <td>{{{calculatePayDate($due_project->client, $due_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($due_project->pay_date))
+                                            <td>{{{$due_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -126,8 +126,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($uninvoiced_project->pay_date=0)
-                                            <td>{{{calculatePayDate($uninvoiced_project->client, $uninvoiced_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($uninvoiced_project->pay_date))
+                                            <td>{{{$uninvoiced_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -163,8 +163,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($unapproved_project->pay_date=0)
-                                            <td>{{{calculatePayDate($unapproved_project->client, $unapproved_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unapproved_project->pay_date))
+                                            <td>{{{$unapproved_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -200,8 +200,8 @@
                                         @else
                                             <td> </td>
                                         @endif
-                                        @if ($unpaid_project->pay_date=0)
-                                            <td>{{{calculatePayDate($unpaid_project->client, $unpaid_project)->format('m-d-Y')}}}</td>
+                                        @if (Project::checkForDate($unpaid_project->pay_date))
+                                            <td>{{{$unpaid_project->pay_date->format('m-d-Y')}}}</td>
                                         @else
                                             <td> </td>
                                         @endif

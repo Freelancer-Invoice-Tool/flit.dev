@@ -28,7 +28,7 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(3)->id;
+        $project->user_id = User::find(1)->id;
         $project->client_id = Client::find(6)->id;
         $project->name = 'Billy club';
         $project->description = 'Strong, collapsible walking stick.';
@@ -51,8 +51,8 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(2)->id;
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(1)->id;
         $project->name = 'Arc Reactor';
         $project->description = 'Compact power source.';
         $project->project_notes = '';
@@ -82,11 +82,11 @@ class ProjectTableSeeder extends Seeder
         $project->due_date = '2016-02-06';
         $project->project_submitted_date = '2016-02-01';
         $project->invoice_submitted_date = '2016-02-10';
-        $project->invoice_approval_date = '';
-        $project->pay_date = '';
+        $project->invoice_approval_date = '2016-02-12';
+        $project->pay_date = '2016-04-12';
         $project->budgeted_amount = 5000000;
         $project->actual_amount = 0;
-        $project->project_status = 'Invoice Submitted';
+        $project->project_status = 'Invoice Approved';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
         $project->payment_received = '';
@@ -97,8 +97,8 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(14)->id;
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(13)->id;
         $project->name = 'Indestructable Motorcycle';
         $project->description = 'A bike that won\'t break in a little fender-bender.';
         $project->project_notes = '';
@@ -120,8 +120,8 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(15)->id;
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(13)->id;
         $project->name = 'Expandable pants';
         $project->description = 'Pants that will expand without shredding, and shrink back.';
         $project->project_notes = '';
@@ -189,8 +189,8 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(2)->id;
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(1)->id;
         $project->name = 'AI Backup';
         $project->description = 'Complex database, storage, and security.';
         $project->project_notes = '';
@@ -198,7 +198,7 @@ class ProjectTableSeeder extends Seeder
         $project->project_submitted_date = '2015-11-30';
         $project->invoice_submitted_date = '2015-11-30';
         $project->invoice_approval_date = '2015-12-08';
-        $project->pay_date = '';
+        $project->pay_date = '2016-01-30';
         $project->budgeted_amount = 500000;
         $project->actual_amount = 0;
         $project->project_status = 'Invoice Approved';
@@ -235,35 +235,35 @@ class ProjectTableSeeder extends Seeder
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(2)->id;
-        $project->client_id = Client::find(14)->id;
-        $project->name = 'Trivia game';
-        $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(10)->id;
+        $project->name = 'Assault Drone';
+        $project->description = '';
         $project->project_notes = '';
         $project->due_date = '2011-08-30';
-        $project->project_submitted_date = '';
-        $project->invoice_submitted_date = '';
-        $project->invoice_approval_date = '';
-        $project->pay_date = '';
+        $project->project_submitted_date = '2016-06-24';
+        $project->invoice_submitted_date = '2016-06-27';
+        $project->invoice_approval_date = '2016-06-29';
+        $project->pay_date = '2016-08-29';
         $project->budgeted_amount = 850750;
         $project->actual_amount = 0;
-        $project->project_status = 'In Progress';
+        $project->project_status = 'Invoice Approved';
         $project->project_submitted = '';
         $project->invoice_submitted = '';
         $project->payment_received = '';
-        $project->project_poc_name = 'Steve Rogers';
-        $project->project_poc_email = 'srogers1920@aol.com';
+        $project->project_poc_name = 'Oliver Queen';
+        $project->project_poc_email = 'oqueen@queenindustries.com';
         $project->project_poc_phone = '';
         $project->project_poc_address = '';
         $project->save();
 
         $project = new Project();
-        $project->user_id = User::find(3)->id;
-        $project->client_id = Client::find(15)->id;
-        $project->name = 'Trivia game';
-        $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(7)->id;
+        $project->name = 'Utility Belt';
+        $project->description = 'Incredibly bulky supersuit accessory that is as impractical as it is awesome';
         $project->project_notes = '';
-        $project->due_date = '2011-08-30';
+        $project->due_date = '2016-07-14';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -274,11 +274,33 @@ class ProjectTableSeeder extends Seeder
         $project->project_submitted = '';
         $project->invoice_submitted = '';
         $project->payment_received = '';
-        $project->project_poc_name = 'Steve Rogers';
-        $project->project_poc_email = 'srogers1920@aol.com';
+        $project->project_poc_name = 'Bruce Wayne';
+        $project->project_poc_email = 'bruce.wayne@wayneent.net';
         $project->project_poc_phone = '';
         $project->project_poc_address = '';
         $project->save();
-        
+
+        $project = new Project();
+        $project->user_id = User::find(1)->id;
+        $project->client_id = Client::find(4)->id;
+        $project->name = 'Inventory System for Rosary Bead Collection';
+        $project->description = 'Need to track concerning number of rosary beads';
+        $project->project_notes = '';
+        $project->due_date = '2016-08-09';
+        $project->project_submitted_date = '2016-07-30';
+        $project->invoice_submitted_date = '';
+        $project->invoice_approval_date = '';
+        $project->pay_date = '';
+        $project->budgeted_amount = 850750;
+        $project->actual_amount = 0;
+        $project->project_status = 'Project Submitted';
+        $project->project_submitted = '';
+        $project->invoice_submitted = '';
+        $project->payment_received = '';
+        $project->project_poc_name = 'Matt Murdock';
+        $project->project_poc_email = 'mmurdock@nelsonmurdock.com';
+        $project->project_poc_phone = '';
+        $project->project_poc_address = '';
+        $project->save();
     }
 }
