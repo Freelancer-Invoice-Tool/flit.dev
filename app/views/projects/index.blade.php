@@ -4,6 +4,15 @@
     FLIT: My Projects
 @stop
 
+@section('top-script')
+    <style>
+
+        .material-icons.green { color: green; }
+        td>i>.material-icons.orange601 { color: #FB8C00; }
+    
+    </style>
+@stop
+
 @section('content')
 <main>
     <div class="container">
@@ -25,7 +34,7 @@
                 <label for="projects_due">Projects due
                 </label>
                 <input type="checkbox" id="projects_to_invoice" name="projects_to_invoice" checked>
-                <label for="projects_to_invoice">Invoice has not been submitted</label>
+                <label for="projects_to_invoice">Needs invoice</label>
                 <input type="checkbox" id="projects_needing_approval" name="projects_needing_approval" checked>
                 <label for="projects_needing_approval">Awaiting approval</label>
                 <input type="checkbox" id="projects_awaiting_payment" name="projects_awaiting_payment" checked>
@@ -64,19 +73,19 @@
                                     <tr class="proj_due">
                                         <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
-                                        <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
+                                        <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @if (Project::checkForDate($due_project->project_submitted_date))
-                                            <td>{{{$due_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->invoice_submitted_date))
-                                            <td>{{{$due_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->invoice_approval_date))
-                                            <td>{{{$due_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -86,7 +95,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->payment_received))
-                                            <td>{{{$due_project->payment_received->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -103,17 +112,17 @@
                                         <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
                                         <td>{{{$uninvoiced_project->due_date->format('m-d-Y')}}}</td>
                                         @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
-                                            <td>{{{$uninvoiced_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->invoice_submitted_date))
-                                            <td>{{{$uninvoiced_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->invoice_approval_date))
-                                            <td>{{{$uninvoiced_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -123,7 +132,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->payment_received))
-                                            <td>{{{$uninvoiced_project->payment_received->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -138,19 +147,19 @@
                                     <tr class="proj_need_approval">
                                         <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
-                                        <td>{{{$unapproved_project->due_date->format('m-d-Y')}}}</td>
+                                        <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @if (Project::checkForDate($unapproved_project->project_submitted_date))
-                                            <td>{{{$unapproved_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->invoice_submitted_date))
-                                            <td>{{{$unapproved_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->invoice_approval_date))
-                                            <td>{{{$unapproved_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -160,7 +169,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->payment_received))
-                                            <td>{{{$unapproved_project->payment_received->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -175,19 +184,19 @@
                                     <tr class="proj_await_pay">
                                         <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
-                                        <td>{{{$unpaid_project->due_date->format('m-d-Y')}}}</td>
+                                        <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @if (Project::checkForDate($unpaid_project->project_submitted_date))
-                                            <td>{{{$unpaid_project->project_submitted_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->invoice_submitted_date))
-                                            <td>{{{$unpaid_project->invoice_submitted_date->format('m-d-Y')}}}</td> 
+                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->invoice_approval_date))
-                                            <td>{{{$unpaid_project->invoice_approval_date->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -197,7 +206,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->payment_received))
-                                            <td>{{{$unpaid_project->payment_received->format('m-d-Y')}}}</td>
+                                            <td><i class="material-icons green">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
