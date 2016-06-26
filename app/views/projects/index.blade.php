@@ -29,16 +29,31 @@
             </div>
 
             <div class="row hide-on-med-and-down">
-                <p>Filter projects:</p>
-                <input type="checkbox" id="projects_due" name="projects_due" checked>
-                <label for="projects_due">Projects due
-                </label>
-                <input type="checkbox" id="projects_to_invoice" name="projects_to_invoice" checked>
-                <label for="projects_to_invoice">Needs invoice</label>
-                <input type="checkbox" id="projects_needing_approval" name="projects_needing_approval" checked>
-                <label for="projects_needing_approval">Awaiting approval</label>
-                <input type="checkbox" id="projects_awaiting_payment" name="projects_awaiting_payment" checked>
-                <label for="projects_awaiting_payment">Awaiting payment</label>
+                <div class="row">
+                    <p>Filter projects:</p>
+                </div>
+                <div class="row">
+                    <div class="col s3">
+                        <input type="checkbox" id="projects_due" name="projects_due" checked>
+                        <label for="projects_due">Projects due
+                    </label>
+                    </div>
+
+                    <div class="col s3">
+                        <input type="checkbox" id="projects_to_invoice" name="projects_to_invoice" checked>
+                        <label for="projects_to_invoice">Needs invoice</label>
+                    </div>
+
+                    <div class="col s3">
+                        <input type="checkbox" id="projects_needing_approval" name="projects_needing_approval" checked>
+                        <label for="projects_needing_approval">Awaiting approval</label>
+                    </div>
+
+                    <div class="col s3">
+                        <input type="checkbox" id="projects_awaiting_payment" name="projects_awaiting_payment" checked>
+                        <label for="projects_awaiting_payment">Awaiting payment</label>
+                    </div>
+                </div>
             </div>
 
             
@@ -71,17 +86,17 @@
                                         <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
                                         <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
                                         @if (Project::checkForDate($due_project->project_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->invoice_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->invoice_approval_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -91,7 +106,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($due_project->payment_received))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -106,19 +121,19 @@
                                     <tr class="proj_to_invoice">
                                         <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
-                                        <td><i class="material-icons green">&#xE5CA;</i>
+                                        <td><i class="material-icons checkboxes">&#xE5CA;</i>
                                         @if (Project::checkForDate($uninvoiced_project->project_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->invoice_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->invoice_approval_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -128,7 +143,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($uninvoiced_project->payment_received))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -143,19 +158,19 @@
                                     <tr class="proj_need_approval">
                                         <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
-                                        <td><i class="material-icons green">&#xE5CA;</i></td>
+                                        <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @if (Project::checkForDate($unapproved_project->project_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->invoice_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->invoice_approval_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -165,7 +180,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unapproved_project->payment_received))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -180,19 +195,19 @@
                                     <tr class="proj_await_pay">
                                         <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
-                                        <td><i class="material-icons green">&#xE5CA;</i></td>
+                                        <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @if (Project::checkForDate($unpaid_project->project_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->invoice_submitted_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td> 
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td> 
                                         @else
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->invoice_approval_date))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
@@ -202,7 +217,7 @@
                                             <td> </td>
                                         @endif
                                         @if (Project::checkForDate($unpaid_project->payment_received))
-                                            <td><i class="material-icons green">&#xE5CA;</i></td>
+                                            <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
                                         @else
                                             <td> </td>
                                         @endif
