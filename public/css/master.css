@@ -96,7 +96,7 @@ i {
 
 /*table striping*/
 table.striped>tbody>tr:nth-child(odd) {
-    background-color: #f0f0f0;
+    background-color: #f1f0f7;
 }
 
 /*link color*/
