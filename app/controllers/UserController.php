@@ -45,7 +45,7 @@ class UserController extends \BaseController {
         $user = User::validateAndCreate(Request::instance());
 
         $email=Input::get('email');
-        
+
         $password=Input::get('password');
         
         Auth::attempt(array('email' => $email, 'password' => $password));
