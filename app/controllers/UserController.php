@@ -58,7 +58,7 @@ class UserController extends \BaseController {
             'user' => $user,
         ];
 
-        // sendMail($view, $email, $toHuman, $subject, $data);
+        sendMail($view, $email, $toHuman, $subject, $data);
 
         return Redirect::action('HomeController@showDashboard', $user->id)->withInput();
     }
