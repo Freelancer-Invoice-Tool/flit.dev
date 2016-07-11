@@ -23,6 +23,7 @@
                         <th class="center-align">Budgeted Amount</th>
                         <th class="center-align">Project</th>
                         <th class="center-align">Project Submitted</th>
+                        <th class="center-align">Hours Logged</th>
                         <th class="center-align">Client</th>
                         <th class="center-align">Contact Name</th>
                         <th class="center-align">Contact Email</th>
@@ -46,6 +47,8 @@
                         @else
                             <td> </td>
                         @endif
+
+                        <td>{{{$project->hours_logged}}}</td>
 
                         <td><a href="{{{ action('ClientsController@show', $project->client_id) }}}">{{{$project->client->client_name}}}</a></td>
 
