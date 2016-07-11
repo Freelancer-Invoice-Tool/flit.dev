@@ -51,13 +51,18 @@
             </div>
 
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s4">
                     <input type="date" class="datepicker" id="due_date" name="due_date" value="{{{$project->due_date}}}">
                     
                     {{ Form::label('due_date', 'Due Date') }}
                 </div>
             
-                <div class="input-field col s6">
+                <div class="input-field col s4">
+                    {{ Form::text('hours_logged', null, array('id'=>'hours_logged')) }}
+                    {{ Form::label('hours_logged', 'Hours Logged') }}
+                </div>
+
+                <div class="input-field col s4">
                     @if ((strpos($project->project_submitted_date, '-0001'))===false) 
                         <input type="date" class="datepicker" id="project_submitted_date" name="project_submitted_date" value="{{{$project->project_submitted_date}}}">
                     @else
