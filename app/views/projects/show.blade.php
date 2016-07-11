@@ -57,6 +57,7 @@
                 <thead>
                     <tr>
                         <th class="center-align">Project Submitted</th>
+                        <th class="center-align hide-on-med-and-down">Hours Logged</th>
                         <th class="center-align hide-on-med-and-down">Invoice Submitted</th>
                         <th class="center-align hide-on-med-and-down">Invoice Approved</th>
                         <th class="center-align hide-on-med-and-down">Payment Received</th>
@@ -66,6 +67,8 @@
                 <tbody>
                     <tr>
                         <td>{{{((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date)) ? $project->project_submitted_date->format('m-d-Y') : ''}}}</td>
+
+                        <td>{{{$project->hours_logged}}}</td>
 
                         <td class="hide-on-med-and-down">{{{((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date)) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
 
