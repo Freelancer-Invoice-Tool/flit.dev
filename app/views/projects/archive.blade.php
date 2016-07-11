@@ -20,6 +20,7 @@
                     <th>Name</th>
                     <th>Project Submitted</th>
                     <th>Due Date</th>
+                    <th>Hours Logged</th>
                     <th>Invoice Submitted</th>
                     <th>Invoice Approved</th>
                     <th>Payment Received</th>
@@ -37,6 +38,8 @@
                         <td> </td>
                     @endif
 
+                    <td>{{{$project->hours_logged}}}</td>
+              
                     @if((strpos($project->invoice_submitted_date, '-0001')) === false && !empty($project->invoice_submitted_date))
                         <td>{{{$project->invoice_submitted_date->format('m-d-Y')}}}</td>   
                     @else
