@@ -9,6 +9,7 @@ class ProjectCreator {
         $project->description = $request->input('description');
         $project->project_notes = $request->input('project_notes');
         $project->due_date = parseDates($request->input('due_date'));
+        $project->hours_logged = $request->input('hours_logged');
         $project->project_submitted_date=parseDates($request->input('project_submitted_date'));
         $project->invoice_submitted_date = parseDates($request->input('invoice_submitted_date'));
         $project->invoice_approval_date = parseDates($request->input('invoice_approval_date'));
