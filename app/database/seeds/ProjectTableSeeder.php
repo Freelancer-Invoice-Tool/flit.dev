@@ -11,6 +11,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Bat-shaped boomerang.';
         $project->project_notes = '';
         $project->due_date = '2017-01-19';
+        $project->hours_logged = '1000';
         $project->project_submitted_date = '2017-01-19';
         $project->invoice_submitted_date = '2017-01-20';
         $project->invoice_approval_date = '2017-01-27';
@@ -34,6 +35,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Strong, collapsible walking stick.';
         $project->project_notes = '';
         $project->due_date = '2016-12-16';
+        $project->hours_logged = '';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -57,6 +59,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Compact power source.';
         $project->project_notes = '';
         $project->due_date = '2016-05-06';
+        $project->hours_logged = '';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -80,6 +83,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Vibranium shield with red and white stripes and a white star in a blue circle in the middle.';
         $project->project_notes = '';
         $project->due_date = '2016-02-06';
+        $project->hours_logged = '4000';
         $project->project_submitted_date = '2016-02-01';
         $project->invoice_submitted_date = '2016-02-10';
         $project->invoice_approval_date = '2016-02-12';
@@ -103,6 +107,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'A bike that won\'t break in a little fender-bender.';
         $project->project_notes = '';
         $project->due_date = '2015-01-19';
+        $project->hours_logged = '10000';
         $project->project_submitted_date = '2015-01-19';
         $project->invoice_submitted_date = '2015-01-19';
         $project->invoice_approval_date = '2015-02-20';
@@ -126,6 +131,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Pants that will expand without shredding, and shrink back.';
         $project->project_notes = '';
         $project->due_date = '2015-07-19';
+        $project->hours_logged = '';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -149,6 +155,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'An application to store personal information about colleagues.';
         $project->project_notes = '';
         $project->due_date = '2015-08-01';
+        $project->hours_logged = '9';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -172,6 +179,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Text reader capable of recognizing legal jargon.';
         $project->project_notes = '';
         $project->due_date = '2016-09-08';
+        $project->hours_logged = '88';
         $project->project_submitted_date = '2016-09-07';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -195,6 +203,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Complex database, storage, and security.';
         $project->project_notes = '';
         $project->due_date = '2015-12-01';
+        $project->hours_logged = '1100';
         $project->project_submitted_date = '2015-11-30';
         $project->invoice_submitted_date = '2015-11-30';
         $project->invoice_approval_date = '2015-12-08';
@@ -218,6 +227,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Educational teaching tool on all significant events and people since end of WWII.';
         $project->project_notes = '';
         $project->due_date = '2011-08-30';
+        $project->hours_logged = '45';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -241,6 +251,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = '';
         $project->project_notes = '';
         $project->due_date = '2011-08-30';
+        $project->hours_logged = '9098';
         $project->project_submitted_date = '2016-06-24';
         $project->invoice_submitted_date = '2016-06-27';
         $project->invoice_approval_date = '2016-06-29';
@@ -264,6 +275,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Incredibly bulky supersuit accessory that is as impractical as it is awesome';
         $project->project_notes = '';
         $project->due_date = '2016-07-14';
+        $project->hours_logged = '3';
         $project->project_submitted_date = '';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
@@ -287,6 +299,7 @@ class ProjectTableSeeder extends Seeder
         $project->description = 'Need to track concerning number of rosary beads';
         $project->project_notes = '';
         $project->due_date = '2016-08-09';
+        $project->hours_logged = '';
         $project->project_submitted_date = '2016-07-30';
         $project->invoice_submitted_date = '';
         $project->invoice_approval_date = '';
