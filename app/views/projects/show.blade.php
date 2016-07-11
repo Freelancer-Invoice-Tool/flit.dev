@@ -68,7 +68,7 @@
                     <tr>
                         <td>{{{((strpos($project->project_submitted_date, '-0001'))===false && !empty($project->project_submitted_date)) ? $project->project_submitted_date->format('m-d-Y') : ''}}}</td>
 
-                         <td>{{{$project->hours_logged}}}</td>
+                        <td>{{{$project->hours_logged}}}</td>
 
                         <td class="hide-on-med-and-down">{{{((strpos($project->invoice_submitted_date, '-0001'))===false && !empty($project->invoice_submitted_date)) ? $project->invoice_submitted_date->format('m-d-Y') : ''}}}</td>
 
