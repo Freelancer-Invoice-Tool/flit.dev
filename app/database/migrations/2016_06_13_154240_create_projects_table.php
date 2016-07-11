@@ -23,6 +23,7 @@ class CreateProjectsTable extends Migration {
             $table->string('description', 200)->nullable();
             $table->longText('project_notes')->nullable();
             $table->date('due_date');
+            $table->integer('hours_logged')->nullable();
             $table->date('project_submitted_date')->nullable();
             $table->date('invoice_submitted_date')->nullable();
             $table->date('invoice_approval_date')->nullable();
