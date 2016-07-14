@@ -16,6 +16,7 @@
                 <h2 class="hide-on-med-and-down">Sign Up</h2>
                 <h3 class="hide-on-large-only">Sign Up</h3>
                 <p>Enjoy all the benefits of FLIT for a one-time fee of $4.99!</p>
+                <p>For test purposes, use 42 repeated 8 times for the card number and use any 3 digits for the CVV. Use any date in the future for the expiration date.</p>
             </div>
         </div>
 
