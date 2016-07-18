@@ -158,6 +158,10 @@ button.delete-btn a:focus, .delete-btn:focus {
     color: #f4fff7;
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: #f4fff7;
+}
+
 /*filter checkmark*/
 [type="checkbox"]:checked+label:before {
 border-right: 2px solid #2d5930;
@@ -181,7 +185,9 @@ i.material-icons.checkboxes {
 .input-field input[type=text]:focus, .input-field #description:focus,
 .input-field #project_notes:focus, .input-field #payment_terms:focus,
 .input-field #password:focus, .input-field input[type=email]:focus,
-.input-field input[type=password]:focus {
+.input-field input[type=password]:focus,
+    /*targets search input with DataTables only*/
+div#example_filter label input[type=search]:focus {
  border-bottom: 1px solid #fb5607;
  box-shadow: 0 1px 0 0 #fb5607;
 }
