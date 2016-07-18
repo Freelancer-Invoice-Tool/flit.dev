@@ -54,9 +54,7 @@
                         <label for="projects_awaiting_payment">Awaiting payment</label>
                     </div>
                 </div>
-            </div>
-
-            
+            </div>      
         </div>
         
         <!-- expanded index visible on horizontal tablet and larger -->
@@ -113,9 +111,7 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        {{-- </div> --}}
-
-                        {{-- <div id="proj_to_invoice"> --}}
+                       
                             @if ($needs_invoice->count()>0)
                                 @foreach($needs_invoice as $uninvoiced_project)
                                     <tr class="proj_to_invoice" id="proj_to_invoice">
@@ -150,9 +146,7 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        {{-- </div> --}}
-
-                        {{-- <div id="proj_need_approval"> --}}
+                       
                             @if ($needs_approval->count()>0)
                                 @foreach($needs_approval as $unapproved_project)
                                     <tr class="proj_need_approval" id="proj_need_approval">
@@ -187,9 +181,7 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        {{-- </div> --}}
                         
-                        {{-- <div id="proj_await_pay">                  --}}
                             @if ($awaiting_payment->count()>0)
                                 @foreach($awaiting_payment as $unpaid_project)
                                     <tr class="proj_await_pay" id="proj_await_pay">
@@ -224,16 +216,9 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        {{-- </div>                               --}}
                     </tbody>
                 </table>    
             </div>
-
-            <div class="section">
-                <ul class="pagination center-align">
-                    {{ $paginator->render() }}
-                </ul>    
-            </div> 
         </div>
 
         <!-- condensed index visible on vertical tablet and smaller -->
@@ -391,7 +376,6 @@
             $('.proj_await_pay').addClass('hide');
         }
     });
-
 
 </script>
 
