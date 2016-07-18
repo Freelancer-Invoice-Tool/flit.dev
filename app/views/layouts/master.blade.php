@@ -18,6 +18,9 @@
     <!-- materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--DataTables css-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/cr-1.3.2/r-2.1.0/rr-1.1.2/datatables.min.css"/>
+
     <!-- our css -->
     <link rel="stylesheet" type="text/css" href="/css/master.css">
           
@@ -88,6 +91,9 @@
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<!--DataTables js-->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/cr-1.3.2/r-2.1.0/rr-1.1.2/datatables.min.js"></script>
 
 <!-- our JS -->
 <script src="/js/home.js"></script>
