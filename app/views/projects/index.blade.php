@@ -62,7 +62,7 @@
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
             <div class="section">
-                <table class="striped centered" id="example">
+                <table class="centered striped" id="example">
                     <thead>
                         <tr>
                             <th>Name</th>
