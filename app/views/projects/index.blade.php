@@ -62,26 +62,26 @@
         <!-- expanded index visible on horizontal tablet and larger -->
         <div class="hide-on-med-and-down">
             <div class="section">
-                <table class="striped centered">
-                    <tbody>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Client</th>
-                                <th>Due Date
-                                    <span style="visibility:hidden">longdatehere</span></th>
-                                <th>Project Submitted</th>
-                                <th>Invoice Submitted</th>
-                                <th>Invoice Approved</th>
-                                <th>Projected Payment</th>
-                                <th>Payment Received</th>
-                            </tr>   
-                        </thead>
+                <table class="centered striped" id="example">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Client</th>
+                            <th>Due Date
+                                <span style="visibility:hidden">longdatehere</span></th>
+                            <th>Project Submitted</th>
+                            <th>Invoice Submitted</th>
+                            <th>Invoice Approved</th>
+                            <th>Projected Payment</th>
+                            <th>Payment Received</th>
+                        </tr>   
+                    </thead>
                     
-                        <div id="proj_due">
+                    <tbody>
+                        {{-- <div id="proj_due"> --}}
                             @if ($due_projects->count()>0)
                                 @foreach($due_projects as $due_project)
-                                    <tr class="proj_due">
+                                    <tr class="proj_due" id="proj_due">
                                         <td><a href="{{{ action('ProjectsController@show', $due_project->id) }}}">{{{$due_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $due_project->client_id) }}}">{{{$due_project->client->client_name}}}</a></td>
                                         <td>{{{$due_project->due_date->format('m-d-Y')}}}</td>
@@ -113,12 +113,12 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        </div>
+                        {{-- </div> --}}
 
-                        <div id="proj_to_invoice">
+                        {{-- <div id="proj_to_invoice"> --}}
                             @if ($needs_invoice->count()>0)
                                 @foreach($needs_invoice as $uninvoiced_project)
-                                    <tr class="proj_to_invoice">
+                                    <tr class="proj_to_invoice" id="proj_to_invoice">
                                         <td><a href="{{{ action('ProjectsController@show', $uninvoiced_project->id) }}}">{{{$uninvoiced_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $uninvoiced_project->client_id) }}}">{{{$uninvoiced_project->client->client_name}}}</a></td>
                                         <td><i class="material-icons checkboxes">&#xE5CA;</i>
@@ -150,12 +150,12 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        </div>
+                        {{-- </div> --}}
 
-                        <div id="proj_need_approval">
+                        {{-- <div id="proj_need_approval"> --}}
                             @if ($needs_approval->count()>0)
                                 @foreach($needs_approval as $unapproved_project)
-                                    <tr class="proj_need_approval">
+                                    <tr class="proj_need_approval" id="proj_need_approval">
                                         <td><a href="{{{ action('ProjectsController@show', $unapproved_project->id) }}}">{{{$unapproved_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unapproved_project->client_id) }}}">{{{$unapproved_project->client->client_name}}}</a></td>
                                         <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
@@ -187,12 +187,12 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        </div>
+                        {{-- </div> --}}
                         
-                        <div id="proj_await_pay">                 
+                        {{-- <div id="proj_await_pay">                  --}}
                             @if ($awaiting_payment->count()>0)
                                 @foreach($awaiting_payment as $unpaid_project)
-                                    <tr class="proj_await_pay">
+                                    <tr class="proj_await_pay" id="proj_await_pay">
                                         <td><a href="{{{ action('ProjectsController@show', $unpaid_project->id) }}}">{{{$unpaid_project->name}}}</a></td>
                                         <td><a href="{{{ action('ClientsController@show', $unpaid_project->client_id) }}}">{{{$unpaid_project->client->client_name}}}</a></td>
                                         <td><i class="material-icons checkboxes">&#xE5CA;</i></td>
@@ -224,7 +224,7 @@
                                     </tr>
                                 @endforeach
                             @endif
-                        </div>                              
+                        {{-- </div>                               --}}
                     </tbody>
                 </table>    
             </div>
@@ -349,7 +349,6 @@
 
 
 @section('bottom-script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 <script>
 
